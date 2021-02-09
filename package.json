@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "export": "next build & next export",
+    "start": "next start",
+    "cz": "next cz"
   },
   "dependencies": {
     "next": "latest",
@@ -14,7 +16,21 @@
     "styled-components": "^5.0.0"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.8.0"
+    "babel-plugin-styled-components": "^1.8.0",
+    "commitizen": "^4.2.3",
+    "commitlint": "^11.0.0",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "^5.0.9"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
 }
