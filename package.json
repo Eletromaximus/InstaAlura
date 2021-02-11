@@ -12,10 +12,11 @@
     "commitizen": "4.2.3",
     "lodash": "^4.17.20",
     "next": "latest",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
-    "react-is": "^16.8.0",
-    "styled-components": "^5.0.0"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-is": "^17.0.1",
+    "styled-components": "^5.0.0",
+    "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.168",
