@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-
-export const  MenuWrapper: any = styled.nav`
+export const MenuWrapper: any = styled.nav`
 
   font-family: 'Rubik', sans-serif;
   display: flex;
@@ -11,13 +10,13 @@ export const  MenuWrapper: any = styled.nav`
   margin-top: 18px;
   padding-left: 28px;
   padding-right: 28px;
-`;
+`
 
 MenuWrapper.LeftSide = styled.div`
   padding: 0;
   margin: 0;  
   order: 1;
-`;
+`
 
 MenuWrapper.CentralSide = styled.div`
   padding: 0;
@@ -45,7 +44,7 @@ MenuWrapper.CentralSide = styled.div`
       color: #070C0E;
     }
   }
-`;
+`
 
 MenuWrapper.RightSide = styled.div`
   padding: 0;
@@ -54,4 +53,4 @@ MenuWrapper.RightSide = styled.div`
   display: flex;
   flex: 1;
   justify-content: flex-end;
-`;
+`
