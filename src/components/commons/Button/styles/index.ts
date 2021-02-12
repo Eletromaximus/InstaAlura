@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import get from 'lodash/get'
+import { TextStyleVariantsMap } from '../../../fundation/Text'
 
 interface IProps {
   ghost?: boolean;
@@ -30,6 +31,8 @@ export const Button = styled.button<IProps>`
   border-radius: 8px;
   color: white;
   background-color: #D7385E;
+
+  ${TextStyleVariantsMap.smallestException}
 
   ${function (props) {
       if (props.ghost) {
