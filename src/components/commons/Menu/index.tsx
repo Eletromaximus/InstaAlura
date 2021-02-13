@@ -1,6 +1,6 @@
 import { MenuWrapper } from './styles'
 import Logo from '../../theme/Logo/Logo'
-import { Button } from '../Button/styles'
+import Button from '../Button/styles'
 import Text from '../../fundation/Text'
 
 const links = [
@@ -29,14 +29,14 @@ function Menu () {
       <MenuWrapper.CentralSide>
       {links.map(link => {
         return (
-            <li key={link.url}>
-              <Text
+
+              <Text key={link.url}
                 tag='a'
                 variant='smallestException'
                 href={link.url}>
                   {link.texto}
                 </Text>
-            </li>
+
         )
       })}
       </MenuWrapper.CentralSide>

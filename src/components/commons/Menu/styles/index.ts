@@ -9,7 +9,6 @@ interface IMenu extends StyledComponentBase<any, {}> {
 }
 
 export const MenuWrapper: IMenu = styled.nav`
-
   font-family: 'Rubik', sans-serif;
   display: flex;
   align-items: center;
@@ -39,14 +38,16 @@ export const MenuWrapper: IMenu = styled.nav`
 
 MenuWrapper.LeftSide = styled.div`
   padding: 0;
-  margin: 0;  
+  margin: 0;
   order: 1;
+
   ${breakpointsMedia({
     md: css`
         width: 131px;
         height: 32px;
       `
   })}
+
   ${breakpointsMedia({
     md: css`
       order: initial;
@@ -54,6 +55,7 @@ MenuWrapper.LeftSide = styled.div`
     `
   })}
 `
+
 MenuWrapper.CentralSide = styled.div`
   padding: 0;
   margin: 0;
@@ -80,23 +82,20 @@ MenuWrapper.CentralSide = styled.div`
       padding-bottom: 0;
     `
   })}
-
   a {
     text-align: center;
     display: block;
     text-decoration: none;
     color: #88989E;
     transition: 200ms ease-in-out;
-
     ${breakpointsMedia({
-      xs: css`
-        ${TextStyleVariants.smallestException}
-      `,
-      md: css`
-        ${TextStyleVariants.paragraph1}
-      `
-    })}
-
+    xs: css`
+      ${TextStyleVariants.smallestException}
+    `,
+    md: css`
+      ${TextStyleVariants.paragraph1}
+    `
+  })}
     &:hover,
     &:focus {
       font-weight: 500;
@@ -105,16 +104,18 @@ MenuWrapper.CentralSide = styled.div`
     }
   }
 `
+
 MenuWrapper.RightSide = styled.div`
   padding: 0;
   margin: 0;
-  order: 2;
   display: flex;
   flex: 1;
+  order: 2;
   justify-content: flex-end;
+  
   ${breakpointsMedia({
     md: css`
-      order: initial
+      order: initial;
     `
   })}
 `

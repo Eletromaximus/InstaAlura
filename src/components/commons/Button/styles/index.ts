@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import get from 'lodash/get'
-import { TextStyleVariantsMap } from '../../../fundation/Text'
-import breakpointsMedia from '../../../theme/utils/breakpointsMedia'
+import { TextStyleVariants } from '../../../fundation/Text'
+import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia'
 
 interface IProps {
   ghost?: boolean;
@@ -12,10 +12,14 @@ const ButtonGhost = css<IProps>`
   color: ${(props) => {
     return get(props.theme, `colors.${props.variant}.color`)
   }};
-  background: transparent;
+  background-color: transparent;
+
+  &:hover {
+    border: 1px solid
+      ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
+  }
 `
 const ButtonDefault = css<IProps>`
-  color: white;
   background-color: ${(props) => {
     return get(props.theme, `colors.${props.variant}.color`)
   }};
@@ -23,7 +27,7 @@ const ButtonDefault = css<IProps>`
     return get(props.theme, `colors.${props.variant}.contrastText`)
   }};
 `
-export const Button = styled.button<IProps>`
+const Button = styled.button<IProps>`
   border: 0;
   cursor: pointer;
   padding: 12px 26px;
@@ -33,7 +37,7 @@ export const Button = styled.button<IProps>`
   color: white;
   background-color: #D7385E;
 
-  ${TextStyleVariantsMap.smallestException}
+  ${TextStyleVariants.smallestException}
 
   ${function (props) {
       if (props.ghost) {
@@ -52,14 +56,14 @@ export const Button = styled.button<IProps>`
 
   ${breakpointsMedia({
     xs: css`
-      ${TextStyleVariantsMap.smallestException}
+      ${TextStyleVariants.smallestException}
     `,
     md: css`
-      ${TextStyleVariantsMap.paragraph1}
+      ${TextStyleVariants.paragraph1}
     `
   })}
 `
-
+export default Button
 /* ${function (props) {
     return `
       @media screen and (min-width: ${props.theme.breakpoints.xs}px) {

@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes } from 'react'
-import { Button } from './styles/index'
+import Button from './styles/index'
 
 type IProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   label?: string;

@@ -9,14 +9,14 @@ interface Props {
 }
 
 const smallestException = css`
-  font-size: ${({ theme }) => theme.typography.smallestException.fontSize};
-  font-weight: ${({ theme }) => theme.typography.smallestException.fontWeight};
-  line-height: ${({ theme }) => theme.typography.smallestException.lineHeight};
+  font-size: ${({ theme }) => theme.typographyVariants.smallestException.fontSize};
+  font-weight: ${({ theme }) => theme.typographyVariants.fontWeight};
+  line-height: ${({ theme }) => theme.typographyVariants.lineHeight};
 `
 const paragraph1 = css`
-    font-size: ${({ theme }) => theme.typographyVariants.fontSize};
-    font-weight: ${({ theme }) => theme.typographyVariants.fontWeigth};
-    line-height: ${({ theme }) => theme.typographyVariants.lineHeight};
+    font-size: ${({ theme }) => theme.typographyVariants.paragraph1.fontSize};
+    font-weight: ${({ theme }) => theme.typographyVariants.paragraph1.fontWeigth};
+    line-height: ${({ theme }) => theme.typographyVariants.paragraph1.lineHeight};
   `
 
 export const TextStyleVariants: Record<string, any> = {
