@@ -462,6 +462,35 @@
     "@typescript-eslint/types" "4.15.0"
     eslint-visitor-keys "^2.0.0"
 
+"@xstyled/core@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-2.2.2.tgz#526e91d9444a81963409cbb454af45efe1632481"
+  integrity sha512-CxdazBYO5RQoavbR5rk9mJImweSfXSxCV/vaF2gN46lSQp6gJpua0i9/j4fZF6m1mCTUqR7e6D5aT/ehE32YOQ==
+  dependencies:
+    "@xstyled/system" "^2.2.2"
+
+"@xstyled/styled-components@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-2.2.2.tgz#ba22858a1b11440f4a4ee6f3d9b8558a9c6b999f"
+  integrity sha512-9zHXCiQyN6VgoUKL+DHvD0wCSlR0+OFCslzLSj4/pGG8e9LNi/n8H6kZwvbWJ46lpmnEPbCcjywad1l7Pq++dw==
+  dependencies:
+    "@xstyled/core" "^2.2.2"
+    "@xstyled/system" "^2.2.2"
+    "@xstyled/util" "^2.2.2"
+
+"@xstyled/system@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-2.2.2.tgz#6fec0efed71ac4433ff2bdee4f3ea065bef186d0"
+  integrity sha512-rzf/pXT3PiDXBS1Pj9GZx9vQOz/UY/gM015VSYogJBV3N0r8bMiQrDH6JPaGnyckgE1LDp4cDOeDBEwbjmsNjA==
+  dependencies:
+    "@xstyled/util" "^2.2.2"
+    csstype "^3.0.6"
+
+"@xstyled/util@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@xstyled/util/-/util-2.2.2.tgz#dd9144f0de8821f8050c191fd8b9df01bdf2a9f4"
+  integrity sha512-TDa2R8tOOSB/G1Lnq05bsc1t0jy1S364KZbzzhTEtvuK1o4IpPGjjXiQRA5qsgnFskdm9Q8Z1wcPaXNCouYN0Q==
+
 abort-controller@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/abort-controller/-/abort-controller-3.0.0.tgz#eaf54d53b62bae4138e809ca225c8439a6efb392"
@@ -1295,7 +1324,7 @@ cssnano-simple@1.2.2:
     cssnano-preset-simple "1.2.2"
     postcss "^7.0.32"
 
-csstype@^3.0.2:
+csstype@^3.0.2, csstype@^3.0.6:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.6.tgz#865d0b5833d7d8d40f4e5b8a6d76aea3de4725ef"
   integrity sha512-+ZAmfyWMT7TiIlzdqJgjMb7S4f1beorDbWbsocyK4RaiqA5RTX3K14bnBWmmA9QEM0gRdsjyyrEmcyga8Zsxmw==

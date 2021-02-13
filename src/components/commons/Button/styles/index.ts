@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components'
 import get from 'lodash/get'
 import { TextStyleVariantsMap } from '../../../fundation/Text'
+import breakpointsMedia from '../../../theme/utils/breakpointsMedia'
 
 interface IProps {
   ghost?: boolean;
-  variant?: any;
+  variant?: string;
 }
 
 const ButtonGhost = css<IProps>`
@@ -32,6 +33,22 @@ export const Button = styled.button<IProps>`
   color: white;
   background-color: #D7385E;
 
+
+  ${function (props) {
+    return `
+      @media screen and (min-width: ${props.theme.breakpoints.xs}px) {
+        background: red !important;
+      }
+
+      @media screen and (min-width: ${props.theme.breakpoints.sm}px) {
+        background: red !important;
+      }
+      @media screen and (min-width: ${props.theme.breakpoints.md}px) {
+        background: red !important;
+      }
+    `
+  }}
+
   ${TextStyleVariantsMap.smallestException}
 
   ${function (props) {
@@ -48,4 +65,13 @@ export const Button = styled.button<IProps>`
   &:focus {
     opacity: .5;
   }
+
+  ${breakpointsMedia({
+    xs: css`
+      ${TextStyleVariantsMap.smallestException}
+    `,
+    md: css`
+      ${TextStyleVariantsMap.paragraph1}
+    `
+  })}
 `

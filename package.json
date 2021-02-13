@@ -9,6 +9,7 @@
     "commit": "cz"
   },
   "dependencies": {
+    "@xstyled/styled-components": "^2.2.2",
     "commitizen": "4.2.3",
     "lodash": "^4.17.20",
     "next": "latest",

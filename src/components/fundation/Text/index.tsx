@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 interface Props {
   tag: any;
   variant: string;
-  children: Node;
+  children: string | Node;
   href?: string;
 }
 

@@ -1,7 +1,11 @@
-import { ThemeProvider } from 'styled-components'
+// import { ThemeProvider } from 'styled-components'
 import theme from '../src/components/theme'
 import GlobalStyle from '../src/components/theme/GlobalStyle'
 import Head from 'next/head'
+
+import {
+  ThemeProvider
+} from '@xstyled/styled-components'
 
 // eslint-disable-next-line react/prop-types
 export default function App ({ Component, pageProps }) {
