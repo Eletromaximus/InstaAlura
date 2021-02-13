@@ -6,7 +6,7 @@ type ThemeProps = {
   theme: ThemeType
 }
 
-const GlobalStyle = createGlobalStyle<ThemeProps>`
+export const GlobalStyle = createGlobalStyle<ThemeProps>`
   * {
     box-sizing: border-box;
   }
@@ -29,5 +29,3 @@ const GlobalStyle = createGlobalStyle<ThemeProps>`
     flex-direction: column;
   }
 `
-
-export default GlobalStyle

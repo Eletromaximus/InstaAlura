@@ -33,22 +33,6 @@ export const Button = styled.button<IProps>`
   color: white;
   background-color: #D7385E;
 
-
-  ${function (props) {
-    return `
-      @media screen and (min-width: ${props.theme.breakpoints.xs}px) {
-        background: red !important;
-      }
-
-      @media screen and (min-width: ${props.theme.breakpoints.sm}px) {
-        background: red !important;
-      }
-      @media screen and (min-width: ${props.theme.breakpoints.md}px) {
-        background: red !important;
-      }
-    `
-  }}
-
   ${TextStyleVariantsMap.smallestException}
 
   ${function (props) {
@@ -75,3 +59,18 @@ export const Button = styled.button<IProps>`
     `
   })}
 `
+
+/* ${function (props) {
+    return `
+      @media screen and (min-width: ${props.theme.breakpoints.xs}px) {
+        background: red !important;
+      }
+
+      @media screen and (min-width: ${props.theme.breakpoints.sm}px) {
+        background: blue !important;
+      }
+      @media screen and (min-width: ${props.theme.breakpoints.md}px) {
+        background: black !important;
+      }
+    `
+  }} */

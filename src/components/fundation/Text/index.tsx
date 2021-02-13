@@ -8,21 +8,25 @@ interface Props {
   href?: string;
 }
 
-export const TextStyleVariantsMap = {
-  smallestException: css`
-    font-size: ${({ theme }) => theme.typographyVariants.smallestException};
-        font-weight: ${({ theme }) => theme.typographyVariants.smallestException};
-        line-height: ${({ theme }) => theme.typographyVariants.smallestException};
-  `,
-  paragraph1: css`
-    font-size: ${({ theme }) => theme.typographyVariants.smallestException};
-        font-weight: ${({ theme }) => theme.typographyVariants.smallestException};
-        line-height: ${({ theme }) => theme.typographyVariants.smallestException};
+const smallestException = css`
+  font-size: ${({ theme }) => theme.typography.smallestException.fontSize};
+  font-weight: ${({ theme }) => theme.typography.smallestException.fontWeight};
+  line-height: ${({ theme }) => theme.typography.smallestException.lineHeight};
+`
+const paragraph1 = css`
+    font-size: ${({ theme }) => theme.typographyVariants.fontSize};
+    font-weight: ${({ theme }) => theme.typographyVariants.fontWeigth};
+    line-height: ${({ theme }) => theme.typographyVariants.lineHeight};
   `
+
+export const TextStyleVariants: Record<string, any> = {
+  smallestException,
+  paragraph1
+
 }
 
 const TextBase = styled.span<Props>`
-  ${(props) => TextStyleVariantsMap[props.variant]}
+  ${(props) => TextStyleVariants[props.variant]}
 `
 
 export default function Text ({ tag, variant, children, href }: Props) {

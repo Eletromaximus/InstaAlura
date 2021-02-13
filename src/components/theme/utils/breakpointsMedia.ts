@@ -1,13 +1,18 @@
+import { css, FlattenSimpleInterpolation } from 'styled-components'
 import breakpoints from '../breakpoints'
 
-export default function breakpointsMedia (cssByBreakpoints: Record<string, any>) {
-  const breakpointsNames = Object.keys(cssByBreakpoints)
+export function breakpointsMedia (
+  cssByBreakpoint: Record<string, FlattenSimpleInterpolation>
+) {
+  const breakpointNames = Object.keys(breakpoints)
 
-  return breakpointsNames.map((breakpointsName) => {
-    return `
-      @media screen and (min-width: ${breakpoints[breakpointsName]}px){
-        ${cssByBreakpoints[breakpointsName]}
-      }
-    `
-  }).join('')
+  return breakpointNames
+    .filter(breakpointName => Boolean(cssByBreakpoint[breakpointName]))
+    .map(
+      breakpointName => css`
+        @media only screen and (min-width: ${breakpoints[breakpointName]}px) {
+          ${cssByBreakpoint[breakpointName]}
+        }
+      `
+    )
 }

@@ -21,12 +21,14 @@ const links = [
 function Menu () {
   return (
     <MenuWrapper>
+
       <MenuWrapper.LeftSide>
         <Logo />
       </MenuWrapper.LeftSide>
+
       <MenuWrapper.CentralSide>
-        {links.map(link => {
-          return (
+      {links.map(link => {
+        return (
             <li key={link.url}>
               <Text
                 tag='a'
@@ -35,9 +37,10 @@ function Menu () {
                   {link.texto}
                 </Text>
             </li>
-          )
-        })}
+        )
+      })}
       </MenuWrapper.CentralSide>
+
       <MenuWrapper.RightSide>
         <Button ghost variant="secondary.main">
           Entrar
@@ -46,10 +49,9 @@ function Menu () {
           Cadastrar
         </Button>
       </MenuWrapper.RightSide>
+
     </MenuWrapper>
   )
 }
 
-export default function Home () {
-  return Menu()
-}
+export default Menu

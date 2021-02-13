@@ -1,6 +1,14 @@
-import styled from 'styled-components'
+import styled, { css, StyledComponentBase } from 'styled-components'
+import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia'
+import { TextStyleVariants } from '../../../fundation/Text'
 
-export const MenuWrapper: any = styled.nav`
+interface IMenu extends StyledComponentBase<any, {}> {
+  LeftSide?: any;
+  CentralSide?: any;
+  RightSide?: any;
+}
+
+export const MenuWrapper: IMenu = styled.nav`
 
   font-family: 'Rubik', sans-serif;
   display: flex;
@@ -10,14 +18,42 @@ export const MenuWrapper: any = styled.nav`
   margin-top: 18px;
   padding-left: 28px;
   padding-right: 28px;
+  ${breakpointsMedia({
+    md: css`
+      justify-content: flex-start;
+      margin-top: 32px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      padding: 0 16px;
+      max-width: 768px;
+    `,
+    lg: css`
+      max-width: 1160px; 
+    `,
+    xl: css`
+      max-width: 1222px;
+    `
+  })}
 `
 
 MenuWrapper.LeftSide = styled.div`
   padding: 0;
   margin: 0;  
   order: 1;
+  ${breakpointsMedia({
+    md: css`
+        width: 131px;
+        height: 32px;
+      `
+  })}
+  ${breakpointsMedia({
+    md: css`
+      order: initial;
+      padding-right: 16px;
+    `
+  })}
 `
-
 MenuWrapper.CentralSide = styled.div`
   padding: 0;
   margin: 0;
@@ -30,7 +66,20 @@ MenuWrapper.CentralSide = styled.div`
   margin-top: 17px;
   border-top: 1px solid #88989E;
   border-bottom: 1px solid #88989E;
-  padding: 12px; 
+  padding: 12px;
+  
+  ${breakpointsMedia({
+    md: css`
+      max-width: 332px;
+      justify-content: space-between;
+      flex: 1;
+      order: initial;
+      border: none;
+      margin: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    `
+  })}
 
   a {
     text-align: center;
@@ -38,14 +87,24 @@ MenuWrapper.CentralSide = styled.div`
     text-decoration: none;
     color: #88989E;
     transition: 200ms ease-in-out;
+
+    ${breakpointsMedia({
+      xs: css`
+        ${TextStyleVariants.smallestException}
+      `,
+      md: css`
+        ${TextStyleVariants.paragraph1}
+      `
+    })}
+
     &:hover,
     &:focus {
       font-weight: 500;
       color: #070C0E;
+      
     }
   }
 `
-
 MenuWrapper.RightSide = styled.div`
   padding: 0;
   margin: 0;
@@ -53,4 +112,9 @@ MenuWrapper.RightSide = styled.div`
   display: flex;
   flex: 1;
   justify-content: flex-end;
+  ${breakpointsMedia({
+    md: css`
+      order: initial
+    `
+  })}
 `

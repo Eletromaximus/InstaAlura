@@ -1,4 +1,4 @@
-const breakpoints: { [unit: string]: number} = {
+const breakpoints: { [unit: string]: number } = {
   xs: 0,
   sm: 480,
   md: 768,
