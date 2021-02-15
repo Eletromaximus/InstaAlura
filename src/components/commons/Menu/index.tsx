@@ -1,7 +1,7 @@
 import { MenuWrapper } from './styles'
 import Logo from '../../theme/Logo/Logo'
 import Button from '../Button/styles'
-import Text from '../../fundation/Text'
+import Link from '../../fundation/Link/index'
 
 const links = [
   {
@@ -29,13 +29,13 @@ function Menu () {
       <MenuWrapper.CentralSide>
       {links.map(link => {
         return (
-
-              <Text key={link.url}
-                tag='a'
-                variant='smallestException'
-                href={link.url}>
-                  {link.texto}
-                </Text>
+          <li key={link.url}>
+            <Link
+              variant='smallestException'
+              href={link.url}>
+                {link.texto}
+            </Link>
+          </li>
 
         )
       })}

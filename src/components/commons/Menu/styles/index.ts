@@ -17,6 +17,7 @@ export const MenuWrapper: IMenu = styled.nav`
   margin-top: 18px;
   padding-left: 28px;
   padding-right: 28px;
+  
   ${breakpointsMedia({
     md: css`
       justify-content: flex-start;
@@ -89,13 +90,13 @@ MenuWrapper.CentralSide = styled.div`
     color: #88989E;
     transition: 200ms ease-in-out;
     ${breakpointsMedia({
-    xs: css`
-      ${TextStyleVariants.smallestException}
-    `,
-    md: css`
-      ${TextStyleVariants.paragraph1}
-    `
-  })}
+      xs: css`
+        ${TextStyleVariants.smallestException}
+      `,
+      md: css`
+        ${TextStyleVariants.paragraph1}
+      `
+    })}
     &:hover,
     &:focus {
       font-weight: 500;
@@ -112,7 +113,6 @@ MenuWrapper.RightSide = styled.div`
   flex: 1;
   order: 2;
   justify-content: flex-end;
-  
   ${breakpointsMedia({
     md: css`
       order: initial;

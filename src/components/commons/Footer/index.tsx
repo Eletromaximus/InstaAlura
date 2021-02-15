@@ -1,9 +1,9 @@
 // import React from 'react'
 import FooterWrapper from './styles/index'
 
-export default function Footer (props) {
+export default function Footer () {
   return (
-    <FooterWrapper {...props}>
+    <FooterWrapper >
       <a href="https://www.alura.com.br/">
         <img src="https://www.alura.com.br/assets/img/alura-logo.svg" alt="Logo Alura"/>
       </a>

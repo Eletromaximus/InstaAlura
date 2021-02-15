@@ -2,16 +2,17 @@ import styled, { css } from 'styled-components'
 import get from 'lodash/get'
 import { TextStyleVariants } from '../../../fundation/Text'
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia'
+import propToStyle from '../../../theme/utils/propToStyle'
 
 interface IProps {
   ghost?: boolean;
   variant?: string;
+  margin?: string | object;
+  display?: string | object;
 }
 
 const ButtonGhost = css<IProps>`
-  color: ${(props) => {
-    return get(props.theme, `colors.${props.variant}.color`)
-  }};
+  color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
   background-color: transparent;
 
   &:hover {
@@ -26,6 +27,11 @@ const ButtonDefault = css<IProps>`
   color: ${(props) => {
     return get(props.theme, `colors.${props.variant}.contrastText`)
   }};
+
+&:hover {
+    border: 1px solid
+      ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
+  }
 `
 const Button = styled.button<IProps>`
   border: 0;
@@ -33,26 +39,13 @@ const Button = styled.button<IProps>`
   padding: 12px 26px;
   font-weight: bold;
   opacity: 1;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   color: white;
   background-color: #D7385E;
-
-  ${TextStyleVariants.smallestException}
-
-  ${function (props) {
-      if (props.ghost) {
-      return ButtonGhost
-    }
-    return ButtonDefault
-  }}
-
   transition: opacity ${({ theme }) => theme.transition};
   border-radius: ${({ theme }) => theme.borderRadius};
 
-  &:hover,
-  &:focus {
-    opacity: .5;
-  }
+  ${TextStyleVariants.smallestException}
 
   ${breakpointsMedia({
     xs: css`
@@ -62,19 +55,15 @@ const Button = styled.button<IProps>`
       ${TextStyleVariants.paragraph1}
     `
   })}
+
+  ${propToStyle('margin')}
+  ${propToStyle('display')}
+  
+  ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)}
+  &:hover,
+  &:focus {
+    opacity: .5;
+  }
+
 `
 export default Button
-/* ${function (props) {
-    return `
-      @media screen and (min-width: ${props.theme.breakpoints.xs}px) {
-        background: red !important;
-      }
-
-      @media screen and (min-width: ${props.theme.breakpoints.sm}px) {
-        background: blue !important;
-      }
-      @media screen and (min-width: ${props.theme.breakpoints.md}px) {
-        background: black !important;
-      }
-    `
-  }} */
