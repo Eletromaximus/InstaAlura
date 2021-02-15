@@ -28,7 +28,7 @@ export default function Home () {
             color='tertiary.light'
             textAlign={{
               xs: 'center',
-              md: 'left'
+              md: 'center'
             }}
           >
             aslkdjfasjdfaçsljdfasçljfdaslfjlsakfjsaldjfasçlfjaslfj
