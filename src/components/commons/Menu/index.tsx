@@ -9,7 +9,7 @@ const links = [
     url: '/'
   },
   {
-    texto: 'Perguntas frequentes',
+    texto: 'Perguntas Frequentes',
     url: '/'
   },
   {

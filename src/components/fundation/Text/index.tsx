@@ -8,7 +8,7 @@ interface Props {
   tag?: 'p' | 'span' | 'h1' | undefined;
   variant: string;
   textAlign?: string | object;
-  color?: string | object;
+  color?: string;
   children: string | number | React.ReactNode;
 }
 
@@ -29,14 +29,14 @@ export const TextStyleVariants: Record<string, any> = {
 }
 
 const TextBase = styled.span<Props>`
-  ${(props) => TextStyleVariants[props.variant]}
+  ${({ variant }) => TextStyleVariants[variant]}
   ${propToStyle('textAlign')}
 `
 
-export default function Text ({ tag, variant, children, textAlign }: Props) {
+export default function Text ({ tag, variant, children, textAlign, color }: Props) {
   return (
 
-    <TextBase as={tag} variant={variant} textAlign={textAlign}>
+    <TextBase as={tag} variant={variant} textAlign={textAlign} color={color}>
       {children}
     </TextBase>
   )

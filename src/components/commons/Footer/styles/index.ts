@@ -1,4 +1,6 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { TextStyleVariants } from '../../../fundation/Text'
+import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia'
 
 const FooterWrapper = styled.footer`
   padding: 14px;
@@ -21,5 +23,14 @@ const FooterWrapper = styled.footer`
       opacity: .5s;
     }
   }
+
+  ${breakpointsMedia({
+    xs: css`
+      ${TextStyleVariants.smallestException}
+    `,
+    md: css`
+    ${TextStyleVariants.paragraph1}
+  `
+  })}
 `
 export default FooterWrapper
