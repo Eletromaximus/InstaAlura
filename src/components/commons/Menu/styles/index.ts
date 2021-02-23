@@ -20,7 +20,7 @@ export const MenuWrapper: IMenu = styled.nav`
   
   ${breakpointsMedia({
     md: css`
-      justify-content: flex-start;
+      justify-content: space-between;
       margin-top: 32px;
       margin-left: auto;
       margin-right: auto;
