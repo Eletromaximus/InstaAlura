@@ -43,7 +43,7 @@ const Button = styled.button<IProps>`
   color: white;
   background-color: #D7385E;
   transition: opacity ${({ theme }) => theme.transition};
-  border-radius: ${({ theme }) => theme.borderRadius};
+  border-radius: white;//${({ theme }) => theme.borderRadius};
 
   ${TextStyleVariants.smallestException}
 
