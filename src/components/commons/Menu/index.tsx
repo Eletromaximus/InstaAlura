@@ -6,15 +6,15 @@ import Link from '../../fundation/Link/index'
 const links = [
   {
     texto: 'Home',
-    url: '/'
+    url: '/home'
   },
   {
     texto: 'Perguntas Frequentes',
-    url: '/'
+    url: '/faq'
   },
   {
     texto: 'Sobre',
-    url: '/'
+    url: '/sobre'
   }
 ]
 
