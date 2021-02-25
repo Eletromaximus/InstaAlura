@@ -21,7 +21,8 @@ export default function Home () {
       backgroundRepeat='no-repeat'
       backgroundPosition='bottom right'
     >
-      <Modal isOpen={isModalOpen}
+      <Modal
+        isOpen={isModalOpen}
         onClose={() => {
           setIsModalState(false)
         }}
@@ -31,7 +32,9 @@ export default function Home () {
             backgroundColor='white'
             {...propsDoModal}
           >
-            Nosso contéudo pro modal
+            <div>
+              Nosso contéudo pro modal
+            </div>
           </Box>
         )}
 

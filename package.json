@@ -11,8 +11,9 @@
   "dependencies": {
     "@xstyled/styled-components": "^2.2.2",
     "commitizen": "4.2.3",
+    "framer-motion": "^3.7.0",
     "lodash": "^4.17.20",
-    "next": "latest",
+    "next": "^10.0.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-is": "^17.0.1",
