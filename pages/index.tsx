@@ -6,9 +6,10 @@ import { Grid } from '../src/components/fundation/layout/Grid'
 import { Box } from '../src/components/fundation/layout/Box'
 import { useState } from 'react'
 import Modal from '../src/components/commons/Modal'
+import FormCadastro from '../src/components/patterns/FormCadastro'
 
 export default function Home () {
-  const [isModalOpen, setIsModalState] = useState(false)
+  const [isModalOpen, setIsModalState] = useState(true)
 
   return (
     <Box
@@ -28,26 +29,11 @@ export default function Home () {
         }}
       >
         {(propsDoModal: any) => (
-          <Box
-            backgroundColor='white'
-            {...propsDoModal}
-          >
-            <div>
-              Nosso contéudo pro modal
-            </div>
-          </Box>
+          <FormCadastro propsDoModal={propsDoModal} />
         )}
 
       </Modal>
-        {
-          /*
-          S = Single Responsability
-          O = Open Closed
-          L = ???
-          I = Interface Segregation
-          D = Dependensy Inversion
-          */
-        }
+
       <Menu />
 
       <Grid.Container

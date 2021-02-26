@@ -1,5 +1,5 @@
 /* eslint-disable no-use-before-define */
-import styled, { css } from 'styled-components'
+import styled, { createGlobalStyle, css } from 'styled-components'
 import React from 'react'
 import { motion } from 'framer-motion'
 
@@ -42,6 +42,11 @@ const ModalWrapper = styled.div<IModalWrapper>`
     }
   }}
 `
+const LockScroll = createGlobalStyle`
+  body{
+    overflow: hidden;
+  }
+`
 
 function Modal ({ isOpen, onClose, children }: IModal) {
   return (
@@ -56,13 +61,14 @@ function Modal ({ isOpen, onClose, children }: IModal) {
         }
       }}
     >
+      {isOpen && <LockScroll/>}
       <motion.div
        variants={{
          open: {
            x: 0
          },
          closed: {
-           x: '-100%'
+           x: '100%'
          }
        }}
        animate={isOpen ? 'open' : 'closed'}

@@ -5,11 +5,14 @@ import propToStyle from '../../../theme/utils/propToStyle'
 interface IProps {
   offset?: number | object;
   value?: number | object;
-  flex?: string | object;
+  flex?: string | number | object;
   display?: string | object;
   flexDirection?: string | object;
   alignItems?: string | object;
   justifyContent?: string | object;
+  marginLeft?: number | object;
+  marginRight?: number | object;
+  paddingRight?: string | object;
 }
 
 interface IContainer {
@@ -44,11 +47,15 @@ export const Container = styled.div<IContainer>`
 `
 export const Grid = {
   Container,
-  Row: styled.div`
+  Row: styled.div<IProps>`
     display: flex;
     flex-wrap: wrap;
     margin-right: -16px;
     margin-left: -16px;
+    ${propToStyle('flex')}
+    ${propToStyle('marginLeft')}
+    ${propToStyle('marginRight')}
+    ${propToStyle('justifyContent')}
   `,
   Col: styled.div<IProps>`
     padding-right: 16px;
@@ -155,6 +162,7 @@ export const Grid = {
     ${propToStyle('alignItems')}
     ${propToStyle('justifyContent')}
     ${propToStyle('flexDirection')}
+    ${propToStyle('paddingRight')}
   `
 
 }

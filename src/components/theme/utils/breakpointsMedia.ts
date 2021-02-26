@@ -2,7 +2,7 @@ import { css, FlattenSimpleInterpolation } from 'styled-components'
 import breakpoints from '../breakpoints'
 
 export function breakpointsMedia (
-  cssByBreakpoint: Record<string, FlattenSimpleInterpolation>
+  cssByBreakpoint: Record<string, FlattenSimpleInterpolation> | any
 ) {
   const breakpointNames = Object.keys(breakpoints)
 

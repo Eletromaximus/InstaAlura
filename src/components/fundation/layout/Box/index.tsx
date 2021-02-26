@@ -22,4 +22,7 @@ export const Box = styled.div<IBox>`
   ${propToStyle('backgroundRepeat')}
   ${propToStyle('backgroundPosition')}
   ${propToStyle('backgroundColor')}
+
+  ${propToStyle('boxShadow')}
+  ${propToStyle('padding')}
 `

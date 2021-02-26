@@ -9,6 +9,7 @@ interface IProps {
   variant?: string;
   margin?: string | object;
   display?: string | object;
+  fullWidth?: boolean;
 }
 
 const ButtonGhost = css<IProps>`
@@ -58,6 +59,15 @@ const Button = styled.button<IProps>`
 
   ${propToStyle('margin')}
   ${propToStyle('display')}
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .2;
+  }
+
+  ${({ fullWidth }) => fullWidth && css`
+    width: 100%
+  `}
   
   ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)}
   &:hover,
