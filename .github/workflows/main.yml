@@ -7,7 +7,6 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   pull_request:
     types: [ opened, synchronize ]
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -23,14 +22,14 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14.15.0'
-      #############################
-      #############################
 
-      # Runs a single command using the runners shell
-      - name: Node Version
-        run: node -v
+      ##############################
+      ##############################
 
       # Runs a set of commands using the runners shell
-      - name: Roda o Linter!!
+      - name: Install com o yarn
+        run: yarn install
+      - name: Node version
+        run: node -v
+      - name: Roda o lint
         run: yarn lint
-          echo test, and deploy your project.
