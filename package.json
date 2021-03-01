@@ -6,7 +6,9 @@
     "build": "next build",
     "export": "next build & next export",
     "start": "next start",
-    "commit": "cz"
+    "commit": "cz",
+    "lint": "eslint",
+    "custom-script": "node ./script-test.js"
   },
   "dependencies": {
     "@crello/react-lottie": "^0.0.11",
@@ -37,6 +39,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.22.0",
     "init": "0.1.2",
+    "shelljs": "^0.8.4",
     "typescript": "^4.1.4"
   },
   "license": "MIT",
