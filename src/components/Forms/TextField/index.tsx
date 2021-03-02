@@ -26,11 +26,11 @@ export default function TextField (props: IInput) {
   return (
     <InputWrapper>
       <Input
-        type={props.type}
+        type={ props.type }
         placeholder={props.placeholder}
         name={props.name}
-        onChange={props.onChange}
-        value={props.value}
+        onChange={ props.onChange }
+        value={ props.value }
       />
     </InputWrapper>
   )

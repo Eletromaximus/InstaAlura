@@ -1,4 +1,3 @@
-// import React from 'react'
 import FooterWrapper from './styles/index'
 
 export default function Footer () {

@@ -1,6 +1,5 @@
 import { Box } from '@xstyled/styled-components'
-// eslint-disable-next-line no-use-before-define
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Lottie } from '@crello/react-lottie'
 import sucessAnimation from './animation/sucess.json'
 import Button from '../../commons/Button/styles'
@@ -70,17 +69,17 @@ function FormContent () {
     >
 
       <Text
-        variant="title"
-        tag="h1"
-        color="tertiary.main"
+        variant='title'
+        tag='h1'
+        color='tertiary.main'
       >
         Pronto para saber da vida dos outros?
       </Text>
       <Text
-        variant="paragraph1"
-        tag="p"
-        color="tertiary.light"
-        marginBottom="32px"
+        variant='paragraph1'
+        tag='p'
+        color='tertiary.light'
+        marginBottom='32px'
       >
         Você está a um passo de saber tudoo que está
         rolando no bairro, complete seu cadastro agora!
@@ -89,7 +88,7 @@ function FormContent () {
       <div>
         <TextField
           placeholder='Nome'
-          type="text"
+          type='text'
           name='nome'
           onChange={handleChange}
           value={userInfo.nome}
@@ -99,7 +98,7 @@ function FormContent () {
       <div>
         <TextField
           placeholder='Usuário'
-          type="text"
+          type='text'
           name='usuario'
           onChange={handleChange}
           value={userInfo.usuario}

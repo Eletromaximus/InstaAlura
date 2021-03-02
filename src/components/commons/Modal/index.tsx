@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 interface IModal {
   isOpen: boolean;
   onClose: () => void;
-  children?: /* React.ReactNode | (() => any)| */ any;
+  children?: any;
 }
 
 interface IModalWrapper {
