@@ -74,6 +74,5 @@ const Button = styled.button<IProps>`
   &:focus {
     opacity: .5;
   }
-
 `
 export default Button
