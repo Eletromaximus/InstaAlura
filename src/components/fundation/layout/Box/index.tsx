@@ -11,6 +11,8 @@ interface IBox {
   backgroundRepeat?: string | object;
   backgroundPosition?: string | object;
   backgroundColor?: string | object;
+  boxShadown?: string | object;
+  padding?: string | object;
 }
 export const Box = styled.div<IBox>`
   ${propToStyle('display')}
