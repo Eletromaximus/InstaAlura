@@ -1,4 +1,4 @@
-import { Box } from '@xstyled/styled-components'
+import { Box } from '../../fundation/layout/Box'
 import { useState } from 'react'
 import { Lottie } from '@crello/react-lottie'
 import sucessAnimation from './animation/sucess.json'
@@ -17,8 +17,8 @@ function FormContent () {
   const [isFormSubmited, setIsFormSubmited] = useState(false)
   const [submissionStates, setSubmissionStates] = useState(formStates.DEFAULT)
   const [userInfo, setUserInfo] = useState({
-    usuario: 'maxmilliano',
-    nome: 'maximusmeridius'
+    usuario: '',
+    username: ''
   })
 
   function handleChange (event: any) {
@@ -30,7 +30,7 @@ function FormContent () {
     })
   }
 
-  const isFomInvalid = userInfo.usuario.length === 0 || userInfo.nome.length === 0
+  const isFomInvalid = userInfo.usuario.length === 0 || userInfo.username.length === 0
   return (
     <form
       onSubmit={(event) => {
@@ -40,7 +40,7 @@ function FormContent () {
 
         const userDTO = {
           username: userInfo.usuario,
-          name: userInfo.nome
+          name: userInfo.username
         }
 
         fetch('https://instalura-api.vercel.app/api/users', {
@@ -87,17 +87,17 @@ function FormContent () {
 
       <div>
         <TextField
-          placeholder='Nome'
+          placeholder='Maximus'
           type='text'
-          name='nome'
+          name='username'
           onChange={handleChange}
-          value={userInfo.nome}
+          value={userInfo.username}
         />
       </div>
 
       <div>
         <TextField
-          placeholder='Usuário'
+          placeholder='Max Milliano'
           type='text'
           name='usuario'
           onChange={handleChange}
