@@ -1,7 +1,10 @@
 import { MenuWrapper } from './styles'
 import Logo from '../../theme/Logo/Logo'
 import Button from '../Button/styles'
-import Link from '../../fundation/Link/index'
+
+interface IProps {
+  onCadastrarClick: () => void;
+}
 
 const links = [
   {
@@ -18,7 +21,7 @@ const links = [
   }
 ]
 
-function Menu () {
+function Menu ({ onCadastrarClick }: IProps) {
   return (
     <MenuWrapper>
 
@@ -30,11 +33,11 @@ function Menu () {
       {links.map(link => {
         return (
           <li key={link.url}>
-            <Link
+            <Button
               variant='smallestException'
               href={link.url}>
                 {link.texto}
-            </Link>
+            </Button>
           </li>
 
         )
@@ -45,7 +48,7 @@ function Menu () {
         <Button ghost variant='secondary.main'>
           Entrar
         </Button>
-        <Button variant='primary.main'>
+        <Button variant='primary.main' onClick={onCadastrarClick}>
           Cadastrar
         </Button>
       </MenuWrapper.RightSide>

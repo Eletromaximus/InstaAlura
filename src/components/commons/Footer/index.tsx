@@ -1,4 +1,4 @@
-import FooterWrapper from './styles/index'
+import FooterWrapper from './styles'
 
 export default function Footer () {
   return (

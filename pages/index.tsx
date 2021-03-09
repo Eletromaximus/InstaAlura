@@ -34,7 +34,7 @@ export default function Home () {
 
       </Modal>
 
-      <Menu />
+      <Menu onCadastrarClick={() => setIsModalState(true) }/>
 
       <Grid.Container
         marginTop={{
@@ -83,9 +83,7 @@ export default function Home () {
                 md: 'initial'
               }}
               display='block'
-              onClick={() => {
-                setIsModalState(!isModalOpen)
-              }}
+              onClick={() => setIsModalState(!isModalOpen)}
             >
               Cadastrar
             </Button>

@@ -2,8 +2,8 @@ import React from 'react'
 
 // import { Container } from './styles';
 
-function Error () {
-  return <h1>404</h1>
+const app: React.FC = () => {
+  return <div />
 }
 
-export default Error
+export default app

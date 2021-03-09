@@ -3,6 +3,7 @@ import get from 'lodash/get'
 import { TextStyleVariants } from '../../../fundation/Text'
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia'
 import propToStyle from '../../../theme/utils/propToStyle'
+import Link from '../../../fundation/Link'
 
 interface IProps {
   ghost?: boolean;
@@ -10,6 +11,18 @@ interface IProps {
   margin?: string | object;
   display?: string | object;
   fullWidth?: boolean;
+  href?: string
+}
+
+interface IButton {
+  href?: string;
+  children: any;
+  variant: string;
+  margin?: string | object;
+  ghost?: boolean;
+  display?: string | object;
+  fullWidth?: boolean;
+  onClick?: () => void;
 }
 
 const ButtonGhost = css<IProps>`
@@ -34,7 +47,7 @@ const ButtonDefault = css<IProps>`
       ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
   }
 `
-const Button = styled.button<IProps>`
+const ButtonWrapper = styled.button<IProps>`
   border: 0;
   cursor: pointer;
   padding: 12px 26px;
@@ -75,4 +88,21 @@ const Button = styled.button<IProps>`
     opacity: .5;
   }
 `
+
+export function Button ({ href, children, variant, ...props }: IButton) {
+  const hasHref = Boolean(href)
+  const tag = hasHref ? Link : 'button'
+
+  return (
+    <ButtonWrapper
+    as={tag}
+    href={href}
+    variant={variant}
+    {...props}
+    >
+     {children}
+    </ButtonWrapper>
+  )
+}
+
 export default Button

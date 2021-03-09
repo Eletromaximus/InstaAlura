@@ -2,8 +2,8 @@ import React from 'react'
 
 // import { Container } from './styles';
 
-const sobre: React.FC = () => {
-  return <div />
+function Sobre () {
+  return <h1>Sobre</h1>
 }
 
-export default sobre
+export default Sobre
