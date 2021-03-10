@@ -22,6 +22,8 @@ interface IButton {
   ghost?: boolean;
   display?: string | object;
   fullWidth?: boolean;
+  type?: string;
+  disabled?: boolean;
   onClick?: () => void;
 }
 

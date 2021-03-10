@@ -7,7 +7,7 @@
     "export": "next build & next export",
     "start": "next start",
     "commit": "cz",
-    "lint": "eslint",
+    "lint": "eslint ",
     "custom-script": "node ./script-test.js"
   },
   "dependencies": {
