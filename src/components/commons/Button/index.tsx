@@ -1,14 +1,16 @@
 import styled, { css } from 'styled-components'
 import get from 'lodash/get'
-import { TextStyleVariants } from '../../../fundation/Text'
-import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia'
-import propToStyle from '../../../theme/utils/propToStyle'
-import Link from '../../../fundation/Link'
+import { TextStyleVariants } from '../../fundation/Text'
+import { breakpointsMedia } from '../../theme/utils/breakpointsMedia'
+import propToStyle from '../../theme/utils/propToStyle'
+import Link from '../../fundation/Link'
 
 interface IProps {
   ghost?: boolean;
   variant?: string;
   margin?: string | object;
+  width?: string | object;
+  paddingRight?: string | object;
   display?: string | object;
   fullWidth?: boolean;
   href?: string
@@ -17,8 +19,10 @@ interface IProps {
 interface IButton {
   href?: string;
   children: any;
-  variant: string;
+  variant?: string;
   margin?: string | object;
+  width?: string | object;
+  paddingRight?: string | object;
   ghost?: boolean;
   display?: string | object;
   fullWidth?: boolean;
@@ -73,6 +77,8 @@ const ButtonWrapper = styled.button<IProps>`
   })}
 
   ${propToStyle('margin')}
+  ${propToStyle('width')}
+  ${propToStyle('paddingRight')}
   ${propToStyle('display')}
 
   &:disabled {

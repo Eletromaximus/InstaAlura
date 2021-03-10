@@ -72,12 +72,6 @@ export default function Text (props: Props) {
   )
 }
 
-// Text.prototype = {
-//   tag: PropTypes.string.isRequired,
-//   variant: PropTypes.string.isRequired,
-//   children: PropTypes.node.isRequired
-// }
-
 Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',

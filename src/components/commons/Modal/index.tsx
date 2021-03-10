@@ -3,6 +3,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 import { ModalWrapper, LockScroll } from './styles'
+// import Button from '../Button/styles'
 interface IModal {
   isOpen: boolean;
   onClose: () => void;
@@ -22,6 +23,7 @@ function Modal ({ isOpen, onClose, children }: IModal) {
         }
       }}
     >
+
       {isOpen && <LockScroll/>}
       <motion.div
         variants={{

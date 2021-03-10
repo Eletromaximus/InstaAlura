@@ -1,8 +1,6 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react'
 import styled from 'styled-components'
-// import Text from '../../fundation/Text'
-
 interface IInput {
   placeholder: string;
   name: string;

@@ -2,10 +2,11 @@ import { Box } from '../../fundation/layout/Box'
 import { useState } from 'react'
 import { Lottie } from '@crello/react-lottie'
 import sucessAnimation from './animation/sucess.json'
-import Button from '../../commons/Button/styles'
+import Button from '../../commons/Button'
 import TextField from '../../Forms/TextField'
 import { Grid } from '../../fundation/layout/Grid'
 import Text from '../../fundation/Text'
+import CancelIcon from '@material-ui/icons/Cancel'
 
 const formStates = {
   DEFAULT: 'DEFAULT',
@@ -13,6 +14,12 @@ const formStates = {
   DONE: 'DONE',
   ERROR: 'ERROR'
 }
+
+interface IProps {
+  propsDoModal: any;
+  Close: () => void;
+}
+
 function FormContent () {
   const [isFormSubmited, setIsFormSubmited] = useState(false)
   const [submissionStates, setSubmissionStates] = useState(formStates.DEFAULT)
@@ -136,7 +143,7 @@ function FormContent () {
   )
 }
 
-export default function FormCadastro ({ propsDoModal }: any) {
+export default function FormCadastro ({ propsDoModal, Close }: IProps) {
   return (
     <Grid.Row
       marginLeft={0}
@@ -150,6 +157,7 @@ export default function FormCadastro ({ propsDoModal }: any) {
         flex={1}
         value={{ xs: 12, md: 5, lg: 4 }}
       >
+
         <Box
           boxShadow='-10px 0px 24px rgba(7, 12, 14, 0.1)'
           display='flex'
@@ -163,7 +171,13 @@ export default function FormCadastro ({ propsDoModal }: any) {
           backgroundColor='white'
           {...propsDoModal}
         >
-          <FormContent />
+          <Button
+            onClick={Close}
+            width='100px'
+          >
+            <CancelIcon />
+          </Button>
+          <FormContent/>
         </Box>
       </Grid.Col>
     </Grid.Row>
