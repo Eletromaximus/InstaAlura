@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
-import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia'
-import propToStyle from '../../../theme/utils/propToStyle'
+import { breakpointsMedia } from '../../../components/theme/utils/breakpointsMedia'
+import propToStyle from '../../../components/theme/utils/propToStyle'
 
 interface IProps {
   offset?: number | object;
@@ -12,6 +12,8 @@ interface IProps {
   justifyContent?: string | object;
   marginLeft?: number | object;
   marginRight?: number | object;
+  marginTop?: number | object;
+  marginBottom?: number | object;
   paddingRight?: string | object;
 }
 
@@ -52,10 +54,14 @@ export const Grid = {
     flex-wrap: wrap;
     margin-right: -16px;
     margin-left: -16px;
+
     ${propToStyle('flex')}
     ${propToStyle('marginLeft')}
     ${propToStyle('marginRight')}
     ${propToStyle('justifyContent')}
+    ${propToStyle('marginTop')}
+    ${propToStyle('marginBottom')}
+    ${propToStyle('flexDirection')}
   `,
   Col: styled.div<IProps>`
     padding-right: 16px;
@@ -163,6 +169,7 @@ export const Grid = {
     ${propToStyle('justifyContent')}
     ${propToStyle('flexDirection')}
     ${propToStyle('paddingRight')}
+    ${propToStyle('order')}
   `
 
 }

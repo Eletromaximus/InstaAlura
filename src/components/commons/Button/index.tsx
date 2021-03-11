@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components'
 import get from 'lodash/get'
-import { TextStyleVariants } from '../../fundation/Text'
+import { TextStyleVariants } from '../../../fundation/Text'
 import { breakpointsMedia } from '../../theme/utils/breakpointsMedia'
 import propToStyle from '../../theme/utils/propToStyle'
-import Link from '../../fundation/Link'
+import Link from '../../../fundation/Link'
 
 interface IProps {
   ghost?: boolean;

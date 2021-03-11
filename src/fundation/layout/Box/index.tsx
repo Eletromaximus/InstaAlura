@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import propToStyle from '../../../theme/utils/propToStyle'
+import propToStyle from '../../../components/theme/utils/propToStyle'
 
 interface IBox {
   display?: string | object;
@@ -13,6 +13,13 @@ interface IBox {
   backgroundColor?: string | object;
   boxShadown?: string | object;
   padding?: string | object;
+  width?: string | object;
+  listStyle?: string | object;
+  margin?: string | object;
+  marginLeft?: string | object;
+  marginBotton?: string | object;
+  marginRight?: string | object;
+  marginTop?: string | object;
 }
 export const Box = styled.div<IBox>`
   ${propToStyle('display')}
@@ -24,7 +31,15 @@ export const Box = styled.div<IBox>`
   ${propToStyle('backgroundRepeat')}
   ${propToStyle('backgroundPosition')}
   ${propToStyle('backgroundColor')}
-
+  ${propToStyle('width')}
+  ${propToStyle('listStyle')}
+  ${propToStyle('margin')}
+  ${propToStyle('marginLeft')}
+  ${propToStyle('marginBotton')}
+  ${propToStyle('marginRight')}
+  ${propToStyle('marginTop')}
   ${propToStyle('boxShadow')}
   ${propToStyle('padding')}
+  
 `
+// ${({ theme, borderRadiusTheme }) => borderRadiusTheme && 'border-radius: $(theme.borderRadius)'}

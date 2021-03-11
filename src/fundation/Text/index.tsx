@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components'
-import propToStyle from '../../theme/utils/propToStyle'
+import propToStyle from '../../components/theme/utils/propToStyle'
 import get from 'lodash/get'
-// eslint-disable-next-line no-use-before-define
 import React from 'react'
-import { breakpointsMedia } from '../../theme/utils/breakpointsMedia'
+import { breakpointsMedia } from '../../components/theme/utils/breakpointsMedia'
+import Link from '../Link'
 
 interface Props {
-  tag: 'input' | 'p' | 'span' | 'h1'| any;
+  tag?: 'input' | 'p' | 'span' | 'h1'| any;
   variant: string;
   textAlign?: string | object;
   marginBottom?: string | object;
@@ -18,6 +18,7 @@ interface Props {
   name?: any;
   onChange?: () => void;
   value?: any;
+  href?: string;
 }
 
 const smallestException = css`
@@ -64,9 +65,19 @@ const TextBase = styled.span<Props>`
 `
 
 export default function Text (props: Props) {
+  const hasHref = Boolean(props.href)
+
   return (
 
-    <TextBase as={props.tag} variant={props.variant} textAlign={props.textAlign} color={props.color} marginBottom={props.marginBottom} margin={props.margin}>
+    <TextBase
+      as={hasHref ? Link : props.tag}
+      variant={props.variant}
+      textAlign={props.textAlign}
+      color={props.color}
+      marginBottom={props.marginBottom}
+      margin={props.margin}
+      href={props.href}
+    >
       {props.children}
     </TextBase>
   )
