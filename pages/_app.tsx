@@ -5,7 +5,6 @@ import Head from 'next/head'
 import { AppPropsType } from 'next/dist/next-server/lib/utils'
 import { PropsWithChildren } from 'react'
 import { NextRouter } from 'next/dist/next-server/lib/router/router'
-
 import { ThemeProvider } from '@xstyled/styled-components'
 
 export default function App ({

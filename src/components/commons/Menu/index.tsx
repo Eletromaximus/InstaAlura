@@ -1,42 +1,47 @@
-import { MenuWrapper } from './styles';
-import Logo from '../../theme/Logo/Logo';
-import Button from '../Button';
+import { MenuWrapper } from './styles'
+import Logo from '../../theme/Logo/Logo'
+import Button from '../Button'
 
 interface IProps {
 	onCadastrarClick: () => void;
 }
 
 const links = [
-	{
-		texto: 'Home',
-		url: '/home',
-	},
-	{
-		texto: 'Perguntas Frequentes',
-		url: '/faq',
-	},
-	{
-		texto: 'Sobre',
-		url: '/sobre',
-	},
-];
+  {
+    texto: 'Home',
+    url: '/home'
+  },
+  {
+    texto: 'Perguntas Frequentes',
+    url: '/faq'
+  },
+  {
+    texto: 'Sobre',
+    url: '/sobre'
+  }
+]
 
-function Menu({ onCadastrarClick }: IProps) {
-	return (
+function Menu ({ onCadastrarClick }: IProps) {
+  return (
 		<MenuWrapper>
 			<MenuWrapper.LeftSide>
-				<Logo />
+				<Button
+				  href='/'
+				>
+					<Logo />
+				</Button>
+
 			</MenuWrapper.LeftSide>
 
 			<MenuWrapper.CentralSide>
 				{links.map((link) => {
-					return (
+				  return (
 						<li key={link.url}>
 							<Button variant="smallestException" href={link.url}>
 								{link.texto}
 							</Button>
 						</li>
-					);
+				  )
 				})}
 			</MenuWrapper.CentralSide>
 
@@ -49,7 +54,7 @@ function Menu({ onCadastrarClick }: IProps) {
 				</Button>
 			</MenuWrapper.RightSide>
 		</MenuWrapper>
-	);
+  )
 }
 
-export default Menu;
+export default Menu

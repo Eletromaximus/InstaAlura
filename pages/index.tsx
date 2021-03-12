@@ -7,7 +7,7 @@ import { Box } from '../src/fundation/layout/Box'
 import { useState } from 'react'
 import Modal from '../src/components/commons/Modal'
 import FormCadastro from '../src/components/patterns/FormCadastro'
-
+import SEO from '../src/components/commons/SEO'
 export default function Home () {
   const [isModalOpen, setIsModalState] = useState(false)
 
@@ -20,7 +20,10 @@ export default function Home () {
 			justifyContent="space-between"
 			backgroundImage="url(/images/bubbles.svg)"
 			backgroundRepeat="no-repeat"
-			backgroundPosition="bottom right">
+			backgroundPosition="bottom right"
+		>
+			<SEO headTitle='Home'/>
+
 			<Modal
 				isOpen={isModalOpen}
 				onClose={() => {
