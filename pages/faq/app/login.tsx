@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 // import { Container } from './styles';
 
 const app: React.FC = () => {
-  return <div />
-}
+	return <div />;
+};
 
-export default app
+export default app;

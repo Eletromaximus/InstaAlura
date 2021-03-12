@@ -3,8 +3,8 @@ import { normalize } from 'styled-normalize'
 import { ThemeType } from '.'
 
 type ThemeProps = {
-  theme: ThemeType
-}
+  theme: ThemeType;
+};
 const GlobalStyle = createGlobalStyle<ThemeProps>`
   * {
     box-sizing: border-box;

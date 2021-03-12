@@ -13,7 +13,7 @@
 
 
 # production
-#/out
+/out
 
 # misc
 .DS_Store
