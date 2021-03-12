@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle<ThemeProps>`
     margin: 0;
     padding: 0;
     font-family: ${({ theme }) => theme.fontFamily};
+    text-decoration: none;
   }
   /* Full height layout */
   html, body {

@@ -10,7 +10,7 @@ interface ILinkProps {
 
 export default function Link (props: ILinkProps) {
   return (
-    <LinkBase variant={props.variant} href={props.href} >
+    <LinkBase variant={props.variant} href={props.href}>
       {props.children}
     </LinkBase>
   )
