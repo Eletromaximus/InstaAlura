@@ -1,7 +1,7 @@
-import FooterWrapper from './styles';
+import FooterWrapper from './styles'
 
-export default function Footer() {
-	return (
+export default function Footer () {
+  return (
 		<FooterWrapper>
 			<a href="https://www.alura.com.br/">
 				<img
@@ -17,5 +17,5 @@ export default function Footer() {
 				por Max Milliano
 			</p>
 		</FooterWrapper>
-	);
+  )
 }

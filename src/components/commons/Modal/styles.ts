@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle, css } from 'styled-components';
+import styled, { createGlobalStyle, css } from 'styled-components'
 
 interface IModalWrapper {
 	isOpen: boolean;
@@ -25,18 +25,18 @@ export const ModalWrapper = styled.div<IModalWrapper>`
 				opacity: 1;
 				pointer-events: all;
 				overflow: hidden;
-			`;
+			`
 		} else {
 			return css`
 				opacity: 0;
 				pointer-events: none;
 				overflow: hidden;
-			`;
+			`
 		}
 	}}
-`;
+`
 export const LockScroll = createGlobalStyle`
   body{
     overflow: hidden;
   }
-`;
+`

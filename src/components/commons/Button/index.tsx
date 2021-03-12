@@ -1,9 +1,9 @@
-import styled, { css } from 'styled-components';
-import get from 'lodash/get';
-import { TextStyleVariants } from '../../../fundation/Text';
-import { breakpointsMedia } from '../../theme/utils/breakpointsMedia';
-import propToStyle from '../../theme/utils/propToStyle';
-import Link from '../../../fundation/Link';
+import styled, { css } from 'styled-components'
+import get from 'lodash/get'
+import { TextStyleVariants } from '../../../fundation/Text'
+import { breakpointsMedia } from '../../theme/utils/breakpointsMedia'
+import propToStyle from '../../theme/utils/propToStyle'
+import Link from '../../../fundation/Link'
 
 interface IProps {
 	ghost?: boolean;
@@ -39,20 +39,20 @@ const ButtonGhost = css<IProps>`
 		border: 1px solid
 			${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
 	}
-`;
+`
 const ButtonDefault = css<IProps>`
 	background-color: ${(props) => {
-		return get(props.theme, `colors.${props.variant}.color`);
+		return get(props.theme, `colors.${props.variant}.color`)
 	}};
 	color: ${(props) => {
-		return get(props.theme, `colors.${props.variant}.contrastText`);
+		return get(props.theme, `colors.${props.variant}.contrastText`)
 	}};
 
 	&:hover {
 		border: 1px solid
 			${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
 	}
-`;
+`
 const ButtonWrapper = styled.button<IProps>`
 	border: 0;
 	cursor: pointer;
@@ -73,7 +73,7 @@ const ButtonWrapper = styled.button<IProps>`
 		`,
 		md: css`
 			${TextStyleVariants.paragraph1}
-		`,
+		`
 	})}
 
   ${propToStyle('margin')}
@@ -97,17 +97,17 @@ const ButtonWrapper = styled.button<IProps>`
   &:focus {
 		opacity: 0.5;
 	}
-`;
+`
 
-export function Button({ href, children, variant, ...props }: IButton) {
-	const hasHref = Boolean(href);
-	const tag = hasHref ? Link : 'button';
+export function Button (props: IButton) {
+  const hasHref = Boolean(props.href)
+  const tag = hasHref ? Link : 'button'
 
-	return (
-		<ButtonWrapper as={tag} href={href} variant={variant} {...props}>
-			{children}
+  return (
+		<ButtonWrapper as={tag} href={props.href} variant={props.variant}>
+			{props.children}
 		</ButtonWrapper>
-	);
+  )
 }
 
-export default Button;
+export default Button

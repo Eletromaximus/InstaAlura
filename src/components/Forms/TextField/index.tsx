@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-use-before-define
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 interface IInput {
 	placeholder: string;
 	name: string;
@@ -11,7 +11,7 @@ interface IInput {
 }
 const InputWrapper = styled.div`
 	margin-bottom: 17px;
-`;
+`
 
 const Input = styled.input`
 	width: 100%;
@@ -19,9 +19,9 @@ const Input = styled.input`
 	padding: 12px 16px;
 	outline: 0;
 	border-radius: ${({ theme }) => theme.borderRadius};
-`;
-export default function TextField(props: IInput) {
-	return (
+`
+export default function TextField (props: IInput) {
+  return (
 		<InputWrapper>
 			<Input
 				type={props.type}
@@ -31,5 +31,5 @@ export default function TextField(props: IInput) {
 				value={props.value}
 			/>
 		</InputWrapper>
-	);
+  )
 }
