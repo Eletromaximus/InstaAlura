@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import propToStyle from '../../../components/theme/utils/propToStyle'
+import propToStyle from '../../../theme/utils/propToStyle'
 
 interface IBox {
 	display?: string | object;

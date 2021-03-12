@@ -1,11 +1,11 @@
 import React from 'react'
-import Text from '../../fundation/Text'
-import { Box } from '../../fundation/layout/Box'
-import { Grid } from '../../fundation/layout/Grid'
-import Menu from '../../components/commons/Menu'
-import Footer from '../../components/commons/Footer'
-import Modal from '../../components/commons/Modal'
-import FormCadastro from '../../components/patterns/FormCadastro'
+import Text from '../fundation/Text'
+import { Box } from '../fundation/layout/Box'
+import { Grid } from '../fundation/layout/Grid'
+import Menu from '../commons/Menu'
+import Footer from '../commons/Footer'
+import Modal from '../commons/Modal'
+import FormCadastro from '../patterns/FormCadastro'
 
 export interface IFaqScreen {
 	faqCategories:

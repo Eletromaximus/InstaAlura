@@ -1,11 +1,11 @@
-import { Box } from '../../../fundation/layout/Box'
+import { Box } from '../../fundation/layout/Box'
 import { useState } from 'react'
 import { Lottie } from '@crello/react-lottie'
 import sucessAnimation from './animation/sucess.json'
 import Button from '../../commons/Button'
 import TextField from '../../Forms/TextField'
-import { Grid } from '../../../fundation/layout/Grid'
-import Text from '../../../fundation/Text'
+import { Grid } from '../../fundation/layout/Grid'
+import Text from '../../fundation/Text'
 import CancelIcon from '@material-ui/icons/Cancel'
 
 const formStates = {

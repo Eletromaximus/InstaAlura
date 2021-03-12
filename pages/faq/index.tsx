@@ -1,5 +1,5 @@
 import React from 'react'
-import FAQScreen, { IFaqScreen } from '../../src/screens/FAQScreen'
+import FAQScreen, { IFaqScreen } from '../../src/components/FAQScreen'
 
 export default function FAQpage ({ faqCategories }: IFaqScreen) {
   return <FAQScreen faqCategories={faqCategories} />
