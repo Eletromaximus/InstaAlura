@@ -1,3 +1,4 @@
+import React from 'react'
 import styled, { css } from 'styled-components'
 import get from 'lodash/get'
 import { TextStyleVariants } from '../../fundation/Text'
@@ -14,11 +15,12 @@ interface IProps {
 	display?: string | object;
 	fullWidth?: boolean;
 	href?: string;
+	children?: React.ReactNode| any;
 }
 
 interface IButton {
 	href?: string;
-	children: any;
+	children: React.ReactNode | any;
 	variant?: string;
 	margin?: string | object;
 	width?: string | object;
@@ -104,7 +106,13 @@ export function Button (props: IButton) {
   const tag = hasHref ? Link : 'button'
 
   return (
-		<ButtonWrapper as={tag} href={props.href} variant={props.variant}>
+		<ButtonWrapper
+		  as={tag}
+			href={props.href}
+			variant={props.variant}
+			ghost={props.ghost}
+			onClick={props.onClick}
+		>
 			{props.children}
 		</ButtonWrapper>
   )

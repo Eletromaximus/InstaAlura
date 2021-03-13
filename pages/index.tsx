@@ -1,45 +1,13 @@
-import Menu from '../src/components/commons/Menu'
-import Footer from '../src/components/commons/Footer'
 import Text from '../src/components/fundation/Text'
 import Button from '../src/components/commons/Button'
 import { Grid } from '../src/components/fundation/layout/Grid'
-import { Box } from '../src/components/fundation/layout/Box'
-import { useState } from 'react'
-import Modal from '../src/components/commons/Modal'
-import FormCadastro from '../src/components/patterns/FormCadastro'
-import SEO from '../src/components/commons/SEO'
-export default function Home () {
-  const [isModalOpen, setIsModalState] = useState(false)
+import { useContext } from 'react'
+import WebsitePagesWrapper, { WebsitePagesContext } from '../src/components/wrappers/WebsitePage'
 
+function HomeScreen () {
+  const websitePageContext = useContext(WebsitePagesContext)
   return (
-		<Box
-			flex="1"
-			display="flex"
-			flexWrap="wrap"
-			flexDirection="column"
-			justifyContent="space-between"
-			backgroundImage="url(/images/bubbles.svg)"
-			backgroundRepeat="no-repeat"
-			backgroundPosition="bottom right"
-		>
-			<SEO headTitle='Home'/>
-
-			<Modal
-				isOpen={isModalOpen}
-				onClose={() => {
-				  setIsModalState(false)
-				}}>
-				{(propsDoModal: any) => (
-					<FormCadastro
-						propsDoModal={propsDoModal}
-						Close={() => setIsModalState(false)}
-					/>
-				)}
-			</Modal>
-
-			<Menu onCadastrarClick={() => setIsModalState(true)} />
-
-			<Grid.Container
+		<Grid.Container
 				marginTop={{
 				  xs: '32px',
 				  md: '75px'
@@ -82,7 +50,7 @@ export default function Home () {
 							  md: 'initial'
 							}}
 							display="block"
-							onClick={() => setIsModalState(!isModalOpen)}>
+							onClick={() => websitePageContext.toggleModalCadastro()}>
 							Cadastrar
 						</Button>
 					</Grid.Col>
@@ -100,7 +68,22 @@ export default function Home () {
 					</Grid.Col>
 				</Grid.Row>
 			</Grid.Container>
-			<Footer />
-		</Box>
+  )
+}
+export default function Home () {
+  return (
+		<WebsitePagesWrapper
+		  seoProps={{
+		    headTitle: 'Home'
+		  }}
+			pageBoxProps={{
+			  backgroundImage: 'url(/images/bubbles.svg)',
+			  backgroundRepeat: 'no-repeat',
+			  backgroundPosition: 'bottom right'
+			}}
+			menuProps={true}
+		>
+			<HomeScreen />
+		</WebsitePagesWrapper>
   )
 }
