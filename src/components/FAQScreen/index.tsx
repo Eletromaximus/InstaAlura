@@ -2,10 +2,6 @@ import React from 'react'
 import Text from '../fundation/Text'
 import { Box } from '../fundation/layout/Box'
 import { Grid } from '../fundation/layout/Grid'
-import Menu from '../commons/Menu'
-import Footer from '../commons/Footer'
-import Modal from '../commons/Modal'
-import FormCadastro from '../patterns/FormCadastro'
 
 export interface IFaqScreen {
 	faqCategories:
@@ -18,27 +14,11 @@ export interface IFaqScreen {
 }
 
 export default function FAQScreen ({ faqCategories }: IFaqScreen) {
-  const [isModalOpen, setModalState] = React.useState(false)
-
   if (faqCategories === undefined) {
     return <></>
   } else {
     return (
 			<Box display="flex" flexDirection="column" flex="1">
-				<Modal
-					isOpen={isModalOpen}
-					onClose={() => {
-					  setModalState(false)
-					}}>
-					{(propsDoModal: any) => (
-						<FormCadastro
-							propsDoModal={propsDoModal}
-							Close={() => setModalState(false)}
-						/>
-					)}
-				</Modal>
-
-				<Menu onCadastrarClick={() => setModalState(true)} />
 
 				<Grid.Container style={{ flex: 1 }}>
 					<Grid.Row
@@ -89,8 +69,6 @@ export default function FAQScreen ({ faqCategories }: IFaqScreen) {
 							))}
 					</Grid.Row>
 				</Grid.Container>
-
-				<Footer />
 			</Box>
     )
   }

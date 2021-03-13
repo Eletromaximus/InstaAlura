@@ -8,16 +8,29 @@ import FormCadastro from '../../patterns/FormCadastro'
 
 interface IWebsitePagesWrapper {
   children: React.ReactNode;
-  seoProps: React.ReactNode;
-  pageBoxProps: React.ReactNode;
-  menuProps: boolean;
+  seoProps: {
+    headTitle: string;
+  };
+  pageBoxProps: {
+    backgroundImage: string,
+    backgroundRepeat: string,
+    backgroundPosition: string,
+  };
+  menuProps: {
+    display: boolean;
+  };
 }
 
 export const WebsitePagesContext = createContext({
   toggleModalCadastro: () => {}
 })
 
-export default function WebsitePagesWrapper ({ children, seoProps, pageBoxProps, menuProps }: IWebsitePagesWrapper) {
+export default function WebsitePagesWrapper ({
+  children,
+  seoProps,
+  pageBoxProps,
+  menuProps
+}: IWebsitePagesWrapper) {
   const [isModalOpen, setIsModalState] = useState(false)
 
   return (
@@ -55,4 +68,12 @@ export default function WebsitePagesWrapper ({ children, seoProps, pageBoxProps,
     </Box>
     </WebsitePagesContext.Provider>
   )
+}
+
+WebsitePagesWrapper.defaultProps = {
+  seoProps: {},
+  pageBoxProps: {},
+  menuProps: {
+    display: true
+  }
 }

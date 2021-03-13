@@ -23,6 +23,9 @@ export const LinkBase = styled.a<ILinkProps>`
   ${propToStyle('display')}
   ${propToStyle('color')}
   ${propToStyle('textDecoration')}
+
+  ${propToStyle('width')}
+  ${propToStyle('paddingRight')}
 `
 LinkBase.defaultProps = {
   textDecoration: 'none',

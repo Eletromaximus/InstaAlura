@@ -2,7 +2,8 @@ import Text from '../src/components/fundation/Text'
 import Button from '../src/components/commons/Button'
 import { Grid } from '../src/components/fundation/layout/Grid'
 import { useContext } from 'react'
-import WebsitePagesWrapper, { WebsitePagesContext } from '../src/components/wrappers/WebsitePage'
+import { WebsitePagesContext } from '../src/components/wrappers/WebsitePage'
+import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc'
 
 function HomeScreen () {
   const websitePageContext = useContext(WebsitePagesContext)
@@ -70,20 +71,17 @@ function HomeScreen () {
 			</Grid.Container>
   )
 }
-export default function Home () {
-  return (
-		<WebsitePagesWrapper
-		  seoProps={{
-		    headTitle: 'Home'
-		  }}
-			pageBoxProps={{
-			  backgroundImage: 'url(/images/bubbles.svg)',
-			  backgroundRepeat: 'no-repeat',
-			  backgroundPosition: 'bottom right'
-			}}
-			menuProps={true}
-		>
-			<HomeScreen />
-		</WebsitePagesWrapper>
-  )
-}
+
+export default websitePageHOC(HomeScreen, {
+  pageProps: {
+    seoProps: {
+      headTitle: 'Home'
+    },
+    pageBoxProps: {
+      backgroundImage: 'url(/images/bubbles.svg)',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'bottom right'
+    }
+    // menuProps: {true}
+  }
+})
