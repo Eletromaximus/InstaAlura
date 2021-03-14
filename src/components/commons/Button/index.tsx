@@ -14,12 +14,12 @@ interface IProps {
 	paddingRight?: string | object;
 	display?: string | object;
 	fullWidth?: boolean;
-	href?: string;
-	children?: React.ReactNode| any;
+	href: string;
+	children: React.ReactNode;
 }
 
 interface IButton {
-	href?: string;
+	href: string;
 	children: React.ReactNode | any;
 	variant?: string;
 	margin?: string | object;
@@ -101,21 +101,23 @@ const ButtonWrapper = styled.button<IProps>`
 	}
 `
 
-export function Button (props: IButton) {
-  const hasHref = Boolean(props.href)
+export function Button ({ href, children, ...props }: IButton) {
+  const hasHref = Boolean(href)
   const tag = hasHref ? Link : 'button'
 
   return (
 		<ButtonWrapper
 		  as={tag}
-			href={props.href}
-			variant={props.variant}
-			ghost={props.ghost}
-			onClick={props.onClick}
+			href={href}
+			{...props}
 		>
-			{props.children}
+			{children}
 		</ButtonWrapper>
   )
 }
 
 export default Button
+
+Button.defaultProps = {
+  href: undefined
+}

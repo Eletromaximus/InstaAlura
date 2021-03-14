@@ -73,11 +73,12 @@ function HomeScreen () {
 }
 
 export default websitePageHOC(HomeScreen, {
-  pageProps: {
+  pageWrapperProps: {
     seoProps: {
       headTitle: 'Home'
     },
     pageBoxProps: {
+      justifyContent: 'space-Between',
       backgroundImage: 'url(/images/bubbles.svg)',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'bottom right'

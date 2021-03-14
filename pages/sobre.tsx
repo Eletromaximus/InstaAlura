@@ -1,9 +1,14 @@
 import React from 'react'
-
-// import { Container } from './styles';
+import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc'
 
 function Sobre () {
   return <h1>Sobre</h1>
 }
 
-export default Sobre
+export default websitePageHOC(Sobre, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: 'Sobre'
+    }
+  }
+})

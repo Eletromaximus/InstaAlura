@@ -6,20 +6,20 @@ import { breakpointsMedia } from '../../theme/utils/breakpointsMedia'
 import Link from '../Link'
 
 interface Props {
-	tag?: 'input' | 'p' | 'span' | 'h1' | any;
+	tag?: 'p' | 'span' | 'h1' | any;
 	variant: string;
 	textAlign?: string | object;
 	marginBottom?: string | object;
 	margin?: string | object;
 	textDecoration?: string | object;
 	color?: string | object;
-	children: string | number | React.ReactNode | undefined;
+	children: React.ReactNode;
 	type?: string;
 	placeholder?: string;
 	name?: any;
 	onChange?: () => void;
 	value?: any;
-	href?: string;
+	href: string;
 }
 
 const smallestException = css`
@@ -58,7 +58,6 @@ export const TextStyleVariants: Record<string, any> = {
 		})}
 	`
 }
-// color: ${(props) => get(props.theme, `colors.${props.color}.color`)};
 const TextBase = styled.span<Props>`
 	${(props) => TextStyleVariants[props.variant]}
 	color: ${(props) => get(props.theme, `colors.${props.color}.color`)};
@@ -68,19 +67,33 @@ const TextBase = styled.span<Props>`
   ${propToStyle('margin')}
 `
 
-export default function Text (props: Props) {
-  const hasHref = Boolean(props.href)
-
+export default function Text ({
+  tag,
+  variant,
+  children,
+  href,
+  ...props
+}: Props) {
+  if (href) {
+    return (
+      <TextBase
+        as={Link}
+        variant={variant}
+        href={href}
+        {...props}
+      >
+        {children}
+      </TextBase>
+    )
+  }
   return (
 		<TextBase
-			as={hasHref ? Link : props.tag}
-			variant={props.variant}
-			textAlign={props.textAlign}
-			color={props.color}
-			marginBottom={props.marginBottom}
-			margin={props.margin}
-			href={props.href}>
-			{props.children}
+		  as={tag}
+			variant={variant}
+			href={href}
+		  {...props}
+		>
+			{children}
 		</TextBase>
   )
 }
@@ -88,5 +101,6 @@ export default function Text (props: Props) {
 Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',
-  children: null
+  children: null,
+  href: ''
 }

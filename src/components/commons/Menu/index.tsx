@@ -1,6 +1,7 @@
 import { MenuWrapper } from './styles'
 import Logo from '../../theme/Logo/Logo'
 import Button from '../Button'
+import Text from '../../fundation/Text'
 
 interface IProps {
 	onCadastrarClick: () => void;
@@ -9,7 +10,7 @@ interface IProps {
 const links = [
   {
     texto: 'Home',
-    url: '/home'
+    url: '/'
   },
   {
     texto: 'Perguntas Frequentes',
@@ -25,28 +26,23 @@ function Menu ({ onCadastrarClick }: IProps) {
   return (
 		<MenuWrapper>
 			<MenuWrapper.LeftSide>
-				<Button
-				  href='/'
-				>
 					<Logo />
-				</Button>
-
 			</MenuWrapper.LeftSide>
 
 			<MenuWrapper.CentralSide>
 				{links.map((link) => {
 				  return (
 						<li key={link.url}>
-							<Button variant="smallestException" href={link.url}>
+							<Text variant="smallestException" href={link.url} >
 								{link.texto}
-							</Button>
+							</Text>
 						</li>
 				  )
 				})}
 			</MenuWrapper.CentralSide>
 
 			<MenuWrapper.RightSide>
-				<Button ghost variant="secondary.main">
+				<Button ghost href='/app/login' variant="secondary.main">
 					Entrar
 				</Button>
 				<Button variant="primary.main" onClick={onCadastrarClick}>
