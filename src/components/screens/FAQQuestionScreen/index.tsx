@@ -52,6 +52,7 @@ export default function FAQQuestionScreen ({ category, question }: IFaqQuestion)
             // @ts-ignore
             backgroundColor={theme.colors.borders.main.color}
             padding='24px 30px'
+            justifyContent='space-between'
             borderRadiusTheme
           >
             <ul>
