@@ -3,7 +3,7 @@ import Footer from '../../commons/Footer'
 import Menu from '../../commons/Menu'
 import Modal from '../../commons/Modal'
 import SEO from '../../commons/SEO'
-import { Box } from '../../fundation/layout/Box'
+import { Box } from '../../foundation/layout/Box'
 import FormCadastro from '../../patterns/FormCadastro'
 
 interface IWebsitePagesWrapper {

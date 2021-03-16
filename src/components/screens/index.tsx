@@ -1,7 +1,7 @@
 import React from 'react'
-import Text from '../fundation/Text'
-import { Box } from '../fundation/layout/Box'
-import { Grid } from '../fundation/layout/Grid'
+import Text from '../foundation/Text'
+import { Box } from '../foundation/layout/Box'
+import { Grid } from '../foundation/layout/Grid'
 
 export interface IFaqScreen {
 	faqCategories:
@@ -51,18 +51,18 @@ export default function FAQScreen ({ faqCategories }: IFaqScreen) {
 											{category.title}
 										</Text>
 
-										<Box as="ul" padding="0" listStyle="none">
-											{category.questions.map((question: any) => (
-												<li key={question.title}>
-													<Text
-														href={`/faq/${question.slug}`}
-														variant="paragraph1"
-														tag="h2"
-														color="tertiary.light">
-														{question.title}
-													</Text>
-												</li>
-											))}
+										<Box as='ul' listStyle="none" padding="0" >
+												{category.questions.map((question: any) => (
+													<li key={question.title}>
+														<Text
+															href={`/faq/${question.slug}`}
+															variant="paragraph1"
+															tag="h2"
+															color="tertiary.light">
+															{question.title}
+														</Text>
+													</li>
+												))}
 										</Box>
 									</Box>
 								</Grid.Col>

@@ -1,6 +1,6 @@
-import Text from '../src/components/fundation/Text'
+import Text from '../src/components/foundation/Text'
 import Button from '../src/components/commons/Button'
-import { Grid } from '../src/components/fundation/layout/Grid'
+import { Grid } from '../src/components/foundation/layout/Grid'
 import { useContext } from 'react'
 import { WebsitePagesContext } from '../src/components/wrappers/WebsitePage'
 import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc'

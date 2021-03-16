@@ -1,18 +1,12 @@
 import React from 'react'
-import FAQScreen, { IFaqScreen } from '../../src/components/FAQScreen'
+import FAQScreen, { IFaqScreen } from '../../src/components/screens'
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc'
 
 function FAQpage ({ faqCategories }: IFaqScreen) {
   return <FAQScreen faqCategories={faqCategories} />
 }
 
-export default websitePageHOC(FAQpage, {
-  pageWrapperProps: {
-    seoProps: {
-      headTitle: 'Perguntas Frequentes'
-    }
-  }
-})
+export default websitePageHOC(FAQpage)
 
 export async function getStaticProps () {
   const faqCategories = await fetch(

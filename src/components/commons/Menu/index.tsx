@@ -1,7 +1,7 @@
 import { MenuWrapper } from './styles'
 import Logo from '../../theme/Logo/Logo'
 import Button from '../Button'
-import Text from '../../fundation/Text'
+import Text from '../../foundation/Text'
 
 interface IProps {
 	onCadastrarClick: () => void;

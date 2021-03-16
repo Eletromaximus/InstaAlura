@@ -20,6 +20,7 @@ interface Props {
 	onChange?: () => void;
 	value?: any;
 	href: string;
+  dangerouslySetInnerHTML?: any;
 }
 
 const smallestException = css`
@@ -65,6 +66,7 @@ const TextBase = styled.span<Props>`
 	${propToStyle('textAlign')}
 	${propToStyle('marginBottom')}
   ${propToStyle('margin')}
+  ${propToStyle('dangerouslySetInnerHTML')}
 `
 
 export default function Text ({

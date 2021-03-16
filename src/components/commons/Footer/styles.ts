@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { TextStyleVariants } from '../../fundation/Text'
+import { TextStyleVariants } from '../../foundation/Text'
 import { breakpointsMedia } from '../../theme/utils/breakpointsMedia'
 
 const FooterWrapper = styled.footer`

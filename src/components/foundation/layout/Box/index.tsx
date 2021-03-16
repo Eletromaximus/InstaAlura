@@ -20,6 +20,7 @@ interface IBox {
 	marginBotton?: string | object;
 	marginRight?: string | object;
 	marginTop?: string | object;
+	borderRadiusTheme?: boolean;
 }
 export const Box = styled.div<IBox>`
 	${propToStyle('display')}
@@ -40,5 +41,12 @@ export const Box = styled.div<IBox>`
   ${propToStyle('marginTop')}
   ${propToStyle('boxShadow')}
   ${propToStyle('padding')}
+ 
+ ${({ theme, borderRadiusTheme }) => borderRadiusTheme && 'border-radius: $(theme.borderRadius)'}
+
 `
-// ${({ theme, borderRadiusTheme }) => borderRadiusTheme && 'border-radius: $(theme.borderRadius)'}
+/* ${propToStyle('as')} */
+//
+Box.defaultProps = {
+  borderRadiusTheme: false
+}

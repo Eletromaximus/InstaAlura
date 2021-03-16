@@ -1,6 +1,6 @@
 import styled, { css, StyledComponentBase } from 'styled-components'
 import { breakpointsMedia } from '../../theme/utils/breakpointsMedia'
-import { TextStyleVariants } from '../../fundation/Text'
+import { TextStyleVariants } from '../../foundation/Text'
 
 interface IMenu extends StyledComponentBase<any, {}> {
 	LeftSide?: any;
