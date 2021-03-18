@@ -6,7 +6,7 @@ import { breakpointsMedia } from '../../theme/utils/breakpointsMedia'
 import Link from '../Link'
 
 interface Props {
-	tag?: 'p' | 'span' | 'h1' | any;
+	tag?: 'p' | 'span' | 'h1' | 'a' | any;
 	variant: string;
 	textAlign?: string | object;
 	marginBottom?: string | object;
