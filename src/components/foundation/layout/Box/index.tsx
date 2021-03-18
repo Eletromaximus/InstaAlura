@@ -17,10 +17,11 @@ interface IBox {
 	listStyle?: string | object;
 	margin?: string | object;
 	marginLeft?: string | object;
-	marginBotton?: string | object;
+	marginBottom?: string | object;
 	marginRight?: string | object;
 	marginTop?: string | object;
 	borderRadiusTheme?: boolean;
+	tag?: any;
 }
 export const Box = styled.div<IBox>`
 	${propToStyle('display')}
@@ -36,13 +37,13 @@ export const Box = styled.div<IBox>`
   ${propToStyle('listStyle')}
   ${propToStyle('margin')}
   ${propToStyle('marginLeft')}
-  ${propToStyle('marginBotton')}
+  ${propToStyle('marginBottom')}
   ${propToStyle('marginRight')}
   ${propToStyle('marginTop')}
   ${propToStyle('boxShadow')}
   ${propToStyle('padding')}
  
- ${({ theme, borderRadiusTheme }) => borderRadiusTheme && 'border-radius: $(theme.borderRadius)'}
+ ${({ theme, borderRadiusTheme }) => borderRadiusTheme && `border-radius: ${theme.borderRadius}`}
 
 `
 /* ${propToStyle('as')} */
