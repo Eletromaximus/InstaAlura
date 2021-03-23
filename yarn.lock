@@ -628,29 +628,29 @@
     "@typescript-eslint/types" "4.18.0"
     eslint-visitor-keys "^2.0.0"
 
-"@xstyled/core@^2.2.3":
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-2.2.3.tgz#c156c0656cfc99286524af5643b1b87c3917c3ec"
-  integrity sha512-8QmQMwK5Z0LG6HTyun79P8ZkVQn0rn+vJbbJRR7afoQ9HWcDv89HgWkIcvXReDE/xGu2A/knV5uz6E9JygtqdQ==
+"@xstyled/core@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-2.3.0.tgz#95a7c73f98370d0592a113fd54271e0bcf7b73f6"
+  integrity sha512-HSUyCfoIZvOZZRIjslTHe890zj787OhHV/vvsQ5w5/hREiPGZ6QA985I20fcqc9RCs55tXsb4mH85oizDJHfbQ==
   dependencies:
-    "@xstyled/system" "^2.2.3"
+    "@xstyled/system" "^2.3.0"
 
-"@xstyled/styled-components@^2.2.2":
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-2.2.3.tgz#34895a764b430a9597bdff8792643dd3e90033f2"
-  integrity sha512-jiYThlxbZNjzFbCUMslp/4doE3nRQn7m9qTZg/GmYSKIEGssJr16b1j3xX6beNI8j6t/2tVP3+pdMDsx6iPtUg==
+"@xstyled/styled-components@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-2.3.0.tgz#b23bc4360f578c1640ebee28dca4e998d83f9ffd"
+  integrity sha512-liyupfsMQxfOtfPlYkbHPO4Oy6PuTQyvQP/wrzDRxgiiNvazcLhYOotU1I44A/imq4zTWxWjJ/bWF2xeUvGGUA==
   dependencies:
-    "@xstyled/core" "^2.2.3"
-    "@xstyled/system" "^2.2.3"
+    "@xstyled/core" "^2.3.0"
+    "@xstyled/system" "^2.3.0"
     "@xstyled/util" "^2.2.3"
 
-"@xstyled/system@^2.2.3":
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-2.2.3.tgz#005c653391d572c567203ee4fc2c9e619531327c"
-  integrity sha512-2OM5BNYlUa+MimyvZ0RJ3xLm9F/ULcdyxRj3rhgSC59hUU28NscbMUm8ea4Lw2cdTgDTm9jj9xkva6D0h8tXfQ==
+"@xstyled/system@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-2.3.0.tgz#73e132e8b5b109ce3195bc2584711c867f93c3ea"
+  integrity sha512-URCiuYejlsHiv7QPrTSPpNQU6h3921UWNQFXxPb7hjDFWt1h7LCRgnVHlB7BwVPUifwA6xQe81UiuHNK0hnWjg==
   dependencies:
     "@xstyled/util" "^2.2.3"
-    csstype "^3.0.6"
+    csstype "^3.0.7"
 
 "@xstyled/util@^2.2.3":
   version "2.2.3"
@@ -1474,7 +1474,7 @@ csstype@^2.5.2:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.16.tgz#544d69f547013b85a40d15bff75db38f34fe9c39"
   integrity sha512-61FBWoDHp/gRtsoDkq/B1nWrCUG/ok1E3tUrcNbZjsE9Cxd9yzUirjS3+nAATB8U4cTtaQmAHbNndoFz5L6C9Q==
 
-csstype@^3.0.2, csstype@^3.0.6:
+csstype@^3.0.2, csstype@^3.0.7:
   version "3.0.7"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.7.tgz#2a5fb75e1015e84dd15692f71e89a1450290950b"
   integrity sha512-KxnUB0ZMlnUWCsx2Z8MUsr6qV6ja1w9ArPErJaJaF8a5SOWoHLIszeCTKGRGRgtLgYrs1E8CHkNSP1VZTTPc9g==
