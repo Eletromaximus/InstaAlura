@@ -4,10 +4,10 @@ import styled from 'styled-components'
 interface IInput {
 	placeholder: string;
 	name: string;
-	type: string;
-	value: string;
+	type?: string;
+	value?: string;
 	children?: string;
-	onChange: ((event: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
+	onChange?: ((event: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
 }
 const InputWrapper = styled.div`
 	margin-bottom: 17px;

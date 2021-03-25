@@ -1,5 +1,5 @@
 import { MenuWrapper } from './styles'
-import Logo from '../../theme/Logo/Logo'
+import {Logo} from '../../theme/Logo/Logo'
 import Button from '../Button'
 import Text from '../../foundation/Text'
 
@@ -26,7 +26,7 @@ function Menu ({ onCadastrarClick }: IProps) {
   return (
 		<MenuWrapper>
 			<MenuWrapper.LeftSide>
-					<Logo />
+					<Logo size='small' />
 			</MenuWrapper.LeftSide>
 
 			<MenuWrapper.CentralSide>

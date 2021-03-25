@@ -28,9 +28,10 @@ interface IButton {
 	ghost?: boolean;
 	display?: string | object;
 	fullWidth?: boolean;
+	color?: string;
 	type?: string;
 	disabled?: boolean;
-	onClick?: () => void;
+	onClick?: ((event: React.ChangeEvent<HTMLInputElement>) => void) | undefined
 }
 
 const ButtonGhost = css<IProps>`
@@ -82,6 +83,7 @@ const ButtonWrapper = styled.button<IProps>`
   ${propToStyle('width')}
   ${propToStyle('paddingRight')}
   ${propToStyle('display')}
+  ${propToStyle('color')}
 
   &:disabled {
 		cursor: not-allowed;
