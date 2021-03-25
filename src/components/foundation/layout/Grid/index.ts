@@ -20,6 +20,8 @@ interface IProps {
 interface IContainer {
 	marginTop?: string | object;
 	flex?: string | number | object;
+	display?: string | object;
+	alignItems?: string | object;
 }
 export const Container = styled.div<IContainer>`
 	width: 100%;
@@ -48,6 +50,8 @@ export const Container = styled.div<IContainer>`
 
 	${propToStyle('marginTop')}
 	${propToStyle('flex')}
+	${propToStyle('display')}
+	${propToStyle('alignItems')}
 `
 export const Grid = {
   Container,
