@@ -19,6 +19,7 @@
 		"framer-motion": "^4.0.3",
 		"lodash": "^4.17.20",
 		"next": "^10.0.7",
+		"nookies": "^2.5.2",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
 		"react-is": "^17.0.1",

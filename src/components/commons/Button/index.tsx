@@ -2,8 +2,8 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import get from 'lodash/get'
 import { TextStyleVariants } from '../../foundation/Text'
-import { breakpointsMedia } from '../../theme/utils/breakpointsMedia'
-import propToStyle from '../../theme/utils/propToStyle'
+import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia'
+import propToStyle from '../../../theme/utils/propToStyle'
 import Link from '../../foundation/Link'
 
 interface IProps {

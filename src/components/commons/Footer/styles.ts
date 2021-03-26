@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { TextStyleVariants } from '../../foundation/Text'
-import { breakpointsMedia } from '../../theme/utils/breakpointsMedia'
+import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia'
 
 const FooterWrapper = styled.footer`
 	padding: 14px;
