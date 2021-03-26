@@ -1,45 +1,16 @@
-import React, { useContext } from 'react';
-import { Button } from '../../src/components/commons/Button';
-import Link from '../../src/components/foundation/Link';
-import TextField from '../../src/components/Forms/TextField';
-import { Box } from '../../src/components/foundation/layout/Box';
-import { Grid } from '../../src/components/foundation/layout/Grid';
-import Text from '../../src/components/foundation/Text';
-import {WebsitePagesContext} from '../../src/components/wrappers/WebsitePage';
-import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
-import {Logo}  from '../../src/components/theme/Logo/Logo';
-
-function LoginForm() {
-  return (
-    <form id="formCadastro" action="/app/profile">
-      <TextField
-        placeholder="Usuário"
-        name="usuario"
-      />
-      <TextField
-        placeholder="Senha"
-        name="senha"
-        type="password"
-      />
-
-      <Button
-        type="submit"
-        variant="primary.main"
-        margin={{
-          xs: '0 auto',
-          md: 'initial',
-        }}
-        fullWidth
-      >
-        Entrar
-      </Button>
-    </form>
-  );
-}
+import React, { useContext } from 'react'
+import { Button } from '../../src/components/commons/Button'
+import { Box } from '../../src/components/foundation/layout/Box'
+import { Grid } from '../../src/components/foundation/layout/Grid'
+import Text from '../../src/components/foundation/Text'
+import { WebsitePagesContext } from '../../src/components/wrappers/WebsitePage'
+import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc'
+import { Logo } from '../../src/theme/Logo/Logo'
+import LoginForm from '../../src/components/patterns/FormLogin'
 
 // Essa página e desafio, e vamos dar pronto no próximo módulo o 04
-function LoginScreen() {
-  const websitePageContext = useContext(WebsitePagesContext);
+function LoginScreen () {
+  const websitePageContext = useContext(WebsitePagesContext)
 
   return (
     <Grid.Container
@@ -86,8 +57,8 @@ function LoginScreen() {
               href="/"
               color="secondary.main"
               onClick={(event) => {
-                event.preventDefault();
-                websitePageContext.toggleModalCadastro();
+                event.preventDefault()
+                websitePageContext.toggleModalCadastro()
               }}
             >
               Cadastre-se
@@ -109,21 +80,21 @@ function LoginScreen() {
         </Grid.Col>
       </Grid.Row>
     </Grid.Container>
-  );
+  )
 }
 
 export default websitePageHOC(LoginScreen, {
   pageWrapperProps: {
     seoProps: {
-      headTitle: 'Login',
+      headTitle: 'Login'
     },
     menuProps: {
-      display: false,
+      display: false
     },
     pageBoxProps: {
       backgroundImage: 'url(/images/bubbles.svg)',
       backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'bottom right',
-    },
-  },
-});
+      backgroundPosition: 'bottom right'
+    }
+  }
+})

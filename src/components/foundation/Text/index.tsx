@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
-import propToStyle from '../../theme/utils/propToStyle'
+import propToStyle from '../../../theme/utils/propToStyle'
 import get from 'lodash/get'
 import React from 'react'
-import { breakpointsMedia } from '../../theme/utils/breakpointsMedia'
+import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia'
 import Link from '../Link'
 
 interface Props {

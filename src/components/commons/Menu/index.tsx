@@ -1,5 +1,5 @@
 import { MenuWrapper } from './styles'
-import {Logo} from '../../theme/Logo/Logo'
+import { Logo } from '../../../theme/Logo/Logo'
 import Button from '../Button'
 import Text from '../../foundation/Text'
 
