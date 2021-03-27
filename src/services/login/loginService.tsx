@@ -1,4 +1,6 @@
+/* eslint-disable camelcase */
 import { destroyCookie, setCookie } from 'nookies'
+import { isStagingEnv } from '../../infra/env/isStagingEnv'
 
 async function HttpClient (url: string, { headers, body, ...options }: any) {
   return fetch(url, {
@@ -16,6 +18,7 @@ async function HttpClient (url: string, { headers, body, ...options }: any) {
     })
 }
 
+const Base_URL = isStagingEnv ? 'https://instalura-api-git-master-omariosouto.vercel.app/api/login' : 'https://instalura-api-omariosouto.vercel.app/api/login'
 interface ILogin {
   username: string;
   password: string
@@ -23,7 +26,7 @@ interface ILogin {
 
 export const loginService = {
   async login ({ username, password }: ILogin) {
-    return HttpClient('https://instalura-api-git-master-omariosouto.vercel.app/api/login', {
+    return HttpClient(Base_URL, {
       method: 'POST',
       body: { username, password }
     })
