@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { breakpointsMedia } from './breakpointsMedia'
+import { breakpointsMedia } from '../breakpointsMedia'
 
 export default function propToStyle (propName: string) {
   return (props: Record<string, any>) => {
