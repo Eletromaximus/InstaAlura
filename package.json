@@ -46,7 +46,7 @@
 		"commitizen": "^4.2.3",
 		"cypress": "^6.8.0",
 		"cz-conventional-changelog": "3.3.0",
-		"eslint": "^7.12.1",
+		"eslint": "^7.23.0",
 		"eslint-config-standard": "^16.0.2",
 		"eslint-plugin-cypress": "^2.11.2",
 		"eslint-plugin-import": "^2.22.1",
