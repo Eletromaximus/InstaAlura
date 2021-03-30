@@ -1,13 +1,17 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react'
 import styled from 'styled-components'
+import Text from '../../foundation/Text'
 interface IInput {
 	placeholder: string;
 	name: string;
 	type?: string;
-	value?: string;
+	value: string;
 	children?: string;
-	onChange?: ((event: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
+	isTouched?: boolean;
+	error?: string;
+	onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	onChange: ((event: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
 }
 const InputWrapper = styled.div`
 	margin-bottom: 17px;
@@ -20,16 +24,39 @@ const Input = styled.input`
 	outline: 0;
 	border-radius: ${({ theme }) => theme.borderRadius};
 `
-export default function TextField (props: IInput) {
+export default function TextField ({
+  isTouched, placeholder,
+  error,
+  name,
+  value,
+  ...props
+}: IInput) {
+  const hasError = Boolean(error)
+  const isFieldInvalid = hasError && isTouched
   return (
 		<InputWrapper>
 			<Input
-				type={props.type}
-				placeholder={props.placeholder}
-				name={props.name}
-				onChange={props.onChange}
-				value={props.value}
+				placeholder={placeholder}
+				name={name}
+				value={value}
+				{...props}
 			/>
+
+			{isFieldInvalid &&
+				<Text
+					variant='smallestException'
+					color='error.main'
+					// role='alert'
+				>
+					{error}
+				</Text>
+			}
+
 		</InputWrapper>
   )
+}
+
+TextField.defaultProps = {
+  error: '',
+  isTouched: false
 }

@@ -40,7 +40,7 @@ export default function LoginScreen () {
               href="/"
               color="secondary.main"
             >
-              <Logo size="large" />
+              <Logo size='large' />
             </Text>
           </Box>
           <LoginForm />
