@@ -11,24 +11,26 @@ export default function useForm ({
   const [errors, setErros] = useState<any>()
   const [touched, setTouchedFields] = useState<any>()
 
+  async function validateValues (currentValues: any) {
+    try {
+      await validateSchema(currentValues)
+      setIsFormDisabled(false)
+      setErros({})
+    } catch (err: any) {
+      const formatedErrors = err.inner.reduce((errorObjectAcc: {}, currentError: any) => {
+        const fieldName = currentError.path
+        const errorMessage = currentError.message
+        return {
+          ...errorObjectAcc,
+          [fieldName]: errorMessage
+        }
+      }, {})
+      setErros(formatedErrors)
+      setIsFormDisabled(true)
+    }
+  }
   useEffect(() => {
-    validateSchema(values)
-      .then((result: any) => {
-        setIsFormDisabled(false)
-        setErros({})
-      })
-      .catch((err: any) => {
-        const formatedErrors = err.inner.reduce((errorObjectAcc: {}, currentError: any) => {
-          const fieldName = currentError.path
-          const errorMessage = currentError.message
-          return {
-            ...errorObjectAcc,
-            [fieldName]: errorMessage
-          }
-        }, {})
-        setErros(formatedErrors)
-        setIsFormDisabled(true)
-      })
+    validateValues(values)
   }, [values])
 
   return {
