@@ -49,6 +49,7 @@ export default function useForm ({
     },
 
     isFormDisabled,
+    setIsFormDisabled,
     errors,
     touched,
     handleBlur (event: React.ChangeEvent<HTMLInputElement>) {
