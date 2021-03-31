@@ -27,12 +27,19 @@ export default function LoginForm () {
   const form = useForm({
     initialValues,
     onSubmit: (values: any) => {
+      form.setIsFormDisabled(true)
       loginService.login({
         username: values.usuario,
         password: values.senha
       })
         .then(() => {
           router.push('/app/profile')
+        })
+        .catch((err: Error) => {
+          console.log(err)
+        })
+        .finally(() => {
+          form.setIsFormDisabled(false)
         })
     },
     async validateSchema (values: any) {

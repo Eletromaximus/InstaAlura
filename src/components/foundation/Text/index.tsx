@@ -15,6 +15,7 @@ interface Props {
 	color?: string | object;
 	children: React.ReactNode;
 	type?: string;
+	role?: string;
 	placeholder?: string;
 	name?: any;
 	onChange?: () => void;
