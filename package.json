@@ -12,7 +12,9 @@
 		"test:integration:open": "cypress open",
 		"test:integration": "cypress run --headless",
 		"test": "jest",
-		"test:watch": "jest --watch"
+		"test:watch": "jest --watch",
+		"test:integration:build": "start-server-and-test build/start http-get://localhost:3000",
+		"build/start": "yarn build && yarn start"
 	},
 	"dependencies": {
 		"@crello/react-lottie": "^0.0.11",
