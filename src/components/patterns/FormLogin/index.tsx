@@ -5,7 +5,6 @@ import { useRouter } from 'next/router'
 import useForm from '../../../infra/hooks/forms/useForm'
 import { loginService } from '../../../services/login/loginService'
 import * as yup from 'yup'
-import PropTypes from 'prop-types'
 
 const loginSchema = yup.object().shape({
   usuario: yup
@@ -87,12 +86,4 @@ export default function LoginForm (onSubmit: any) {
 
     </form>
   )
-}
-
-LoginForm.defaultProps = {
-  onSubmit: undefined
-}
-
-LoginForm.propTypes = {
-  onSubmit: PropTypes.func
 }

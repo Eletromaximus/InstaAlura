@@ -25,16 +25,22 @@ interface ILogin {
 }
 
 export const loginService = {
-  async login ({ username, password }: ILogin) {
-    return HttpClient(Base_URL, {
+  async login ({ username, password }: ILogin,
+    setCookieModule = setCookie,
+    HttpClientModule = HttpClient) {
+    return HttpClientModule(Base_URL, {
       method: 'POST',
       body: { username, password }
     })
       .then((respostaConvertida) => {
         const { token } = respostaConvertida.data
+        const hasToken = token
+        if (!hasToken) {
+          throw new Error('Failed to Login')
+        }
         const DAY_IN_SECONDS = 86400
 
-        setCookie(null, 'APP_TOKEN', token, {
+        setCookieModule(null, 'APP_TOKEN', token, {
           path: '/',
           maxAge: DAY_IN_SECONDS * 7
         })
@@ -42,7 +48,7 @@ export const loginService = {
         return { token }
       })
   },
-  logout () {
-    destroyCookie(null, 'APP_TOKEN')
+  async logout (destroyCookieModule = destroyCookie) {
+    destroyCookieModule(null, 'APP_TOKEN')
   }
 }

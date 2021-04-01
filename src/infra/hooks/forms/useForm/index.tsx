@@ -1,5 +1,15 @@
 import React, { FormEvent, useEffect, useState } from 'react'
 
+function formatErrors (yupErrorsInner = []) {
+  return yupErrorsInner.reduce((errorObjectAcc: {}, currentError: any) => {
+    const fieldName = currentError.path
+    const errorMessage = currentError.message
+    return {
+      ...errorObjectAcc,
+      [fieldName]: errorMessage
+    }
+  }, {})
+}
 export default function useForm ({
   initialValues,
   onSubmit,
@@ -17,20 +27,16 @@ export default function useForm ({
       setIsFormDisabled(false)
       setErros({})
     } catch (err: any) {
-      const formatedErrors = err.inner.reduce((errorObjectAcc: {}, currentError: any) => {
-        const fieldName = currentError.path
-        const errorMessage = currentError.message
-        return {
-          ...errorObjectAcc,
-          [fieldName]: errorMessage
-        }
-      }, {})
+      const formatedErrors = formatErrors(err.inner)
       setErros(formatedErrors)
       setIsFormDisabled(true)
     }
   }
   useEffect(() => {
     validateValues(values)
+      .catch((error: Error) => {
+        console.log(error)
+      })
   }, [values])
 
   return {
