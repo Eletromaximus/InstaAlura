@@ -5,7 +5,7 @@ interface IBox {
 	display?: string | object;
 	flexDirection?: string | object;
 	justifyContent?: string | object;
-	flex?: string | object;
+	flex?: string | number | object;
 	flexWrap?: string | object;
 	backgroundImage?: string | object;
 	backgroundRepeat?: string | object;
