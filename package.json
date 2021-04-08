@@ -22,6 +22,8 @@
 		"@material-ui/icons": "^4.11.2",
 		"@xstyled/styled-components": "^2.2.2",
 		"framer-motion": "^4.0.3",
+		"graphql": "^15.5.0",
+		"graphql-request": "^3.4.0",
 		"lodash": "^4.17.20",
 		"next": "^10.0.7",
 		"nookies": "^2.5.2",
