@@ -3,6 +3,8 @@ import { Box } from '../../foundation/layout/Box'
 import { Grid } from '../../foundation/layout/Grid'
 import Text from '../../foundation/Text'
 
+export { getContent } from './getContent'
+
 interface IAboutScreen {
   messages: {
     pageSobre: {
