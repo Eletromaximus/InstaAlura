@@ -1,7 +1,5 @@
-import React from 'react'
 import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc'
 import Page404 from '../src/components/screens/ScreenPage404'
-
 
 export default websitePageHOC(Page404, {
   pageWrapperProps: {
@@ -13,5 +11,6 @@ export default websitePageHOC(Page404, {
       justifyContent: 'space-between'
     },
     menuProps: true
-  }}
+  }
+}
 )

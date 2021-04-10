@@ -1,11 +1,14 @@
-import React, { createContext, useState } from 'react'
+import React, { useState } from 'react'
+import get from 'lodash/get'
 import Footer from '../../commons/Footer'
 import Menu from '../../commons/Menu'
 import Modal from '../../commons/Modal'
 import SEO from '../../commons/SEO'
 import { Box } from '../../foundation/layout/Box'
 import FormCadastro from '../../patterns/FormCadastro'
+import { WebsitePagesContext } from './context'
 
+export { WebsitePagesContext } from './context'
 interface IWebsitePagesWrapper {
   children: React.ReactNode;
   seoProps: {
@@ -19,17 +22,15 @@ interface IWebsitePagesWrapper {
   menuProps: {
     display: boolean;
   };
+  messages: object;
 }
-
-export const WebsitePagesContext = createContext({
-  toggleModalCadastro: () => {}
-})
 
 export default function WebsitePagesWrapper ({
   children,
   seoProps,
   pageBoxProps,
-  menuProps
+  menuProps,
+  messages
 }: IWebsitePagesWrapper) {
   const [isModalOpen, setIsModalState] = useState(false)
 
@@ -38,6 +39,9 @@ export default function WebsitePagesWrapper ({
       value={{
         toggleModalCadastro: () => {
           setIsModalState(!isModalOpen)
+        },
+        getCMSContent: (cmsKey) => {
+          return get(messages, cmsKey)
         }
       }}
     >
@@ -75,5 +79,6 @@ WebsitePagesWrapper.defaultProps = {
   pageBoxProps: {},
   menuProps: {
     display: true
-  }
+  },
+  messages: {}
 }
