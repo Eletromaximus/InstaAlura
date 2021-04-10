@@ -1,5 +1,10 @@
 import { CMSGraphQLClient, gql } from '../../../infra/cms/CMSGraphQLClient'
-export async function getContent () {
+
+interface IProps {
+  preview: boolean
+}
+
+export async function getContent ({ preview }: IProps) {
   const query = gql`
   query {
     pageSobre {
@@ -8,7 +13,7 @@ export async function getContent () {
     }
   }
 `
-  const client = CMSGraphQLClient()
+  const client = CMSGraphQLClient({ preview })
 
   const response = await client.query({ query })
 

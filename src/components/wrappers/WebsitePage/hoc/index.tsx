@@ -10,6 +10,7 @@ export default function websitePageHOC (PageComponent: any, { pageWrapperProps }
       <WebsitePagesWrapper
         {...pageWrapperProps}
         {...props.pageWrapperProps}
+        messages={props.messages}
       >
         <PageComponent {...props} />
       </WebsitePagesWrapper>

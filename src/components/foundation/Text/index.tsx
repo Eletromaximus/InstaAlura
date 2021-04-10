@@ -1,9 +1,13 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import propToStyle from '../../../theme/utils/propToStyle'
 import get from 'lodash/get'
 import React from 'react'
-import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia'
 import Link from '../Link'
+import { WebsitePagesContext } from '../../wrappers/WebsitePage/context'
+
+import { TextStyleVariants } from '../TextStyleVariants'
+
+export { TextStyleVariants } from '../TextStyleVariants'
 
 interface Props {
 	tag?: 'p' | 'span' | 'h1' | 'a' | any;
@@ -22,44 +26,9 @@ interface Props {
 	value?: any;
 	href: string;
   dangerouslySetInnerHTML?: any;
+	cmsKey?: string;
 }
 
-const smallestException = css`
-  font-size: ${({ theme }) =>
-		theme.typographyVariants.smallestException.fontSize};
-	font-weight: ${({ theme }) =>
-		theme.typographyVariants.smallestException.fontWeight};
-	line-height: ${({ theme }) =>
-		theme.typographyVariants.smallestException.lineHeight};
-`
-const paragraph1 = css`
-  font-size: ${({ theme }) => theme.typographyVariants.paragraph1.fontSize};
-  font-weight: ${({ theme }) => theme.typographyVariants.paragraph1.fontWeigth};
-  line-height: ${({ theme }) => theme.typographyVariants.paragraph1.lineHeight};
-`
-
-export const TextStyleVariants: Record<string, any> = {
-  smallestException,
-  paragraph1,
-
-  title: css`
-		${({ theme }) => css`
-			font-size: ${theme.typographyVariants.titleXS.fontSize};
-			font-weight: ${theme.typographyVariants.titleXS.fontWeight};
-			line-height: ${theme.typographyVariants.titleXS.lineHeight};
-		`}
-
-		${breakpointsMedia({
-			md: css`
-				${({ theme }) => css`
-					font-size: ${theme.typographyVariants.titleXS.fontSize};
-					font-weight: ${theme.typographyVariants.titleXS.fontWeight};
-					line-height: ${theme.typographyVariants.titleXS.lineHeight};
-				`}
-			`
-		})}
-	`
-}
 const TextBase = styled.span<Props>`
 	${(props) => TextStyleVariants[props.variant]}
 	color: ${(props) => get(props.theme, `colors.${props.color}.color`)};
@@ -75,17 +44,24 @@ export default function Text ({
   variant,
   children,
   href,
+  cmsKey,
   ...props
 }: Props) {
+  const websitePageContext = React.useContext(WebsitePagesContext)
+  const componentContent = cmsKey
+	  ? websitePageContext.getCMSContent(cmsKey)
+    : children
+
   if (href) {
     return (
       <TextBase
         as={Link}
         variant={variant}
         href={href}
+				cmsKey={cmsKey}
         {...props}
       >
-        {children}
+        {componentContent}
       </TextBase>
     )
   }
@@ -94,9 +70,10 @@ export default function Text ({
 		  as={tag}
 			variant={variant}
 			href={href}
+			cmsKey={cmsKey}
 		  {...props}
 		>
-			{children}
+			{componentContent}
 		</TextBase>
   )
 }
