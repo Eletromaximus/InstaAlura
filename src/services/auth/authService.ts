@@ -5,10 +5,10 @@ import HttpClient from '../../infra/http/HttpClient'
 import { isStagingEnv } from '../../infra/env/isStagingEnv'
 
 const BASE_URL = isStagingEnv
-  // Back End de DEV
-  ? 'https://instalura-api-git-master.omariosouto.vercel.app'
-  // Back End de PROD
-  : 'https://instalura-api.omariosouto.vercel.app'
+  // Back-end de DEV
+  ? 'https://instalura-api-git-master-omariosouto.vercel.app'
+  // Back-end de PROD
+  : 'https://instalura-api-omariosouto.vercel.app'
 
 export const authService = (ctx: any) => {
   const cookies = parseCookies(ctx)
@@ -26,12 +26,11 @@ export const authService = (ctx: any) => {
         }
       })
         .then(({ data }) => {
-          if (data.authenticated) {
-            return true
+          if (!data.authenticated) {
+            loginService.logout(ctx)
           }
 
-          loginService.logout(ctx)
-          return false
+          return data.authenticated
         })
         .catch(() => {
           loginService.logout(ctx)

@@ -3,18 +3,19 @@ import HttpClient from '../../infra/http/HttpClient'
 import { authService } from '../auth/authService'
 
 const BASE_URL = isStagingEnv
-  // Back End de DEV
-  ? 'https://instalura-api-git-master.omariosouto.vercel.app'
-  // Back End de PROD
-  : 'https://instalura-api.omariosouto.vercel.app'
+  // Back-end de DEV
+  ? 'https://instalura-api-git-master-omariosouto.vercel.app'
+  // Back-end de PROD
+  : 'https://instalura-api-omariosouto.vercel.app'
 
 export const userService = {
-  async getProfilePage (ctx: any) {
-    const url = `${BASE_URL}/api/users/posts`
+  async getProfilePage (ctx?: any) {
     try {
+      const url = `${BASE_URL}/api/users/posts`
       const token = await authService(ctx).getToken()
+
       const response = await HttpClient(url, {
-        Headers: {
+        headers: {
           authorization: `Bearer ${token}`
         }
       })

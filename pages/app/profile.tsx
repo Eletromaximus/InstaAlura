@@ -1,11 +1,18 @@
 import React from 'react'
 import { authService } from '../../src/services/auth/authService'
-import { userService } from '../../src/services/user/userService'
+import { userUserService } from '../../src/services/user/hook'
 
 export default function ProfilePage (props: any) {
+  const dados = userUserService.getProfilePage()
+
   return (
     <div>
       Página de Profile!
+
+      {dados.loading && 'Loading'}
+      {dados.loading && dados.data && 'Carregou com sucesso'}
+      {dados.loading && dados.error && 'Não conseguimos pegar os tokens'}
+
       <pre>
         {JSON.stringify(props, null, 4)}
       </pre>
@@ -20,18 +27,21 @@ export async function getServerSideProps (ctx: any) {
 
   if (hasActiveSession) {
     const session: any = await auth.getSession()
-    const profilePage = await userService.getProfilePage(ctx)
+    // const profilePage = await userService.getProfilePage(ctx)
     return {
       props: {
         user: {
-          ...session,
-          ...profilePage.user
-        },
-        post: profilePage.posts
+          ...session
+          // ...profilePage.user
+        }
+        // post: profilePage.posts
       }
     }
   }
 
   ctx.res.writeHead(307, { location: '/login' })
-  return ctx.res.end()
+  ctx.res.end()
+  return {
+    props: {}
+  }
 }
