@@ -1,5 +1,5 @@
 import { parseCookies } from 'nookies'
-import { LOGIN_COOKIE_APP_TOKEN } from '../login/loginService'
+import { loginService, LOGIN_COOKIE_APP_TOKEN } from '../login/loginService'
 import jwt from 'jsonwebtoken'
 import HttpClient from '../../infra/http/HttpClient'
 import { isStagingEnv } from '../../infra/env/isStagingEnv'
@@ -15,6 +15,9 @@ export const authService = (ctx: any) => {
   const token = cookies[LOGIN_COOKIE_APP_TOKEN]
 
   return {
+    async getToken () {
+      return token
+    },
     async hasActiveSession () {
       return HttpClient(`${BASE_URL}/api/auth`, {
         method: 'POST',
@@ -27,9 +30,13 @@ export const authService = (ctx: any) => {
             return true
           }
 
+          loginService.logout(ctx)
           return false
         })
-        .catch(() => false)
+        .catch(() => {
+          loginService.logout(ctx)
+          return false
+        })
     },
     async getSession () {
       const session = jwt.decode(token)

@@ -39,7 +39,7 @@ export const loginService = {
         return { token }
       })
   },
-  async logout (destroyCookieModule = destroyCookie) {
-    destroyCookieModule(null, LOGIN_COOKIE_APP_TOKEN)
+  async logout (ctx: any, destroyCookieModule = destroyCookie) {
+    destroyCookieModule(ctx, LOGIN_COOKIE_APP_TOKEN, { path: '/' })
   }
 }
