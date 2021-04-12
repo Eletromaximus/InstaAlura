@@ -1,24 +1,15 @@
 /* eslint-disable camelcase */
 import { destroyCookie, setCookie } from 'nookies'
 import { isStagingEnv } from '../../infra/env/isStagingEnv'
+import HttpClient from '../../infra/http/HttpClient'
 
-async function HttpClient (url: string, { headers, body, ...options }: any) {
-  return fetch(url, {
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(body),
-    ...options
-  })
-    .then((respostaDoServer) => {
-      if (respostaDoServer.ok) {
-        return respostaDoServer.json()
-      }
-      throw new Error('Falha em pegar os dados do servidor :(')
-    })
-}
+const BASE_URL = isStagingEnv
+  // Back End de DEV
+  ? 'https://instalura-api-git-master.omariosouto.vercel.app'
+  // Back End de PROD
+  : 'https://instalura-api.omariosouto.vercel.app'
 
-const Base_URL = isStagingEnv ? 'https://instalura-api-git-master-omariosouto.vercel.app/api/login' : 'https://instalura-api-omariosouto.vercel.app/api/login'
+export const LOGIN_COOKIE_APP_TOKEN = 'LOGIN_COOKIE_APP_TOKEN'
 interface ILogin {
   username: string;
   password: string
@@ -28,7 +19,7 @@ export const loginService = {
   async login ({ username, password }: ILogin,
     setCookieModule = setCookie,
     HttpClientModule = HttpClient) {
-    return HttpClientModule(Base_URL, {
+    return HttpClientModule(`${BASE_URL}/api/login`, {
       method: 'POST',
       body: { username, password }
     })
@@ -40,7 +31,7 @@ export const loginService = {
         }
         const DAY_IN_SECONDS = 86400
 
-        setCookieModule(null, 'APP_TOKEN', token, {
+        setCookieModule(null, LOGIN_COOKIE_APP_TOKEN, token, {
           path: '/',
           maxAge: DAY_IN_SECONDS * 7
         })
@@ -49,6 +40,6 @@ export const loginService = {
       })
   },
   async logout (destroyCookieModule = destroyCookie) {
-    destroyCookieModule(null, 'APP_TOKEN')
+    destroyCookieModule(null, LOGIN_COOKIE_APP_TOKEN)
   }
 }
