@@ -2,6 +2,7 @@ import { Box } from '../../foundation/layout/Box'
 import { Grid } from '../../foundation/layout/Grid'
 import Image from 'next/image'
 import Text from '../../foundation/Text'
+import { BioBox } from './style'
 
 export { getContent } from './getContent'
 
@@ -25,41 +26,22 @@ export default function ProfileScreen ({ messages } : IProfile) {
       justifyContent='center'
       margin='28px'
     >
-      <Box
-        width='592px'
-        height='188px'
-        display='flex'
-        padding='0'
-        margin='0'
-        justifyContent='space-between'
+      <BioBox
         id='bio'
       >
-        <Box
-          margin='0'
-          padding='0'
-          id='avatar'
-        >
+        <BioBox.Avatar>
           {messages.avatarImage.url && <Image
             width='188px'
             height='188px'
             src={messages.avatarImage.url}
             alt='avatar'
           />}
-        </Box>
+        </BioBox.Avatar>
 
-        <Box
-          width='330px'
-          height='100%'
+        <BioBox.Infos
+          id='infos'
         >
           <Grid.Row
-            display= 'flex'
-            justifyContent= 'flex-end'
-            style={{
-              width: '100%',
-              height: 'auto',
-              margin: 0,
-              marginTop: '18px'
-            }}
             id='conexoes'
           >
             <Box>
@@ -130,14 +112,8 @@ export default function ProfileScreen ({ messages } : IProfile) {
           </Grid.Row>
 
           <Grid.Row
-            display='flex'
-            justifyContent='center'
-            style={{
-              width: '100%',
-              height: 'auto',
-              margin: 0,
-              marginTop: '18px'
-            }}
+
+            id='name'
           >
             <Text
               variant='title'
@@ -152,8 +128,8 @@ export default function ProfileScreen ({ messages } : IProfile) {
             </Text>
           </Grid.Row>
 
-        </Box>
-      </Box>
+        </BioBox.Infos>
+      </BioBox>
     </Box>
   )
 }
