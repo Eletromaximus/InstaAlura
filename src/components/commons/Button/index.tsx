@@ -12,6 +12,7 @@ interface IProps {
 	margin?: string | object;
 	width?: string | object;
 	paddingRight?: string | object;
+	padding?: string | object;
 	display?: string | object;
 	fullWidth?: boolean;
 	href: string;
@@ -25,6 +26,7 @@ interface IButton {
 	margin?: string | object;
 	width?: string | object;
 	paddingRight?: string | object;
+	padding?: string | object;
 	ghost?: boolean;
 	display?: string | object;
 	fullWidth?: boolean;
@@ -82,6 +84,7 @@ const ButtonWrapper = styled.button<IProps>`
   ${propToStyle('margin')}
   ${propToStyle('width')}
   ${propToStyle('paddingRight')}
+  ${propToStyle('padding')}
   ${propToStyle('display')}
   ${propToStyle('color')}
 

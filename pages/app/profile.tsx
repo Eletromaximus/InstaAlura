@@ -35,6 +35,9 @@ export default websitePageHOC(ProfileScreen, {
   pageWrapperProps: {
     seoProps: {
       headTitle: 'Profile'
+    },
+    menuProps: {
+      display: true
     }
   }
 })

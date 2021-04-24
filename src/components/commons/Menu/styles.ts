@@ -20,7 +20,6 @@ export const MenuWrapper: IMenu = styled.nav`
 
 	${breakpointsMedia({
 		md: css`
-			justify-content: space-between;
 			margin-top: 32px;
 			margin-left: auto;
 			margin-right: auto;
@@ -46,11 +45,6 @@ MenuWrapper.LeftSide = styled.div`
 		md: css`
 			width: 131px;
 			height: 32px;
-		`
-	})}
-
-	${breakpointsMedia({
-		md: css`
 			order: initial;
 			padding-right: 16px;
 		`
@@ -58,14 +52,13 @@ MenuWrapper.LeftSide = styled.div`
 `
 
 MenuWrapper.CentralSide = styled.div`
-	padding: 0;
 	margin: 0;
 	order: 3;
 	width: 100%;
 	list-style: none;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-end;
 	margin-top: 17px;
 	border-top: 1px solid #88989e;
 	border-bottom: 1px solid #88989e;
@@ -74,11 +67,9 @@ MenuWrapper.CentralSide = styled.div`
 	${breakpointsMedia({
 		md: css`
 			max-width: 332px;
-			justify-content: space-between;
 			flex: 1;
 			order: initial;
 			border: none;
-			margin: 0;
 			padding-top: 0;
 			padding-bottom: 0;
 		`
@@ -103,6 +94,7 @@ MenuWrapper.CentralSide = styled.div`
 			color: #070c0e;
 		}
 	}
+
 `
 
 MenuWrapper.RightSide = styled.div`
@@ -112,9 +104,27 @@ MenuWrapper.RightSide = styled.div`
 	flex: 1;
 	order: 2;
 	justify-content: flex-end;
+
 	${breakpointsMedia({
 		md: css`
 			order: initial;
 		`
 	})}
+
+	#busca {
+		width: 288px;
+		height: 44px;
+		border: 1px solid ${({ theme }) => theme.colors.tertiary.light.color};
+		border-radius: 12px;
+		background-image: url(/images/search.svg);
+		background-size: contain;
+		background-repeat: no-repeat;
+		text-indent: 40px;
+	}
+
+	#busca:focus {
+		background-image: none;
+		text-indent: 0px;
+	}
+	
 `

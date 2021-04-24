@@ -22,7 +22,7 @@ interface IWebsitePagesWrapper {
   menuProps: {
     display: boolean;
   };
-  messages: object;
+  messages: any;
 }
 
 export default function WebsitePagesWrapper ({
@@ -64,8 +64,9 @@ export default function WebsitePagesWrapper ({
 					/>
 				)}
 			</Modal>
-      {menuProps && <Menu
+      {menuProps.display && <Menu
         onCadastrarClick={() => setIsModalState(true)}
+        profileImgUrl={messages.avatarImage || null}
       />}
       {children}
       <Footer/>
