@@ -1,6 +1,6 @@
 
 import styled, { css, StyledComponentBase } from 'styled-components'
-import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia'
+import { breakpointsMedia } from '../../../../theme/utils/breakpointsMedia'
 
 interface IBioBox extends StyledComponentBase<any, {}> {
 	Bio?: any;

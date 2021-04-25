@@ -17,9 +17,11 @@ interface IProps {
 	fullWidth?: boolean;
 	href: string;
 	children: React.ReactNode;
+	id?: string;
 }
 
 interface IButton {
+	id?: string;
 	href: string;
 	children: React.ReactNode | any;
 	variant?: string;

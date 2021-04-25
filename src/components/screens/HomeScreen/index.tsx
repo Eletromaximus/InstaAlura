@@ -51,7 +51,7 @@ export default function HomeScreen () {
 							}}
 							display='block'
 							onClick={() => websitePageContext.toggleModalCadastro()}>
-							Cadastrar
+							  Cadastrar
 						</Button>
 					</Grid.Col>
 
