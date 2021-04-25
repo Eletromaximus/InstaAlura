@@ -15,6 +15,6 @@
 		"jsx": "preserve",
 		"types":["cypress"]
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.config.js", "config/redirects.test.js", "jest.setup.js", "src/components/patterns/FormLogin/FormLogin.test.js"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.config.js", "config/redirects.test.js", "jest.setup.js", "src/components/patterns/FormLogin/FormLogin.test.js", "next.config.js"],
 	"exclude": ["node_modules"]
 }
