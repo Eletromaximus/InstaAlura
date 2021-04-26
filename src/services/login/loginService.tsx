@@ -4,10 +4,10 @@ import { isStagingEnv } from '../../infra/env/isStagingEnv'
 import HttpClient from '../../infra/http/HttpClient'
 
 const BASE_URL = isStagingEnv
-  // Back End de DEV
-  ? 'https://instalura-api-git-master.omariosouto.vercel.app'
-  // Back End de PROD
-  : 'https://instalura-api.omariosouto.vercel.app'
+  // Back-end de DEV
+  ? 'https://instalura-api-git-master-omariosouto.vercel.app'
+  // Back-end de PROD
+  : 'https://instalura-api-omariosouto.vercel.app'
 
 export const LOGIN_COOKIE_APP_TOKEN = 'LOGIN_COOKIE_APP_TOKEN'
 interface ILogin {
@@ -21,12 +21,15 @@ export const loginService = {
     HttpClientModule = HttpClient) {
     return HttpClientModule(`${BASE_URL}/api/login`, {
       method: 'POST',
-      body: { username, password }
+      body: JSON.stringify({
+        username,
+        password
+      })
     })
-      .then((respostaConvertida) => {
+      .then((respostaConvertida: any) => {
         const { token } = respostaConvertida.data
-        const hasToken = token
-        if (!hasToken) {
+
+        if (!token) {
           throw new Error('Failed to Login')
         }
         const DAY_IN_SECONDS = 86400
@@ -39,7 +42,7 @@ export const loginService = {
         return { token }
       })
   },
-  async logout (destroyCookieModule = destroyCookie) {
-    destroyCookieModule(null, LOGIN_COOKIE_APP_TOKEN)
+  async logout (ctx: any, destroyCookieModule = destroyCookie) {
+    destroyCookieModule(ctx, LOGIN_COOKIE_APP_TOKEN, { path: '/' })
   }
 }

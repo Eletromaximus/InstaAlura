@@ -17,14 +17,14 @@ interface IAboutScreen {
 export default function AboutScreen ({ messages }: IAboutScreen) {
   return (
     <Box
-      display="flex"
-      flexDirection="column"
+      display='flex'
+      flexDirection='column'
       flex={1}
     >
       <Grid.Container>
         <Grid.Row
           marginTop={{ xs: '32px', md: '120px' }}
-          flex="1"
+          flex='1'
         >
           <Grid.Col
             value={{ xs: 12, md: 6, lg: 6 }}
@@ -32,10 +32,10 @@ export default function AboutScreen ({ messages }: IAboutScreen) {
             flex={1}
           >
             <Text
-              variant="title"
-              tag="h2"
-              color="tertiary.main"
-              cmsKey="pageSobre.pageTitle"
+              variant='title'
+              tag='h2'
+              color='tertiary.main'
+              cmsKey='pageSobre.pageTitle'
             />
 
             <Box

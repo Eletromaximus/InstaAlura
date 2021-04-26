@@ -12,19 +12,23 @@ interface IProps {
 	margin?: string | object;
 	width?: string | object;
 	paddingRight?: string | object;
+	padding?: string | object;
 	display?: string | object;
 	fullWidth?: boolean;
 	href: string;
 	children: React.ReactNode;
+	id?: string;
 }
 
 interface IButton {
+	id?: string;
 	href: string;
 	children: React.ReactNode | any;
 	variant?: string;
 	margin?: string | object;
 	width?: string | object;
 	paddingRight?: string | object;
+	padding?: string | object;
 	ghost?: boolean;
 	display?: string | object;
 	fullWidth?: boolean;
@@ -82,6 +86,7 @@ const ButtonWrapper = styled.button<IProps>`
   ${propToStyle('margin')}
   ${propToStyle('width')}
   ${propToStyle('paddingRight')}
+  ${propToStyle('padding')}
   ${propToStyle('display')}
   ${propToStyle('color')}
 

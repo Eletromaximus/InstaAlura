@@ -7,6 +7,7 @@ import SEO from '../../commons/SEO'
 import { Box } from '../../foundation/layout/Box'
 import FormCadastro from '../../patterns/FormCadastro'
 import { WebsitePagesContext } from './context'
+import Card from '../../commons/Card'
 
 export { WebsitePagesContext } from './context'
 interface IWebsitePagesWrapper {
@@ -21,8 +22,9 @@ interface IWebsitePagesWrapper {
   };
   menuProps: {
     display: boolean;
+    profilePage: boolean;
   };
-  messages: object;
+  messages: any;
 }
 
 export default function WebsitePagesWrapper ({
@@ -33,6 +35,19 @@ export default function WebsitePagesWrapper ({
   messages
 }: IWebsitePagesWrapper) {
   const [isModalOpen, setIsModalState] = useState(false)
+  const modalContent = menuProps.profilePage
+    ? (propsDoModal: any) => (
+      <Card
+        propsDoModal={propsDoModal}
+        Close={() => setIsModalState(false)}
+      />
+      )
+    : (propsDoModal: any) => (
+        <FormCadastro
+          propsDoModal={propsDoModal}
+          Close={() => setIsModalState(false)}
+        />
+      )
 
   return (
     <WebsitePagesContext.Provider
@@ -58,14 +73,12 @@ export default function WebsitePagesWrapper ({
 				  setIsModalState(false)
 				}}>
 				{(propsDoModal: any) => (
-					<FormCadastro
-						propsDoModal={propsDoModal}
-						Close={() => setIsModalState(false)}
-					/>
+				  modalContent(propsDoModal)
 				)}
 			</Modal>
-      {menuProps && <Menu
+      {menuProps.display && <Menu
         onCadastrarClick={() => setIsModalState(true)}
+        profileImgUrl={messages.avatarImage || null}
       />}
       {children}
       <Footer/>
@@ -78,7 +91,8 @@ WebsitePagesWrapper.defaultProps = {
   seoProps: {},
   pageBoxProps: {},
   menuProps: {
-    display: true
+    display: true,
+    profilePage: false
   },
   messages: {}
 }

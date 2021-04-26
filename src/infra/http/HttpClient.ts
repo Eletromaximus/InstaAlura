@@ -1,10 +1,10 @@
 export default async function HttpClient (url: string, init?: any) {
   return fetch(url, {
     headers: {
-      ...init.headers,
+      ...init?.headers,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(init.body),
+    body: JSON.stringify(init?.body),
     ...init
   })
     .then((respostaDoServer) => {

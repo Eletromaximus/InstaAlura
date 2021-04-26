@@ -14,6 +14,7 @@ interface IBox {
 	boxShadown?: string | object;
 	padding?: string | object;
 	width?: string | object;
+	height?: string | object;
 	listStyle?: string | object;
 	margin?: string | object;
 	marginLeft?: string | object;
@@ -35,6 +36,7 @@ export const Box = styled.div<IBox>`
   ${propToStyle('backgroundPosition')}
   ${propToStyle('backgroundColor')}
   ${propToStyle('width')}
+  ${propToStyle('height')}
   ${propToStyle('listStyle')}
   ${propToStyle('margin')}
   ${propToStyle('marginLeft')}

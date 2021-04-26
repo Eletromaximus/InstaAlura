@@ -12,6 +12,7 @@ module.exports = {
     'plugin:cypress/recommended'
   ],
   parser: '@typescript-eslint/parser',
+  ignorePatterns: ['next.config.js'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true
