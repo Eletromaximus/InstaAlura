@@ -2,12 +2,12 @@ import styled, { createGlobalStyle, css } from 'styled-components'
 
 interface IModalWrapper {
 	isOpen: boolean;
+	formCadastro: boolean;
 }
 
 export const ModalWrapper = styled.div<IModalWrapper>`
 	display: flex;
 	flex-direction: column;
-	align-items: stretch;
 	background: rgba(0, 0, 0, 0.9);
 	position: fixed;
 	top: 0;
@@ -34,6 +34,20 @@ export const ModalWrapper = styled.div<IModalWrapper>`
 			`
 		}
 	}}
+
+${({ formCadastro }) => {
+		if (formCadastro) {
+			return css`
+				align-items: stretch;
+			`
+		} else {
+			return css`
+				align-items: center;
+				padding-top: 5%;
+			`
+		}
+	}}
+
 `
 export const LockScroll = createGlobalStyle`
   body{
