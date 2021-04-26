@@ -39,6 +39,7 @@ export default websitePageHOC(ProfileScreen, {
     menuProps: {
       display: true,
       profilePage: true
-    }
+    },
+    formCadastro: false
   }
 })

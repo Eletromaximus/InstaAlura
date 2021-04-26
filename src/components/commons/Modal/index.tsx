@@ -8,12 +8,14 @@ interface IModal {
 	isOpen: boolean;
 	onClose: () => void;
 	children?: any;
+	formCadastro: boolean;
 }
 
-function Modal ({ isOpen, onClose, children }: IModal) {
+function Modal ({ isOpen, onClose, children, formCadastro }: IModal) {
   return (
 		<ModalWrapper
 			isOpen={isOpen}
+			formCadastro={formCadastro}
 			onClick={(event) => {
 			  // @ts-ignore
 			  const isSafeArea = event.target.closest(
@@ -51,3 +53,7 @@ function Modal ({ isOpen, onClose, children }: IModal) {
 }
 
 export default Modal
+
+Modal.defaultProps = {
+  formCadastro: false
+}

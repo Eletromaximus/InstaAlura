@@ -25,6 +25,7 @@ interface IWebsitePagesWrapper {
     profilePage: boolean;
   };
   messages: any;
+  formCadastro: boolean;
 }
 
 export default function WebsitePagesWrapper ({
@@ -32,22 +33,24 @@ export default function WebsitePagesWrapper ({
   seoProps,
   pageBoxProps,
   menuProps,
-  messages
+  messages,
+  formCadastro
 }: IWebsitePagesWrapper) {
   const [isModalOpen, setIsModalState] = useState(false)
-  const modalContent = menuProps.profilePage
-    ? (propsDoModal: any) => (
-      <Card
-        propsDoModal={propsDoModal}
-        Close={() => setIsModalState(false)}
-      />
-      )
-    : (propsDoModal: any) => (
-        <FormCadastro
+
+  const modalContent = (propsDoModal: any) => {
+    const content = formCadastro
+      ? <FormCadastro
           propsDoModal={propsDoModal}
           Close={() => setIsModalState(false)}
         />
-      )
+      : <Card
+          propsDoModal={propsDoModal}
+          Close={() => setIsModalState(false)}
+        />
+
+    return content
+  }
 
   return (
     <WebsitePagesContext.Provider
@@ -94,5 +97,6 @@ WebsitePagesWrapper.defaultProps = {
     display: true,
     profilePage: false
   },
-  messages: {}
+  messages: {},
+  formCadastro: true
 }
