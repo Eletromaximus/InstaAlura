@@ -10,6 +10,7 @@ interface IProps {
 	ghost?: boolean;
 	variant?: string;
 	margin?: string | object;
+	marginLeft?: string | object;
 	width?: string | object;
 	paddingRight?: string | object;
 	padding?: string | object;
@@ -26,6 +27,7 @@ interface IButton {
 	children: React.ReactNode | any;
 	variant?: string;
 	margin?: string | object;
+	marginLeft?: string | object;
 	width?: string | object;
 	paddingRight?: string | object;
 	padding?: string | object;
@@ -84,6 +86,7 @@ const ButtonWrapper = styled.button<IProps>`
 	})}
 
   ${propToStyle('margin')}
+  ${propToStyle('marginLeft')}
   ${propToStyle('width')}
   ${propToStyle('paddingRight')}
   ${propToStyle('padding')}

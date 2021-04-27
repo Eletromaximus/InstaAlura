@@ -152,7 +152,8 @@ export default function FormCadastro ({ propsDoModal, Close }: IProps) {
 					  md: '85px'
 					}}
 					backgroundColor="white"
-					{...propsDoModal}>
+					{...propsDoModal}
+				>
 					<Button onClick={Close} width="100px">
 						<CancelIcon />
 					</Button>
