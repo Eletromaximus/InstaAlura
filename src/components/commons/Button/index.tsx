@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css, CSSProp } from 'styled-components'
 import get from 'lodash/get'
 import { TextStyleVariants } from '../../foundation/Text'
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia'
@@ -12,24 +12,31 @@ interface IProps {
 	margin?: string | object;
 	marginLeft?: string | object;
 	width?: string | object;
+	height?: string | object;
+	justifyContent?: string;
 	paddingRight?: string | object;
+	backgroundColor?: string;
 	padding?: string | object;
 	display?: string | object;
 	fullWidth?: boolean;
 	href: string;
 	children: React.ReactNode;
 	id?: string;
+	style?: CSSProp;
 }
 
 interface IButton {
 	id?: string;
+	justifyContent?: string;
 	href: string;
 	children: React.ReactNode | any;
 	variant?: string;
 	margin?: string | object;
 	marginLeft?: string | object;
 	width?: string | object;
+	height?: string | object;
 	paddingRight?: string | object;
+	backgroundColor?: string;
 	padding?: string | object;
 	ghost?: boolean;
 	display?: string | object;
@@ -37,7 +44,8 @@ interface IButton {
 	color?: string;
 	type?: string;
 	disabled?: boolean;
-	onClick?: ((event: React.ChangeEvent<HTMLInputElement>) => void) | undefined
+	style?: CSSProp;
+	onClick?: ((event: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
 }
 
 const ButtonGhost = css<IProps>`
@@ -88,7 +96,10 @@ const ButtonWrapper = styled.button<IProps>`
   ${propToStyle('margin')}
   ${propToStyle('marginLeft')}
   ${propToStyle('width')}
+  ${propToStyle('height')}
   ${propToStyle('paddingRight')}
+  ${propToStyle('justifyContent')}
+  ${propToStyle('backgroundColor')}
   ${propToStyle('padding')}
   ${propToStyle('display')}
   ${propToStyle('color')}

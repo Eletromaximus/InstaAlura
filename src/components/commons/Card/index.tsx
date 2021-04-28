@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import Button from '../Button'
 import Image from 'next/image'
-import { Box } from '../../foundation/layout/Box'
 import CloseIcon from '@material-ui/icons/Close'
+import { Box } from '../../foundation/layout/Box'
 interface ICard {
   propsDoModal: any;
   Close: () => void;
@@ -11,7 +11,7 @@ interface ICard {
 const CardStyle = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: right;
+  justify-content: flex-start;
   width: 375px;
   height: 667px;
   background-color: #FFFFFF;
@@ -20,33 +20,40 @@ const CardStyle = styled.div`
 
 export default function Card ({ propsDoModal, Close }: ICard) {
   return (
-    <CardStyle id='card'>
+    <CardStyle
+      id='card'
+      {...propsDoModal}
+    >
       <Button
         marginLeft='310px'
         width='12px'
         ghost
         color='#88989E'
+        onClick={Close}
       >
         <CloseIcon />
       </Button>
-      <Box
-        layout='fixed'
+
+      <Button
+        ghost
         display='flex'
-        justifyContent='center'
+        width= '375px'
+        height= '375px'
+        justifyContent= 'center'
         style={{
-          // marginTop: '56px',
-          width: '375px',
-          height: '375px',
           backgroundColor: '#D4D4D4'
         }}
-        {...propsDoModal}
       >
-        <Image
-          width={153.33}
-          height={153.33}
-          src='/imageDefault.svg'
-        />
-      </Box>
+        <Box marginTop='100px'>
+          <Image
+            layout='fixed'
+            width={153.33}
+            height={153.33}
+            src='/imageDefault.svg'
+          />
+        </Box>
+      </Button>
+
       <ul
         style={{
           padding: '24px 16px auto 24px',
@@ -54,7 +61,6 @@ export default function Card ({ propsDoModal, Close }: ICard) {
           height: '88px'
         }}
       >
-
       </ul>
       <Button>
         Postar
