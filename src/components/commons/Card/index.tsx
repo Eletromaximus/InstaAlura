@@ -1,24 +1,32 @@
-import styled from 'styled-components'
 import Button from '../Button'
 import Image from 'next/image'
 import CloseIcon from '@material-ui/icons/Close'
 import { Box } from '../../foundation/layout/Box'
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
+import { CardStyle, FormStyle } from './style'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+import Text from '../../foundation/Text'
 interface ICard {
   propsDoModal: any;
   Close: () => void;
 }
 
-const CardStyle = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 375px;
-  height: 667px;
-  background-color: #FFFFFF;
-  border-radius: 8px;
-`
+interface IForm {
+  imgUrl: string
+}
+
+const schema = yup.object().shape({
+  imgUrl: yup.string().required('Por favor, insira uma url no formato correto')
+})
+
+const onSubmit = (data: any) => console.log(data)
 
 export default function Card ({ propsDoModal, Close }: ICard) {
+  const { register, handleSubmit, formState: { errors } } = useForm<IForm>({
+    resolver: yupResolver(schema)
+  })
   return (
     <CardStyle
       id='card'
@@ -34,15 +42,12 @@ export default function Card ({ propsDoModal, Close }: ICard) {
         <CloseIcon />
       </Button>
 
-      <Button
-        ghost
+      <Box
         display='flex'
         width= '375px'
         height= '375px'
         justifyContent= 'center'
-        style={{
-          backgroundColor: '#D4D4D4'
-        }}
+        backgroundColor='#D4D4D4'
       >
         <Box marginTop='100px'>
           <Image
@@ -52,18 +57,54 @@ export default function Card ({ propsDoModal, Close }: ICard) {
             src='/imageDefault.svg'
           />
         </Box>
-      </Button>
+      </Box>
 
-      <ul
-        style={{
-          padding: '24px 16px auto 24px',
-          width: '88px',
-          height: '88px'
-        }}
+      <FormStyle action='/api/post' onSubmit={handleSubmit(onSubmit)}>
+        <input
+          id='imgUrl'
+          type='text'
+          placeholder='Url da imagem'
+          {...register('imgUrl')}
+        />
+
+        <Button
+          backgroundColor='#FB7B6B'
+          width='48px'
+          height='48px'
+          color='white'
+          type='submit'
+        >
+          <ArrowForwardIcon />
+        </Button>
+      </FormStyle>
+      {errors.imgUrl &&
+        <Text
+          marginLeft='50px'
+          variant='paragraph2'
+          color='primary.main'
+        >
+          {errors.imgUrl?.message}
+        </Text>
+      }
+      <Text
+        tag='span'
+        marginLeft='50px'
+        marginTop='8px'
+        marginBottom='38px'
+        variant='paragraph2'
+        padding='0'
+        color='tertiary.light'
       >
-      </ul>
-      <Button>
-        Postar
+        Formatos suportados: jpg, png, svg e xpto.
+      </Text>
+
+      <Button
+        marginLeft='25px'
+        width='327px'
+        height='44px'
+        type='submit'
+      >
+        Avançar
       </Button>
     </CardStyle>
   )

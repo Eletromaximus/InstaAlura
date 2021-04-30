@@ -9,7 +9,7 @@ interface IAboutScreen {
   messages: {
     pageSobre: {
       pageTitle: string,
-      pageDescription: string,
+      pageDescription: string
     }
   }
 }

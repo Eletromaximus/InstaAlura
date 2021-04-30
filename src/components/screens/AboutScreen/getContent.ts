@@ -8,7 +8,7 @@ export async function getContent ({ preview }: IProps) {
   const query = gql`
   query {
     pageSobre {
-      pageTitle
+      pageTitle,
       pageDescription
     }
   }
