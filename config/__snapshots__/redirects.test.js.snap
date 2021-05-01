@@ -7,5 +7,10 @@ Array [
     "permanent": true,
     "source": "/login/",
   },
+  Object {
+    "destination": "/app/profile/",
+    "permanent": true,
+    "source": "/profile/",
+  },
 ]
 `;
