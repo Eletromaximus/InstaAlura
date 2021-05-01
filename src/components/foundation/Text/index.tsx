@@ -28,7 +28,7 @@ interface Props {
 	onChange?: () => void;
 	value?: any;
 	href: string;
-  dangerouslySetInnerHTML?: string;
+  dangerouslySetInnerHTML?: any;
 	cmsKey?: string;
 }
 
