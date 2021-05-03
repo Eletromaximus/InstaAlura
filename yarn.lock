@@ -1280,26 +1280,26 @@
     "@typescript-eslint/types" "4.22.0"
     eslint-visitor-keys "^2.0.0"
 
-"@xstyled/core@^2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-2.4.1.tgz#52e1659159e9a21bfb7a6544c56278784c67e7ef"
-  integrity sha512-+lXEP7NSXJ6RqAIK0yfTikr9B9QRLCRED7nP/+seNIV2rRPfkezDHnPDFdKYU5vW28u1pXu2FVHWjF0rRbHFEQ==
+"@xstyled/core@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-2.5.0.tgz#03a2b066261d4a160a3ba489b49c833ab17c86c3"
+  integrity sha512-hxWJUpkPK6buyLd2XB6hjTIN2Vc5QjYW4E4y8Ekqq2kezCIFpdumbI/8oHCxfARBPzQW7son/b8cAZDhXjsIsg==
   dependencies:
-    "@xstyled/system" "^2.4.0"
+    "@xstyled/system" "^2.5.0"
 
-"@xstyled/styled-components@^2.2.2":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-2.4.1.tgz#51ef35f88f540fa8c9078d44bd8f255fdf6e62f9"
-  integrity sha512-jjFQhdqLNL8hlK7z95SVaJee/Q1iVu/8ukbzwecoAlfsH799najs1LGqdx2vB3QHak41rDx9+2bmAHQt6+5+8Q==
+"@xstyled/styled-components@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-2.5.0.tgz#aa035313d5f7bfb7c375343c33f28cc5026942d8"
+  integrity sha512-5b3qCZtlQAQmU3TQZUGgOhmrWc/K3GTTm08rbj7Vr12a1PdfqEUDyq7fGZo+H3TXFcOqMbOZKF22DYUK5trrNA==
   dependencies:
-    "@xstyled/core" "^2.4.1"
-    "@xstyled/system" "^2.4.0"
+    "@xstyled/core" "^2.5.0"
+    "@xstyled/system" "^2.5.0"
     "@xstyled/util" "^2.2.3"
 
-"@xstyled/system@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-2.4.0.tgz#2eef2fc6f7415a7bf14f4bf8f0baf7c516ca5a94"
-  integrity sha512-tc/Dd+AmMgk7AZW44SHBQ5QqTEeJfqIMcM+h8HnUFHBn7yc+yjOIUK2jX1hl8kk80qOcf30p9JRyWIKZSr1Q+g==
+"@xstyled/system@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-2.5.0.tgz#0bfec246e7e8151bef1e4b6cad494ffc552ae27e"
+  integrity sha512-BbPjO2Ui2qmnfxmkenRLadVrOvzPZ1F6+ADoYDATfFyOD8juZ2+GTpRrdawma52g5k/Qk0yzAzekuUtgmKV6qg==
   dependencies:
     "@xstyled/util" "^2.2.3"
     csstype "^3.0.7"
