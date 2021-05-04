@@ -36,6 +36,7 @@
 		"react-is": "^17.0.1",
 		"styled-components": "^5.0.0",
 		"styled-normalize": "^8.0.7",
+		"swr": "^0.5.5",
 		"yup": "^0.32.9"
 	},
 	"devDependencies": {
