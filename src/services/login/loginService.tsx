@@ -3,6 +3,11 @@ import { destroyCookie, setCookie } from 'nookies'
 import { isStagingEnv } from '../../infra/env/isStagingEnv'
 import HttpClient from '../../infra/http/HttpClient'
 
+interface ILogin {
+  username: string;
+  password: string;
+}
+
 const BASE_URL = isStagingEnv
   // Back-end de DEV
   ? 'https://instalura-api-git-master-omariosouto.vercel.app'
@@ -10,20 +15,17 @@ const BASE_URL = isStagingEnv
   : 'https://instalura-api-omariosouto.vercel.app'
 
 export const LOGIN_COOKIE_APP_TOKEN = 'LOGIN_COOKIE_APP_TOKEN'
-interface ILogin {
-  username: string;
-  password: string
-}
 
 export const loginService = {
   async login ({ username, password }: ILogin,
     setCookieModule = setCookie,
     HttpClientModule = HttpClient) {
-    return HttpClientModule(`${BASE_URL}/api/login`, {
+    return HttpClientModule('/api/login', {
       method: 'POST',
       body: JSON.stringify({
         username,
-        password
+        password,
+        BASE_URL
       })
     })
       .then((respostaConvertida: any) => {
