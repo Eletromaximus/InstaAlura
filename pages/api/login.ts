@@ -1,15 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import HttpClient from '../../src/infra/http/HttpClient'
 
 async function HttpServer (url: string, body: object) {
   return await fetch(`${url}/api/login`, {
     method: 'POST',
     body: JSON.stringify(body)
   })
-    .then(async (resposta: any) => {
-      return await resposta
+    .then((resposta: any) => {
+      return resposta
     })
-    .catch(async (err: string) => {
+    .catch((err: string) => {
       throw Error(err)
     })
 }
@@ -17,20 +16,7 @@ async function HttpServer (url: string, body: object) {
 export default async function Login (req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const { username, password, BASE_URL } = req.body
-    const Result = await HttpClient(
-      `${BASE_URL}/api/login`, {
-        method: 'POST',
-        body: JSON.stringify({
-          username,
-          password
-        })
-      })
-      .then(async (resposta: any) => {
-        return resposta
-      })
-      .catch(async (err: string) => {
-        throw Error(err)
-      })
+    const Result = await HttpServer(BASE_URL, { username, password })
     res.send(await Result)
   } else {
     return res.status(400).json({ error: 'método não permitido' })
