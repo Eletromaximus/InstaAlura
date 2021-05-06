@@ -1,5 +1,5 @@
 export default async function HttpClient (url: string, init?: any) {
-  return fetch(url, {
+  return await fetch(url, {
     headers: {
       ...init?.headers,
       'Content-Type': 'application/json'

@@ -55,5 +55,5 @@ function Modal ({ isOpen, onClose, children, formCadastro }: IModal) {
 export default Modal
 
 Modal.defaultProps = {
-  formCadastro: false
+  formCadastro: true
 }

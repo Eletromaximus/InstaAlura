@@ -15,4 +15,10 @@ export async function getStaticProps ({ preview }: IProps) {
   }
 }
 
-export default websitePageHOC(AboutScreen)
+export default websitePageHOC(AboutScreen, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: 'About'
+    }
+  }
+})

@@ -15,7 +15,9 @@ interface Props {
 	textAlign?: string | object;
 	marginBottom?: string | object;
 	margin?: string | object;
+	padding?: string | object;
 	marginLeft?: string | object;
+	marginTop?: string | object;
 	textDecoration?: string | object;
 	color?: string | object;
 	children: React.ReactNode;
@@ -38,6 +40,7 @@ const TextBase = styled.span<Props>`
 	${propToStyle('marginBottom')}
   ${propToStyle('margin')}
   ${propToStyle('marginLeft')}
+  ${propToStyle('marginTop')}
   ${propToStyle('dangerouslySetInnerHTML')}
 `
 

@@ -72,6 +72,7 @@ export default function WebsitePagesWrapper ({
     >
       <Modal
 				isOpen={isModalOpen}
+        formCadastro={formCadastro}
 				onClose={() => {
 				  setIsModalState(false)
 				}}>

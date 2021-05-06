@@ -1,13 +1,10 @@
-// import { ThemeProvider } from 'styled-components'
 import Head from 'next/head'
-import { AppPropsType } from 'next/dist/next-server/lib/utils'
-import { PropsWithChildren } from 'react'
-import { NextRouter } from 'next/dist/next-server/lib/router/router'
+import { AppProps } from 'next/app'
 
 export default function App ({
   Component,
   pageProps
-}: PropsWithChildren<AppPropsType<NextRouter, {}>>) {
+}: AppProps) {
   return (
 		<>
 			<Head>

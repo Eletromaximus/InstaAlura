@@ -53,12 +53,13 @@ MenuWrapper.LeftSide = styled.div`
 
 MenuWrapper.CentralSide = styled.div`
 	margin: 0;
+	margin: 0;
 	order: 3;
 	width: 100%;
 	list-style: none;
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
+	justify-content: space-between;
 	margin-top: 17px;
 	border-top: 1px solid #88989e;
 	border-bottom: 1px solid #88989e;
