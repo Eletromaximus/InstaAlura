@@ -39,7 +39,7 @@
 		"yup": "^0.32.9"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^12.0.1",
+		"@commitlint/cli": "^12.1.2",
 		"@commitlint/config-conventional": "^12.0.1",
 		"@testing-library/jest-dom": "^5.11.10",
 		"@testing-library/react": "^11.2.5",
