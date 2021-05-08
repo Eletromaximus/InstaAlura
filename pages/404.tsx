@@ -9,8 +9,7 @@ export default websitePageHOC(Page404, {
     pageBoxProps: {
       flexWrap: 'wrap',
       justifyContent: 'space-between'
-    },
-    menuProps: true
+    }
   }
 }
 )

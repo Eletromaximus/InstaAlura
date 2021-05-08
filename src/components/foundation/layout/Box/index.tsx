@@ -12,6 +12,8 @@ interface IBox {
 	backgroundPosition?: string | object;
 	backgroundColor?: string | object;
 	boxShadown?: string | object;
+	border?: string | object;
+	borderRadius?: string | object;
 	padding?: string | object;
 	width?: string | object;
 	height?: string | object;
@@ -35,6 +37,8 @@ export const Box = styled.div<IBox>`
   ${propToStyle('backgroundRepeat')}
   ${propToStyle('backgroundPosition')}
   ${propToStyle('backgroundColor')}
+  ${propToStyle('border')}
+  ${propToStyle('borderRadius')}
   ${propToStyle('width')}
   ${propToStyle('height')}
   ${propToStyle('listStyle')}
