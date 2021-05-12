@@ -14,7 +14,8 @@
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"test:integration:build": "start-server-and-test build/start http-get://localhost:3000",
-		"build/start": "yarn build && yarn start"
+		"build/start": "yarn build && yarn start",
+		"prepare": "husky install"
 	},
 	"dependencies": {
 		"@crello/react-lottie": "^0.0.11",
@@ -65,25 +66,19 @@
 		"eslint-plugin-node": "^11.1.0",
 		"eslint-plugin-promise": "^5.1.0",
 		"eslint-plugin-react": "^7.22.0",
-		"husky": "^5.1.3",
 		"init": "0.1.2",
 		"jest": "^26.6.3",
 		"jest-canvas-mock": "^2.3.1",
 		"jest-styled-components": "^7.0.3",
 		"prettier": "2.2.1",
 		"shelljs": "^0.8.4",
-		"typescript": "^4.1.4"
+		"typescript": "^4.1.4",
+		"husky": "^6.0.0"
 	},
 	"license": "MIT",
 	"config": {
 		"commitizen": {
 			"path": "cz-conventional-changelog"
-		}
-	},
-	"husky": {
-		"hooks": {
-			"pre-push": "yarn lint",
-			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
 		}
 	}
 }
