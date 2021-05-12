@@ -1,5 +1,5 @@
 import Button from '../Button'
-import Image from 'next/image'
+// import Image from 'next/image'
 import CloseIcon from '@material-ui/icons/Close'
 import { Box } from '../../foundation/layout/Box'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
@@ -28,28 +28,46 @@ const schema = yup.object().shape({
 
 export default function Card ({ propsDoModal, Close }: ICard) {
   const [buttonUrl, setButtonUrl] = useState(false)
-  const [imageUrl, setImageUrl] = useState('/imageDefault.svg')
+  const [filter, setFilter] = useState('')
+  const [photoUrl, setPhotoUrl] = useState('/imageDefault.svg')
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   })
+  const description = 'post photo'
 
   useEffect(() => {
     if (errors.imgUrl) {
-      setImageUrl('/imageDefault.svg')
+      setPhotoUrl('/imageDefault.svg')
       setButtonUrl(false)
     }
   }, [errors.imgUrl])
 
   const onSubmit = async (data: any) => {
     if (buttonUrl === false) {
-      await fetch(imageUrl, {
+      await fetch(photoUrl, {
         method: 'HEAD'
       })
         .then(res => {
           if (res.ok) {
             setButtonUrl(true)
-            setImageUrl(data.imgUrl)
+            setPhotoUrl(data.imgUrl)
           }
+        })
+    } if (buttonUrl === true) {
+      await fetch('/api/post', {
+        method: 'POST',
+        body: JSON.stringify({
+          photoUrl,
+          filter,
+          description
+        })
+      })
+        .then(() => {
+          console.log('postagem deu certo')
+          Close()
+        })
+        .catch((err) => {
+          throw new Error(err)
         })
     }
   }
@@ -64,7 +82,12 @@ export default function Card ({ propsDoModal, Close }: ICard) {
         width='12px'
         ghost
         color='#88989E'
-        onClick={Close}
+        onClick={() => {
+          setFilter('')
+          setButtonUrl(false)
+          setPhotoUrl('/imageDefault.svg')
+          return Close()
+        }}
       >
         <CloseIcon />
       </Button>
@@ -76,26 +99,36 @@ export default function Card ({ propsDoModal, Close }: ICard) {
         justifyContent= 'center'
         backgroundColor='#D4D4D4'
       >
-        {imageUrl === '/imageDefault.svg'
+        {photoUrl === '/imageDefault.svg'
           ? <Box marginTop='100px'>
-            <Image
-              layout='fixed'
+            <img
+              // layout='fixed'
               width={153.33}
               height={153.33}
-              src={imageUrl}
+              src={photoUrl}
             />
           </Box>
-          : <Image
-            layout='fixed'
-            width={375}
-            height={375}
-            src={imageUrl}
-          />
+          : <figure
+            className={`filter-[${filter}]`}
+            style={{
+              padding: 0,
+              margin: 0
+            }}
+          >
+            <img
+              src={photoUrl}
+              height={375}
+              width={375}
+              alt="" />
+          </figure>
         }
       </Box>
 
       {buttonUrl === false
-        ? <FormStyle onSubmit={handleSubmit(onSubmit)}>
+        ? <FormStyle
+          buttomUrl={buttonUrl}
+          onSubmit={handleSubmit(onSubmit)}
+        >
             <Box
               display='flex'
               width='327px'
@@ -135,7 +168,6 @@ export default function Card ({ propsDoModal, Close }: ICard) {
                 {errors.imgUrl?.message}
               </Text>
             }
-
             <Text
               name='formatAllowed'
               tag='span'
@@ -158,34 +190,54 @@ export default function Card ({ propsDoModal, Close }: ICard) {
             </Button>
           </FormStyle>
 
-        : <>
-          <FiltersCss>
-            {filterNames.map((filter) => {
-              return <li key={filter.name}>
-                <figure className={`filter-[${filter.filter}]`}>
-                  <Image
-                    layout='fixed'
-                    width={88}
-                    height={88}
-                    src={imageUrl}
-                  />
-                </figure>
+        : <FormStyle
+          buttomUrl={buttonUrl}
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <FiltersCss buttomUrl={buttonUrl}>
+            {filterNames.map((filtercss) => {
+              return <li key={filtercss.name}>
+                <button
+                  style={{
+                    margin: '0 0 0 16px',
+                    padding: 0,
+                    border: 'none'
+                  }}
+                  onClick={() => {
+                    setFilter(filtercss.filter)
+                  }}
+                >
+                  <figure
+                    className={`filter-[${filtercss.filter}]`}
+                    style={{ margin: 0, padding: 0 }}
+                  >
+                    <img
+                      // layout='fixed'
+                      width={88}
+                      height={88}
+                      src={photoUrl}
+                    />
+                  </figure>
+                </button>
                 <Text
                   variant='smallestException'
-                  color='black'
-                  marginLeft='25%'
+                  marginLeft='45%'
                 >
-                  {filter.name}
+                  {filtercss.name}
                 </Text>
               </li>
             })}
           </FiltersCss>
           <Button
-            margin='24px 24px 32px 24px'
+            width='327px'
+            height='44px'
+            margin='24px 0 32px 0px'
+            padding='0'
+            type='submit'
           >
             Postar
           </Button>
-        </>
+        </FormStyle>
       }
     </CardStyle>
   )

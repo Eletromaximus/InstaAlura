@@ -14,6 +14,7 @@ function SEO ({ headTitle }: any) {
 			<title>{title}</title>
 			<meta name="title" content={title}/>
 			<meta name="description" content={description} />
+			<link rel="stylesheet" href="instagram.min.css"/>
 
 			{/* <!-- Open Graph / Facebook --> */}
 			<meta property="og:type" content="website"/>
