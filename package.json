@@ -23,7 +23,7 @@
 		"@material-ui/icons": "^4.11.2",
 		"@xstyled/styled-components": "^2.2.2",
 		"axios": "^0.21.1",
-		"framer-motion": "^4.0.3",
+		"framer-motion": "^4.1.16",
 		"graphql": "^15.5.0",
 		"graphql-request": "^3.4.0",
 		"jsonwebtoken": "^8.5.1",
