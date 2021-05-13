@@ -54,8 +54,7 @@ function Menu ({ onCadastrarClick, profileImgUrl }: IProps) {
 						Cadastrar
 					</Button>
 				</MenuWrapper.RightSide>
-
-		</MenuWrapper>
+	    </MenuWrapper>
     )
   }
   return (
