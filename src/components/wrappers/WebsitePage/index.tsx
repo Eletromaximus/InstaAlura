@@ -26,6 +26,7 @@ interface IWebsitePagesWrapper {
   };
   messages: any;
   formCadastro: boolean;
+  token: string;
 }
 
 export default function WebsitePagesWrapper ({
@@ -34,7 +35,8 @@ export default function WebsitePagesWrapper ({
   pageBoxProps,
   menuProps,
   messages,
-  formCadastro
+  formCadastro,
+  token
 }: IWebsitePagesWrapper) {
   const [isModalOpen, setIsModalState] = useState(false)
 
@@ -45,6 +47,7 @@ export default function WebsitePagesWrapper ({
           Close={() => setIsModalState(false)}
         />
       : <Card
+          token={token}
           propsDoModal={propsDoModal}
           Close={() => setIsModalState(false)}
         />
@@ -99,5 +102,6 @@ WebsitePagesWrapper.defaultProps = {
     profilePage: false
   },
   messages: {},
-  formCadastro: true
+  formCadastro: true,
+  token: ''
 }

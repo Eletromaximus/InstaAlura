@@ -10,11 +10,10 @@ interface IProfile {
     seguidores: number;
     publicaEs: number;
     avatarImage: {
-      url: string
+      url: string;
     }
   }
 }
-
 export default function ProfileScreen ({ messages } : IProfile) {
   return (
     <Box

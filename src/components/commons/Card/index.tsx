@@ -14,6 +14,7 @@ import filterNames from './filterNames'
 interface ICard {
   propsDoModal: any;
   Close: () => void;
+  token: string;
 }
 
 const schema = yup.object().shape({
@@ -26,10 +27,10 @@ const schema = yup.object().shape({
     .max(100)
 })
 
-export default function Card ({ propsDoModal, Close }: ICard) {
+export default function Card ({ propsDoModal, Close, token }: ICard) {
   const [buttonUrl, setButtonUrl] = useState(false)
   const [filter, setFilter] = useState('')
-  const [photoUrl, setPhotoUrl] = useState('/imageDefault.svg')
+  const [photoUrl, setPhotoUrl] = useState<string>('/imageDefault.svg')
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   })
@@ -53,18 +54,28 @@ export default function Card ({ propsDoModal, Close }: ICard) {
             setPhotoUrl(data.imgUrl)
           }
         })
-    } if (buttonUrl === true) {
+        .catch(() => {
+          setButtonUrl(false)
+          setPhotoUrl('/imageDefault.svg')
+        })
+    }
+    if (buttonUrl === true) {
       await fetch('/api/post', {
         method: 'POST',
+        headers: {
+          authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
-          photoUrl,
+          description,
           filter,
-          description
+          photoUrl
         })
       })
-        .then(() => {
-          console.log('postagem deu certo')
-          Close()
+        .then(async (res) => {
+          if (res.ok) {
+            Close()
+          }
         })
         .catch((err) => {
           throw new Error(err)
@@ -129,66 +140,66 @@ export default function Card ({ propsDoModal, Close }: ICard) {
           buttomUrl={buttonUrl}
           onSubmit={handleSubmit(onSubmit)}
         >
+          <Box
+            display='flex'
+            width='327px'
+            height='48px'
+            flexDirection='row'
+            justifyContent='space-between'
+            border= '1px solid #88989E'
+            borderRadius= '9.25px'
+          >
+            <input
+              id='imgUrl'
+              type='text'
+              placeholder='Url da imagem'
+              {...register('imgUrl')}
+            />
+
             <Box
               display='flex'
-              width='327px'
-              height='48px'
-              flexDirection='row'
-              justifyContent='space-between'
-              border= '1px solid #88989E'
-              borderRadius= '9.25px'
+              backgroundColor='#FB7B6B'
+              width='47px'
+              height='47px'
+              justifyContent='center'
+              style={{ borderRadius: '8px' }}
             >
-              <input
-                id='imgUrl'
-                type='text'
-                placeholder='Url da imagem'
-                {...register('imgUrl')}
-              />
-
-              <Box
-                display='flex'
-                backgroundColor='#FB7B6B'
-                width='47px'
-                height='47px'
-                justifyContent='center'
-                style={{ borderRadius: '8px' }}
-              >
-                <div style={{ marginTop: '25%' }}>
-                  <ArrowForwardIcon />
-                </div>
-              </Box>
+              <div style={{ marginTop: '25%' }}>
+                <ArrowForwardIcon />
+              </div>
             </Box>
+          </Box>
 
-            {errors.imgUrl &&
-              <Text
-                marginLeft='28px'
-                variant='paragraph2'
-                color='primary.main'
-              >
-                {errors.imgUrl?.message}
-              </Text>
-            }
+          {errors.imgUrl &&
             <Text
-              name='formatAllowed'
-              tag='span'
-              marginTop='8px'
-              marginBottom='38px'
               marginLeft='28px'
               variant='paragraph2'
-              padding='0'
-              color='tertiary.light'
+              color='primary.main'
             >
-              Formatos suportados: jpg, png, svg e xpto.
+              {errors.imgUrl?.message}
             </Text>
-            <Button
-              width='327px'
-              height='44px'
-              type='submit'
-              disabled={Boolean(errors.imgUrl)}
-            >
-              Avançar
-            </Button>
-          </FormStyle>
+          }
+          <Text
+            name='formatAllowed'
+            tag='span'
+            marginTop='8px'
+            marginBottom='38px'
+            marginLeft='28px'
+            variant='paragraph2'
+            padding='0'
+            color='tertiary.light'
+          >
+            Formatos suportados: jpg, png, svg e xpto.
+          </Text>
+          <Button
+            width='327px'
+            height='44px'
+            type='submit'
+            disabled={Boolean(errors.imgUrl)}
+          >
+            Avançar
+          </Button>
+        </FormStyle>
 
         : <FormStyle
           buttomUrl={buttonUrl}
@@ -204,7 +215,7 @@ export default function Card ({ propsDoModal, Close }: ICard) {
                     border: 'none'
                   }}
                   onClick={() => {
-                    setFilter(filtercss.filter)
+                    setFilter(filtercss.name)
                   }}
                 >
                   <figure
