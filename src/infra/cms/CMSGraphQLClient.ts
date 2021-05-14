@@ -16,6 +16,7 @@ export function CMSGraphQLClient ({ preview } = { preview: false }) {
   return {
     async query ({ query, variables }: any) {
       const messages = await client.request(query, variables)
+      console.log(messages)
 
       return {
         data: {

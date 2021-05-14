@@ -11,12 +11,14 @@ export async function getServerSideProps (ctx: any) {
   const messages = await getContent({ preview })
   const auth = authService(ctx)
   const hasActiveSession = await auth.hasActiveSession()
+  const token = await auth.getToken()
 
   if (hasActiveSession) {
     const session: any = await auth.getSession()
     return {
       props: {
         messages,
+        token,
         user: {
           ...session
         }

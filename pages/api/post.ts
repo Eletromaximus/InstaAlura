@@ -17,9 +17,8 @@ export default async function Post (req: NextApiRequest, res: NextApiResponse) {
       likes: []
       // __v: 0
     })
-    const { id, photoUrl, description, filter, user, likes, created_at, updated_at } = record
-    const data = { id, photoUrl, description, filter, user, likes, created_at, updated_at }
-    return res.json(data)
+
+    return res.send(record)
   } else {
     return res.status(400).json(({
       message: 'Método não permitido'
