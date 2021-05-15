@@ -9,9 +9,7 @@ import { useContext, useState } from 'react'
 import { WebsitePagesContext } from '../../../wrappers/WebsitePage/'
 
 interface IProfileMenu {
-  profileImgUrl: {
-    url: string
-  }
+  profileImgUrl: string
 }
 export default function ProfileMenu ({ profileImgUrl }: IProfileMenu) {
   const [favorite, setFavorite] = useState(false)
@@ -76,7 +74,7 @@ export default function ProfileMenu ({ profileImgUrl }: IProfileMenu) {
 					  layout='fixed'
             width={32}
             height={32}
-            src={profileImgUrl.url || '/account.png'}
+            src={profileImgUrl || '/account.png'}
             alt='avatar'
           />
 				</Button>
