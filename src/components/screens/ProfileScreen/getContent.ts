@@ -1,10 +1,6 @@
 import { CMSGraphQLClient, gql } from '../../../infra/cms/CMSGraphQLClient'
 
-interface IProps {
-  preview: boolean
-}
-
-export async function getContent ({ preview }: IProps) {
+export async function getContent ({ preview } = { preview: false }) {
   const query = gql`
   query {
     profile{
