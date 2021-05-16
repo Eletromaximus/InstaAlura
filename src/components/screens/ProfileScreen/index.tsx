@@ -1,6 +1,8 @@
 import Bio from './BioBox'
 import { Box } from '../../foundation/layout/Box'
 import { Grid } from '../../foundation/layout/Grid'
+import { ImgStyle, ListStyle } from './style'
+import Button from '../../commons/Button'
 
 export { getContent } from './getContent'
 
@@ -31,26 +33,25 @@ interface IProfile {
 
 export default function ProfileScreen ({ messages }: IProfile) {
   return (
-
     <Box
       display='flex'
       flexDirection='column'
       justifyContent='start'
-      margin='28px'
-      marginTop='0'
+      margin='0'
+      marginTop='64px'
     >
-      {messages &&
-      <Bio messages={messages.profile} />}
-
       <Grid.Col
         offset={{ md: 2, sm: 0 }}
-        value={{ md: 10, sm: 12 }}
+        value={{ md: 9, sm: 12 }}
         style={{
-          // marginTop: '72px',
           marginBottom: '100px',
           padding: 0
         }}
       >
+        {messages &&
+          <Bio messages={messages.profile}/>
+        }
+
         <ul style={{
           listStyle: 'none',
           display: 'flex',
@@ -60,20 +61,21 @@ export default function ProfileScreen ({ messages }: IProfile) {
           {
             messages.allPosts &&
             messages.allPosts?.map((post) => {
-              return <li
+              return <ListStyle
                   key={post.id}
-                  style={{
-                    marginRight: 32,
-                    marginTop: 32
-                  }}
                 >
-                <img
-                  src={post.photourl}
-                  alt={post.description}
-                  width={249}
-                  height={249}
-                />
-              </li>
+                  <Button
+                    href={post.id}
+                    margin='0'
+                    padding='0'
+                    ghost
+                  >
+                    <ImgStyle
+                      src={post.photourl}
+                      alt={post.description}
+                    />
+                  </Button>
+              </ListStyle>
             })
           }
         </ul>
