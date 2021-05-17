@@ -595,10 +595,10 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.2.0.tgz#f3933a44e365864f4dad5db94158106d511e8131"
   integrity sha512-sqKVVVOe5ivCaXDWivIJYVSaEgdQK9ul7a4Kity5Iw7u9+wBAPbX1RMSnLLmp7O4Vzj0WOWwMAJsTL00xwaNug==
 
-"@hookform/resolvers@^2.4.0":
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-2.5.0.tgz#ce6bac219339f2c0877c517b2632a163a2abdd53"
-  integrity sha512-hQpocA/SAodTeR4EJWB+Setx95FwGU7yd5vux7GnlnqFwc0Uk89G5XPrsPoGyLYzolCoI3ojDswDCWl/sTTQXw==
+"@hookform/resolvers@^2.5.1":
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-2.5.1.tgz#09f2228c9061c350819881dc11e4f65af90c5a1a"
+  integrity sha512-dNChuOJ7ker2ZALGhXO6KjeycwnBGcSslGsREgqTDSiBOgbEysupfGTJKzQsb0sXpNhrZLCGvQcT+qPmCdBEMw==
 
 "@iarna/toml@^2.2.3":
   version "2.2.5"
