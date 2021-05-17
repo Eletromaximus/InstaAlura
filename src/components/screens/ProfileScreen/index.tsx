@@ -70,10 +70,14 @@ export default function ProfileScreen ({ messages }: IProfile) {
                     padding='0'
                     ghost
                   >
-                    <ImgStyle
-                      src={post.photourl}
-                      alt={post.description}
-                    />
+                    <figure className={`filter-[${post.filter}]`}
+                      style={ { margin: 0, padding: 0 }}
+                    >
+                      <ImgStyle
+                        src={post.photourl}
+                        alt={post.description}
+                      />
+                    </figure>
                   </Button>
               </ListStyle>
             })

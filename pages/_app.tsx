@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import { AppProps } from 'next/app'
 
+import '../static/instagram.css'
+
 export default function App ({
   Component,
   pageProps
