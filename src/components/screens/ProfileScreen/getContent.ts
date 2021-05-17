@@ -1,10 +1,6 @@
 import { CMSGraphQLClient, gql } from '../../../infra/cms/CMSGraphQLClient'
 
-interface IProps {
-  preview: boolean
-}
-
-export async function getContent ({ preview }: IProps) {
+export async function getContent ({ preview } = { preview: false }) {
   const query = gql`
   query {
     profile{
@@ -16,11 +12,20 @@ export async function getContent ({ preview }: IProps) {
       avatarImage {
         url
       }
+    },
+    allPosts {
+      description,
+      photourl,
+      filter,
+      id,
+      user,
+      createdAt,
+      updatedAt
     }
   }
 `
   const client = CMSGraphQLClient({ preview })
 
   const response: any = await client.query({ query })
-  return response.data.messages.profile
+  return response.data.messages
 }

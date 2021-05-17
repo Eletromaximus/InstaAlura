@@ -29,11 +29,13 @@ const schema = yup.object().shape({
 
 export default function Card ({ propsDoModal, Close, token }: ICard) {
   const [buttonUrl, setButtonUrl] = useState(false)
+  const [post, setPost] = useState(false)
   const [filter, setFilter] = useState('')
   const [photoUrl, setPhotoUrl] = useState<string>('/imageDefault.svg')
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   })
+
   const description = 'post photo'
 
   useEffect(() => {
@@ -245,6 +247,10 @@ export default function Card ({ propsDoModal, Close, token }: ICard) {
             margin='24px 0 32px 0px'
             padding='0'
             type='submit'
+            onClick={() => {
+              setPost(!post)
+            }}
+            disabled={post}
           >
             Postar
           </Button>

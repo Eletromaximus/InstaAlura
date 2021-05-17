@@ -12,9 +12,7 @@ export const BioBox: IBioBox = styled.div`
   width: 592px;
   height: 188px;
   display: flex;
-  //flex-direction: row;
-  padding: 0;
-  margin: 0;
+  margin-left: max(10%);
   justify-Content: 'space-between';
 `
 BioBox.Avatar = styled.div`

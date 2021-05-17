@@ -6,9 +6,7 @@ import ProfileMenu from './ProfileMenu'
 interface IProps {
 	onCadastrarClick: () => void;
 	profileMode: boolean;
-	profileImgUrl?: {
-		url: string
-	};
+	profileImgUrl?: string;
 }
 
 const links = [
@@ -27,7 +25,7 @@ const links = [
 ]
 
 function Menu ({ onCadastrarClick, profileImgUrl }: IProps) {
-  if (!profileImgUrl?.url) {
+  if (!profileImgUrl) {
     return (
 			<MenuWrapper>
 				<MenuWrapper.LeftSide>
