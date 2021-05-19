@@ -1,4 +1,4 @@
-import { CMSGraphQLClient, gql } from '../../../infra/cms/CMSGraphQLClient'
+import { CMSGraphQLClient, gql } from '../../../../infra/cms/CMSGraphQLClient'
 
 export async function getContent ({ preview } = { preview: false }) {
   const query = gql`

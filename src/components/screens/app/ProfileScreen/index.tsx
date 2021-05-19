@@ -1,8 +1,8 @@
 import Bio from './BioBox'
-import { Box } from '../../foundation/layout/Box'
-import { Grid } from '../../foundation/layout/Grid'
+import { Box } from '../../../foundation/layout/Box'
+import { Grid } from '../../../foundation/layout/Grid'
 import { ImgStyle, ListStyle } from './style'
-import Button from '../../commons/Button'
+import Button from '../../../commons/Button'
 
 export { getContent } from './getContent'
 
@@ -70,7 +70,7 @@ export default function ProfileScreen ({ messages }: IProfile) {
                     padding='0'
                     ghost
                   >
-                    <figure className={`filter-[${post.filter}]`}
+                    <figure className={`filter-${post.filter}`}
                       style={ { margin: 0, padding: 0 }}
                     >
                       <ImgStyle

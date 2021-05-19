@@ -1,7 +1,7 @@
 import React from 'react'
-import Text from '../../foundation/Text'
-import { Box } from '../../foundation/layout/Box'
-import { Grid } from '../../foundation/layout/Grid'
+import Text from '../../../foundation/Text'
+import { Box } from '../../../foundation/layout/Box'
+import { Grid } from '../../../foundation/layout/Grid'
 
 export interface IFaqScreen {
 	faqCategories:

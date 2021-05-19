@@ -1,4 +1,4 @@
-import { CMSGraphQLClient, gql } from '../../../infra/cms/CMSGraphQLClient'
+import { CMSGraphQLClient, gql } from '../../../../infra/cms/CMSGraphQLClient'
 
 interface IProps {
   preview: boolean,
@@ -13,10 +13,27 @@ export async function getContent ({ preview, user, id }: IProps) {
       photourl,
       likes,
       filter,
+      createdAt,
+      updatedAt
     }
   }
 `
   const client = CMSGraphQLClient({ preview })
+
+  const response = await client.query({ query })
+
+  return response.data.messages
+}
+
+export async function getPages () {
+  const query = gql`
+  query {
+    allPosts {
+      id
+    }
+  }
+`
+  const client = CMSGraphQLClient()
 
   const response = await client.query({ query })
 
