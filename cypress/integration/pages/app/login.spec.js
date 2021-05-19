@@ -4,7 +4,7 @@ import LoginScreenPageObject from '../../../../src/components/screens/app/LoginS
 
 describe('/pages/app/login/', () => {
   describe('when fill and submit a form login request', () => {
-    it('go to the profile page', () => {
+    it('go to the profile page', async () => {
       cy.intercept('https://instalura-api-git-master-omariosouto.vercel.app/api/login')
         .as('userLogin')
 
@@ -16,8 +16,8 @@ describe('/pages/app/login/', () => {
 
       cy.url().should('include', 'app/profile')
       cy.wait('@userLogin')
-        .then((intercept) => {
-          const token = intercept.response.body.data.token
+        .then(async (intercept) => {
+          const token = await intercept.response.body.data.token
           cy.getCookie('APP_TOKEN')
             .should('exist')
             .should('have.property', 'value', token)
