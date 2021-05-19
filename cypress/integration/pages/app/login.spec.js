@@ -4,7 +4,7 @@ import LoginScreenPageObject from '../../../../src/components/screens/app/LoginS
 
 describe('/pages/app/login/', () => {
   describe('when fill and submit a form login request', () => {
-    it('go to the profile page', async () => {
+    it('go to the profile page', () => {
       cy.intercept('https://instalura-api-git-master-omariosouto.vercel.app/api/login')
         .as('userLogin')
 
