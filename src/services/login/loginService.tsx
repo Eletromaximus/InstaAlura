@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import { destroyCookie, setCookie } from 'nookies'
-// import { isStagingEnv } from '../../infra/env/isStagingEnv'
+import { isStagingEnv } from '../../infra/env/isStagingEnv'
 import HttpClient from '../../infra/http/HttpClient'
 
 interface ILogin {
@@ -8,11 +8,11 @@ interface ILogin {
   password: string;
 }
 
-const BASE_URL = 'https://instalura-api-git-master-omariosouto.vercel.app'
+const BASE_URL = isStagingEnv
 // Back-end de DEV
-// ?
-// // Back-end de PROD
-// : 'https://instalura-api-omariosouto.vercel.app'
+  ? 'https://instalura-api-git-master-omariosouto.vercel.app'
+// Back-end de PROD
+  : 'https://instalura-api-omariosouto.vercel.app'
 
 export const LOGIN_COOKIE_APP_TOKEN = 'LOGIN_COOKIE_APP_TOKEN'
 
