@@ -1,7 +1,7 @@
 import React from 'react'
-import { Grid } from '../../foundation/layout/Grid'
-import { Box } from '../../foundation/layout/Box'
-import Text from '../../foundation/Text'
+import { Grid } from '../../../../foundation/layout/Grid'
+import { Box } from '../../../../foundation/layout/Box'
+import Text from '../../../../foundation/Text'
 import { useTheme } from 'styled-components'
 
 export interface IFaqQuestion {

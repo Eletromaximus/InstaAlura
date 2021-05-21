@@ -1,5 +1,5 @@
 import React from 'react'
-import FAQScreen, { IFaqScreen } from '../../src/components/screens/FAQScreen'
+import FAQScreen, { IFaqScreen } from '../../src/components/screens/app/FAQScreens/FAQScreen'
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc'
 
 function FAQpage ({ faqCategories }: IFaqScreen) {

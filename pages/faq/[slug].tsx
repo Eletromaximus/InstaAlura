@@ -1,5 +1,5 @@
 import React from 'react'
-import FAQQuestionScreen, { IFaqQuestion } from '../../src/components/screens/FAQQuestionScreen'
+import FAQQuestionScreen, { IFaqQuestion } from '../../src/components/screens/app/FAQScreens/FAQQuestionScreen'
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc'
 
 function FAQInternaScreen ({ category, question }: IFaqQuestion) {

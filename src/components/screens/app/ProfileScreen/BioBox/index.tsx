@@ -1,7 +1,7 @@
-import { Grid } from '../../../foundation/layout/Grid'
-import { Box } from '../../../foundation/layout/Box'
+import { Grid } from '../../../../foundation/layout/Grid'
+import { Box } from '../../../../foundation/layout/Box'
 import Image from 'next/image'
-import Text from '../../../foundation/Text'
+import Text from '../../../../foundation/Text'
 import { BioBox } from './style'
 
 interface IProfile {

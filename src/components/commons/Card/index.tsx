@@ -122,7 +122,7 @@ export default function Card ({ propsDoModal, Close, token }: ICard) {
             />
           </Box>
           : <figure
-            className={`filter-[${filter}]`}
+            className={`filter-${filter}`}
             style={{
               padding: 0,
               margin: 0

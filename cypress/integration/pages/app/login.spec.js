@@ -14,14 +14,9 @@ describe('/pages/app/login/', () => {
         .fillLoginForm({ user: 'omariosouto', password: 'senhasegura' })
         .submitLoginForm()
 
-      cy.url().should('include', 'app/profile')
-      cy.wait('@userLogin')
-        .then((intercept) => {
-          const token = intercept.response.body.data.token
-          cy.getCookie('APP_TOKEN')
-            .should('exist')
-            .should('have.property', 'value', token)
-        })
+      cy.url().should('include', '/app/profile')
+      cy.getCookie('LOGIN_COOKIE_APP_TOKEN')
+        .should('exist')
     })
   })
 })

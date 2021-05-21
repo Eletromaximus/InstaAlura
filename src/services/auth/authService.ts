@@ -19,7 +19,7 @@ export const authService = (ctx: any) => {
       return token
     },
     async hasActiveSession () {
-      return HttpClient(`${BASE_URL}/api/auth`, {
+      return await HttpClient(`${BASE_URL}/api/auth`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`
