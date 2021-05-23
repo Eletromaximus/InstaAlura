@@ -2,7 +2,7 @@ import Bio from './BioBox'
 import { Box } from '../../../foundation/layout/Box'
 import { Grid } from '../../../foundation/layout/Grid'
 import { ImgStyle, ListStyle } from './style'
-import Button from '../../../commons/Button'
+// import { useState } from 'react'
 
 export { getContent } from './getContent'
 
@@ -32,6 +32,7 @@ interface IProfile {
 }
 
 export default function ProfileScreen ({ messages }: IProfile) {
+  // const [content, setContent] = useState<IProfile>()
   return (
     <Box
       display='flex'
@@ -64,11 +65,12 @@ export default function ProfileScreen ({ messages }: IProfile) {
               return <ListStyle
                   key={post.id}
                 >
-                  <Button
-                    href={post.id}
-                    margin='0'
-                    padding='0'
-                    ghost
+                  <div
+                    style={{
+                      margin: 0,
+                      padding: 0
+                    }}
+
                   >
                     <figure className={`filter-${post.filter}`}
                       style={ { margin: 0, padding: 0 }}
@@ -78,13 +80,12 @@ export default function ProfileScreen ({ messages }: IProfile) {
                         alt={post.description}
                       />
                     </figure>
-                  </Button>
+                  </div>
               </ListStyle>
             })
           }
         </ul>
       </Grid.Col>
     </Box>
-    // </WrapperCardContext.Provider>
   )
 }

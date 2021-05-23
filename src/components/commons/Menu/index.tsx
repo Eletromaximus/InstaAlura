@@ -2,7 +2,6 @@ import { MenuWrapper } from './styles'
 import { Logo } from '../../../theme/Logo/Logo'
 import Button from '../Button'
 import Text from '../../foundation/Text'
-import ProfileMenu from './ProfileMenu'
 interface IProps {
 	onCadastrarClick: () => void;
 	profileMode: boolean;
@@ -24,39 +23,34 @@ const links = [
   }
 ]
 
-function Menu ({ onCadastrarClick, profileImgUrl }: IProps) {
-  if (!profileImgUrl) {
-    return (
-			<MenuWrapper>
-				<MenuWrapper.LeftSide>
-						<Logo size='small' />
-				</MenuWrapper.LeftSide>
-
-				<MenuWrapper.CentralSide>
-					{links.map((link) => {
-					  return (
-							<li key={link.url}>
-								<Text variant='smallestException' href={link.url} >
-									{link.texto}
-								</Text>
-							</li>
-					  )
-					})}
-				</MenuWrapper.CentralSide>
-
-				<MenuWrapper.RightSide>
-					<Button ghost href='/app/login' variant='secondary.main'>
-						Entrar
-					</Button>
-					<Button variant='primary.main' onClick={onCadastrarClick}>
-						Cadastrar
-					</Button>
-				</MenuWrapper.RightSide>
-	    </MenuWrapper>
-    )
-  }
+function Menu ({ onCadastrarClick }: IProps) {
   return (
-		<ProfileMenu profileImgUrl={profileImgUrl} />
+		<MenuWrapper>
+			<MenuWrapper.LeftSide>
+					<Logo size='small' />
+			</MenuWrapper.LeftSide>
+
+			<MenuWrapper.CentralSide>
+				{links.map((link) => {
+				  return (
+						<li key={link.url}>
+							<Text variant='smallestException' href={link.url} >
+								{link.texto}
+							</Text>
+						</li>
+				  )
+				})}
+			</MenuWrapper.CentralSide>
+
+			<MenuWrapper.RightSide>
+				<Button ghost href='/app/login' variant='secondary.main'>
+					Entrar
+				</Button>
+				<Button variant='primary.main' onClick={onCadastrarClick}>
+					Cadastrar
+				</Button>
+			</MenuWrapper.RightSide>
+	    </MenuWrapper>
   )
 }
 

@@ -1,5 +1,4 @@
 import Button from '../Button'
-// import Image from 'next/image'
 import CloseIcon from '@material-ui/icons/Close'
 import { Box } from '../../foundation/layout/Box'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
