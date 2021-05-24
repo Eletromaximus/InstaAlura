@@ -68,7 +68,7 @@ export default function ProfileMenu ({ profileImgUrl }: IProfileMenu) {
 
         <Button
 				  ghost
-					href='/app/profile'
+					href='/app/feed'
 					padding='6px 8px'
 				>
 				  <Image
