@@ -17,7 +17,7 @@ jobs:
       # [[AJUSTES GERAIS]]
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
           node-version: '14.17.0'
       ##################################
@@ -35,7 +35,7 @@ jobs:
     steps: # Steps represent a sequence of tasks that will be executed as part of the job
       # [Pre Build-step]
       - uses: actions/checkout@v2 ## Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
           node-version: '14.17.0'
       - name: Get yarn cache directory path
@@ -59,7 +59,7 @@ jobs:
     steps: # Steps represent a sequence of tasks that will be executed as part of the job
       # [Pre Build-step]
       - uses: actions/checkout@v2 ## Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
           node-version: '14.17.0'
       - name: Get yarn cache directory path
