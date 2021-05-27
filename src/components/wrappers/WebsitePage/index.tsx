@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import get from 'lodash/get'
 import Footer from '../../commons/Footer'
 import Menu from '../../commons/Menu'
+import ProfileMenu from '../../commons/Menu/ProfileMenu'
 import Modal from '../../commons/Modal'
 import SEO from '../../commons/SEO'
 import { Box } from '../../foundation/layout/Box'
@@ -22,6 +23,7 @@ interface IWebsitePagesWrapper {
   };
   menuProps: {
     display: boolean;
+    profileDisplay: boolean;
   };
   messages: any;
   formCadastro: boolean;
@@ -84,7 +86,9 @@ export default function WebsitePagesWrapper ({
 			</Modal>
       {menuProps.display && <Menu
         onCadastrarClick={() => setIsModalState(true)}
-        profileImgUrl={messages?.profile?.avatarImage?.url || null}
+      />}
+      {menuProps.profileDisplay && <ProfileMenu
+        profileImgUrl={messages?.profile?.avatarImage?.url}
       />}
       {children}
       <Footer/>
@@ -97,7 +101,8 @@ WebsitePagesWrapper.defaultProps = {
   seoProps: {},
   pageBoxProps: {},
   menuProps: {
-    display: true
+    display: true,
+    profileDisplay: false
   },
   messages: {},
   formCadastro: true,

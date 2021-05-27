@@ -1,5 +1,4 @@
 import Button from '../Button'
-// import Image from 'next/image'
 import CloseIcon from '@material-ui/icons/Close'
 import { Box } from '../../foundation/layout/Box'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
@@ -24,7 +23,7 @@ const schema = yup.object().shape({
     .matches(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png))/i,
       'Por favor, insirua uma url valida'
     )
-    .max(100)
+    .max(200)
 })
 
 export default function Card ({ propsDoModal, Close, token }: ICard) {
@@ -38,12 +37,46 @@ export default function Card ({ propsDoModal, Close, token }: ICard) {
 
   const description = 'post photo'
 
+  function Clear () {
+    setFilter('')
+    setButtonUrl(false)
+    setPost(false)
+    setPhotoUrl('/imageDefault.svg')
+    Close()
+  }
+
   useEffect(() => {
     if (errors.imgUrl) {
       setPhotoUrl('/imageDefault.svg')
       setButtonUrl(false)
     }
   }, [errors.imgUrl])
+
+  async function PostPhoto () {
+    if (!post) {
+      setPost(true)
+      return await fetch('/api/post', {
+        method: 'POST',
+        headers: {
+          authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          description,
+          filter,
+          photoUrl
+        })
+      })
+        .then(async (res) => {
+          if (res.ok) {
+            Clear()
+          }
+        })
+        .catch((err) => {
+          throw new Error(err)
+        })
+    }
+  }
 
   const onSubmit = async (data: any) => {
     if (buttonUrl === false) {
@@ -61,28 +94,6 @@ export default function Card ({ propsDoModal, Close, token }: ICard) {
           setPhotoUrl('/imageDefault.svg')
         })
     }
-    if (buttonUrl === true) {
-      await fetch('/api/post', {
-        method: 'POST',
-        headers: {
-          authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          description,
-          filter,
-          photoUrl
-        })
-      })
-        .then(async (res) => {
-          if (res.ok) {
-            Close()
-          }
-        })
-        .catch((err) => {
-          throw new Error(err)
-        })
-    }
   }
 
   return (
@@ -96,10 +107,7 @@ export default function Card ({ propsDoModal, Close, token }: ICard) {
         ghost
         color='#88989E'
         onClick={() => {
-          setFilter('')
-          setButtonUrl(false)
-          setPhotoUrl('/imageDefault.svg')
-          return Close()
+          return Clear()
         }}
       >
         <CloseIcon />
@@ -246,11 +254,11 @@ export default function Card ({ propsDoModal, Close, token }: ICard) {
             height='44px'
             margin='24px 0 32px 0px'
             padding='0'
-            type='submit'
-            onClick={() => {
-              setPost(!post)
-            }}
+            // type='submit'
             disabled={post}
+            onClick={() =>
+              PostPhoto()
+            }
           >
             Postar
           </Button>

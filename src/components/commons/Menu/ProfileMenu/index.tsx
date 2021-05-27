@@ -1,4 +1,4 @@
-import { MenuWrapper } from '../styles'
+import { MenuWrapper } from './style'
 import { Logo } from '../../../../theme/Logo/Logo'
 import Button from '../../Button'
 import Image from 'next/image'
@@ -6,11 +6,12 @@ import HomeIcon from '@material-ui/icons/Home'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import { useContext, useState } from 'react'
-import { WebsitePagesContext } from '../../../wrappers/WebsitePage/'
+import { WebsitePagesContext } from '../../../wrappers/WebsitePage'
 
 interface IProfileMenu {
   profileImgUrl: string
 }
+
 export default function ProfileMenu ({ profileImgUrl }: IProfileMenu) {
   const [favorite, setFavorite] = useState(false)
   const heartIcon = favorite ? <FavoriteIcon /> : <FavoriteBorderIcon />
@@ -67,7 +68,7 @@ export default function ProfileMenu ({ profileImgUrl }: IProfileMenu) {
 
         <Button
 				  ghost
-					href='/app/profile'
+					href='/app/feed'
 					padding='6px 8px'
 				>
 				  <Image
