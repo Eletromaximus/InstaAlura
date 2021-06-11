@@ -76,5 +76,6 @@ jobs:
         run: yarn --prefer-offline
 
       - name: Run Integration Tests
-        env: DATO_CMS_TOKEN: 420cd8ada6ab1c5165f444414eda2f
+        env: 
+          DATO_CMS_TOKEN: 420cd8ada6ab1c5165f444414eda2f
         run: yarn test:integration:build 
