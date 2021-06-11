@@ -1,6 +1,6 @@
-import { authService } from '../../src/services/auth/authService'
-import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc'
-import ProfileScreen, { getContent } from '../../src/components/screens/app/ProfileScreen'
+import { authService } from '@services/auth/authService'
+import websitePageHOC from '@components/wrappers/WebsitePage/hoc'
+import ProfileScreen, { getContent } from '@components/screens/app/ProfileScreen'
 
 export async function getServerSideProps (ctx: any) {
   const preview = ctx.preview

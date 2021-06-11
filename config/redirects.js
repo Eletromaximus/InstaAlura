@@ -7,6 +7,11 @@ module.exports = [
   {
     source: '/profile/',
     destination: '/app/profile/',
-    permanent: true // 301 == 308 || 302 == 307
+    permanent: true
+  },
+  {
+    source: '/feed/',
+    destination: '/app/feed/',
+    permanent: true
   }
 ]

@@ -1,5 +1,5 @@
-import AboutScreen, { getContent } from '../src/components/screens/AboutScreen'
-import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc'
+import AboutScreen, { getContent } from '@components/screens/AboutScreen'
+import websitePageHOC from '@components/wrappers/WebsitePage/hoc'
 
 interface IProps {
   preview: boolean
