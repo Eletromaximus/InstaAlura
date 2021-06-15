@@ -33,7 +33,8 @@ describe('loginService', () => {
           expect(setCookieModule).toHaveBeenCalledWith(
             null, 'LOGIN_COOKIE_APP_TOKEN', token, {
               path: '/',
-              maxAge: 604800
+              maxAge: 604800,
+              sameSite: 'Lax'
             }
           )
           expect(loginServiceResponse).toEqual({ token })

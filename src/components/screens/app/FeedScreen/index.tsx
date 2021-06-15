@@ -1,7 +1,6 @@
-import { FeedBox, Avatar, BarSuperior } from './style'
-import Image from 'next/image'
 import { Grid } from '@components/foundation/layout/Grid'
-import Text from '@components/foundation/Text'
+import CardFeed from '@components/CardFeed'
+import { ListFeed } from './style'
 
 export { getContent } from './getContent'
 
@@ -13,6 +12,7 @@ export interface Posts {
   user: string;
   createdAt: string;
   updatedAt: string;
+  likes: number;
 }
 export interface IProfile {
   messages: {
@@ -40,30 +40,23 @@ export default function FeedScreen ({ messages }: IProfile) {
         md: 2
       }}
     >
-      <FeedBox>
-        <BarSuperior>
-          <Avatar>
-            <Image
-              width={51}
-              height={51}
-              src={messages.profile.avatarImage.url}
-              alt='Avatar image'
-              layout='intrinsic'
-            />
-
-            <Text
-              variant='subtitle'
+      <ListFeed>
+        {
+          messages.allPosts.map((post: Posts) => {
+            return <li
+              key={post.id}
             >
-              {messages.profile.name}
-            </Text>
-          </Avatar>
-          <Text
-            variant='title'
-          >
-            ...
-          </Text>
-        </BarSuperior>
-      </FeedBox>
+              {CardFeed({
+                filter: post.filter,
+                likes: Boolean(post.likes),
+                profileName: messages.profile.name,
+                profileUrl: messages.profile.avatarImage.url,
+                url: post.photourl
+              })}
+            </li>
+          })
+        }
+      </ListFeed>
     </Grid.Col>
 
   )
