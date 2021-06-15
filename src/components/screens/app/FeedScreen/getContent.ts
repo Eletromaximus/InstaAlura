@@ -19,6 +19,7 @@ export async function getContent ({ preview }: IProps) {
     },
     allPosts {
       description,
+      likes,
       photourl,
       filter,
       id,
