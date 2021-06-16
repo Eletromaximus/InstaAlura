@@ -13,7 +13,26 @@ ${breakpointsMedia({
     height: 778.81px;
   `
 })}
+
+/* #heart-like {
+  display: none;
+  position: absolute;
+} */
+
+
+/*:hover, :focus { 
+     #heart-like {
+      position: absolute;
+      width: 50%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+    } */
+
 `
+
 export const Avatar = styled.div`
   display: flex;
   flex-direction: row;
@@ -43,11 +62,16 @@ export const FigImage = styled.figure`
     height: 100%;
     object-fit: contain;
   }
+
 `
 export const DivImage = styled.div`
   display: flex;
 `
 export const BarInferior = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
   width: 514.06px;
   margin: 25.53px 38.2px 102.14px 44.56px;
 `

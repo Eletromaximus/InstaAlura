@@ -27,10 +27,11 @@ export interface IProfile {
     }
   },
     allPosts: Posts[]
-  }
+  },
+  token: string
 }
 
-export default function FeedScreen ({ messages }: IProfile) {
+export default function FeedScreen ({ messages, token }: IProfile) {
   return (
     <Grid.Col
       value={{
@@ -44,14 +45,17 @@ export default function FeedScreen ({ messages }: IProfile) {
         {
           messages.allPosts.map((post: Posts) => {
             return <li
-              key={post.id}
+              key={Number(post.id)}
             >
               {CardFeed({
+                id: post.id,
                 filter: post.filter,
                 likes: Boolean(post.likes),
+                likeNumbers: post.likes,
                 profileName: messages.profile.name,
                 profileUrl: messages.profile.avatarImage.url,
-                url: post.photourl
+                url: post.photourl,
+                token: token
               })}
             </li>
           })

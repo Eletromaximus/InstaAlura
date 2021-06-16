@@ -1,9 +1,9 @@
 import { FeedBox, Avatar, BarSuperior, BarInferior, FigImage } from './style'
 import Image from 'next/image'
 import Text from '@components/foundation/Text'
-// import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import FavoriteIcon from '@material-ui/icons/Favorite'
-// import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 interface ICardFeed {
   profileUrl: string;
@@ -11,6 +11,9 @@ interface ICardFeed {
   profileName: string;
   filter: string;
   likes: boolean;
+  likeNumbers: number;
+  id: string;
+  token: string;
 }
 
 // interface IPost {
@@ -18,8 +21,52 @@ interface ICardFeed {
 //   position: number
 // }
 
-export default function CardFeed ({ profileUrl, profileName, filter, likes, url }: ICardFeed) {
-  // const [posts, setPosts] = useState<IPost>()
+export default function CardFeed ({
+  profileUrl,
+  profileName,
+  filter,
+  likes,
+  url,
+  likeNumbers,
+  id,
+  token
+}: ICardFeed) {
+  const [like, setLike] = useState(likes || false)
+  const [favorite, setFavorite] = useState(like ? <FavoriteIcon /> : <FavoriteBorderIcon />)
+  const [numLikes, setNumLikes] = useState(likeNumbers || 0)
+
+  const fav = like ? <FavoriteBorderIcon /> : <FavoriteIcon />
+
+  useEffect(() => {
+    setFavorite(fav)
+    setNumLikes(like ? (numLikes - 1) : (numLikes + 1))
+  }, [like])
+
+  // useEffect(() => {
+  //   UpdateLike()
+  // }, [numLikes])
+
+  async function UpdateLike () {
+    return await fetch('/api/updateLike', {
+      method: 'Post',
+      headers: {
+        authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        likes: numLikes,
+        id: id
+      })
+    })
+      .then(async (res) => {
+        if (res.ok) {
+          return console.log(res)
+        }
+      })
+      .catch((err) => {
+        throw new Error(err)
+      })
+  }
 
   return (
     <FeedBox>
@@ -45,20 +92,29 @@ export default function CardFeed ({ profileUrl, profileName, filter, likes, url 
           ...
         </Text>
       </BarSuperior>
-        <FigImage
-          className={`filter-${filter}`}
-          // onClick={() => setPosts({
-          //   like: !likes,
-          //   position: 0
-          // })}
+        <div className="imagefeed">
+          <FigImage
+            className={`filter-${filter}`}
+            onClick={(e: any) => {
+              e.preventDefault()
+              setLike(!like)
+              UpdateLike()
+            }}
+          >
+            <img
+              src={url}
+            />
+          </FigImage>
+        </div>
+      <BarInferior>
+        {favorite}
+        <Text
+          marginLeft='10px'
+          variant='paragraph1'
         >
-          <img
-            src={url}
-          />
-        </FigImage>
-        <BarInferior>
-          <FavoriteIcon />
-        </BarInferior>
-      </FeedBox>
+         {numLikes}
+        </Text>
+      </BarInferior>
+    </FeedBox>
   )
 }
