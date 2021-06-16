@@ -44,16 +44,3 @@ export async function getServerSideProps (ctx: any) {
     props: {}
   }
 }
-
-// export async function getStaticPaths (ctx: IProfile) {
-//   const allPosts = ctx.messages.allPosts
-
-//   const ids = allPosts.map((post: any) => {
-//     return { params: { id: JSON.stringify(post.id) } }
-//   })
-
-//   return {
-//     paths: ids,
-//     fallback: false
-//   }
-// }

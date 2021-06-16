@@ -38,7 +38,8 @@ export const loginService = {
 
         setCookieModule(null, LOGIN_COOKIE_APP_TOKEN, token, {
           path: '/',
-          maxAge: DAY_IN_SECONDS * 7
+          maxAge: DAY_IN_SECONDS * 7,
+          sameSite: 'Lax'
         })
 
         return { token }
