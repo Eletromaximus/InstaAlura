@@ -34,6 +34,32 @@ export const MenuWrapper: IMenu = styled.nav`
 			max-width: 1222px;
 		`
 	})}
+
+#dropdown-content {
+		display: none;
+		position: absolute;
+		border: 1px solid ${({ theme }) => theme.colors.tertiary.light.color};
+		z-index: 1;
+		min-width: 160px;
+
+		a {
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+		}
+	}
+
+	.dropdown {
+		position: relative;
+		display: inline-block;
+
+		:hover  {
+			#dropdown-content {
+				display: block;
+			}
+		}
+	}
 `
 
 MenuWrapper.LeftSide = styled.div`

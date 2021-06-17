@@ -50,8 +50,7 @@ export default function FeedScreen ({ messages, token }: IProfile) {
               {CardFeed({
                 id: post.id,
                 filter: post.filter,
-                likes: Boolean(post.likes),
-                likeNumbers: post.likes,
+                likeInitial: Boolean(post.likes),
                 profileName: messages.profile.name,
                 profileUrl: messages.profile.avatarImage.url,
                 url: post.photourl,

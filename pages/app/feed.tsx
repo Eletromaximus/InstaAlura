@@ -8,7 +8,8 @@ export default websitePageHOC(Feed, {
       headTitle: 'Feed'
     },
     menuProps: {
-      display: true
+      display: false,
+      profileDisplay: true
     },
     pageBoxProps: {
       backgroundImage: 'url(/images/bubbles.svg)',
