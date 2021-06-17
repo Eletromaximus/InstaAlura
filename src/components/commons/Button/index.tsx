@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css, CSSProp } from 'styled-components'
+import styled, { css } from 'styled-components'
 import get from 'lodash/get'
 import { TextStyleVariants } from '../../foundation/Text'
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia'
@@ -23,7 +23,6 @@ interface IProps {
 	href: string;
 	children: React.ReactNode;
 	id?: string;
-	style?: CSSProp;
 }
 
 interface IButton {
@@ -44,10 +43,9 @@ interface IButton {
 	display?: string | object;
 	fullWidth?: boolean;
 	color?: string;
-	type?: string;
+	type?: 'submit' | 'reset' | 'button';
 	disabled?: boolean;
-	style?: CSSProp;
-	onClick?: ((event: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
+	onClick?: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined;
 }
 
 const ButtonGhost = css<IProps>`

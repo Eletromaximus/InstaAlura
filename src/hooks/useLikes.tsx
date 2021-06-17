@@ -34,9 +34,6 @@ export default function useLikes ({ likeInitial, id, token }: ILike): [boolean, 
         id: id
       })
     })
-      .then(() => {
-        console.log('entrou no hook')
-      })
       .catch((err) => {
         throw new Error(err)
       })

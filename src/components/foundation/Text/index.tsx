@@ -19,9 +19,8 @@ interface Props {
 	marginLeft?: string | object;
 	marginTop?: string | object;
 	textDecoration?: string | object;
-	color?: string | object;
+	color?: string;
 	children: React.ReactNode;
-	type?: string;
 	role?: string;
 	placeholder?: string;
 	name?: any;
