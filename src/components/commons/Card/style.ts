@@ -59,7 +59,7 @@ export const FiltersCss = styled.ul<IForm>`
   list-style: none;
   padding-left: 0;
   margin: 24px 0 0px 24px;
-  overflow-x: hidden;
+  overflow-x: scroll;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;

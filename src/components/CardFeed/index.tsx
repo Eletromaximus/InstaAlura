@@ -1,72 +1,56 @@
 import { FeedBox, Avatar, BarSuperior, BarInferior, FigImage } from './style'
 import Image from 'next/image'
 import Text from '@components/foundation/Text'
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import { useState, useEffect } from 'react'
+// import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
+// import FavoriteIcon from '@material-ui/icons/Favorite'
+// import { useState, useEffect } from 'react'
+import useLikes from '@hooks/useLikes'
 
 interface ICardFeed {
   profileUrl: string;
   url: string;
   profileName: string;
   filter: string;
-  likes: boolean;
-  likeNumbers: number;
+  likeInitial: boolean;
   id: string;
   token: string;
 }
-
-// interface IPost {
-//   like: boolean,
-//   position: number
-// }
 
 export default function CardFeed ({
   profileUrl,
   profileName,
   filter,
-  likes,
+  likeInitial,
   url,
-  likeNumbers,
   id,
   token
 }: ICardFeed) {
-  const [like, setLike] = useState(likes || false)
-  const [favorite, setFavorite] = useState(like ? <FavoriteIcon /> : <FavoriteBorderIcon />)
-  const [numLikes, setNumLikes] = useState(likeNumbers || 0)
+  const [like, favorite, changeValue] = useLikes({ likeInitial: likeInitial, id: id, token: token })
+  // const [like, setLike] = useState(likeInitial || false)
+  // const [favorite, setFavorite] = useState(like ? <FavoriteIcon /> : <FavoriteBorderIcon />)
 
-  const fav = like ? <FavoriteBorderIcon /> : <FavoriteIcon />
-
-  useEffect(() => {
-    setFavorite(fav)
-    setNumLikes(like ? (numLikes - 1) : (numLikes + 1))
-  }, [like])
+  // const fav = like ? <FavoriteIcon /> : <FavoriteBorderIcon />
 
   // useEffect(() => {
-  //   UpdateLike()
-  // }, [numLikes])
+  //   setFavorite(fav)
+  // }, [like])
 
-  async function UpdateLike () {
-    return await fetch('/api/updateLike', {
-      method: 'Post',
-      headers: {
-        authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        likes: numLikes,
-        id: id
-      })
-    })
-      .then(async (res) => {
-        if (res.ok) {
-          return console.log(res)
-        }
-      })
-      .catch((err) => {
-        throw new Error(err)
-      })
-  }
+  // async function UpdateLike () {
+  //   await fetch('/api/updateLike', {
+  //     method: 'Post',
+  //     headers: {
+  //       authorization: `Bearer ${token}`,
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       like: Number(like),
+  //       id: id
+  //     })
+  //   })
+  //     .catch((err) => {
+  //       throw new Error(err)
+  //     })
+  // }
 
   return (
     <FeedBox>
@@ -97,8 +81,9 @@ export default function CardFeed ({
             className={`filter-${filter}`}
             onClick={(e: any) => {
               e.preventDefault()
-              setLike(!like)
-              UpdateLike()
+              changeValue()
+              // setLike(!like)
+              // UpdateLike()
             }}
           >
             <img
@@ -108,11 +93,13 @@ export default function CardFeed ({
         </div>
       <BarInferior>
         {favorite}
+        {/* {favorite} */}
         <Text
           marginLeft='10px'
           variant='paragraph1'
         >
-         {numLikes}
+          {Number(like)}
+          {/* {Number(like)} */}
         </Text>
       </BarInferior>
     </FeedBox>
