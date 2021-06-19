@@ -16,11 +16,13 @@ interface IProps {
 	marginTop?: number | object;
 	marginBottom?: number | object;
 	paddingRight?: string | object;
+	paddingLeft?: string | object;
 	padding?: string | object;
 }
 
 interface IContainer {
 	marginTop?: string | object;
+	marginLeft?: string | object;
 	flex?: string | number | object;
 	display?: string | object;
 	alignItems?: string | object;
@@ -55,6 +57,7 @@ export const Container = styled.div<IContainer>`
 	})}
 
 	${propToStyle('marginTop')}
+	${propToStyle('marginLeft')}
 	${propToStyle('flex')}
 	${propToStyle('display')}
 	${propToStyle('alignItems')}
@@ -182,6 +185,9 @@ export const Grid = {
     ${propToStyle('justifyContent')}
     ${propToStyle('flexDirection')}
     ${propToStyle('paddingRight')}
+    ${propToStyle('paddingLeft')}
     ${propToStyle('order')}
+    ${propToStyle('margin')}
+    ${propToStyle('padding')}
 	`
 }

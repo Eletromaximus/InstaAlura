@@ -4,8 +4,7 @@ import styled, { css } from 'styled-components'
 export const FeedBox = styled.div`
 display: flex;
 flex-direction: column;
-margin-top: 26px;
-background-color: azure;
+background-color: #F2F2F2;
 
 ${breakpointsMedia({
   md: css`
@@ -13,23 +12,6 @@ ${breakpointsMedia({
     height: 778.81px;
   `
 })}
-
-/* #heart-like {
-  display: none;
-  position: absolute;
-} */
-
-
-/*:hover, :focus { 
-     #heart-like {
-      position: absolute;
-      width: 50%;
-      height: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2;
-    } */
 
 `
 
