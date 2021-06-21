@@ -26,7 +26,7 @@
 		"axios": "^0.21.1",
 		"datocms-client": "^3.4.9",
 		"framer-motion": "^4.0.3",
-		"graphql": "^15.5.0",
+		"graphql": "^15.5.1",
 		"graphql-request": "^3.4.0",
 		"jsonwebtoken": "^8.5.1",
 		"lodash": "^4.17.20",
