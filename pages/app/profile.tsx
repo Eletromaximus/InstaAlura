@@ -3,7 +3,7 @@ import websitePageHOC from '@components/wrappers/WebsitePage/hoc'
 import ProfileScreen, { getContent } from '@components/screens/app/ProfileScreen'
 
 export async function getServerSideProps (ctx: any) {
-  const preview = ctx.preview
+  const preview = await ctx.preview
   const messages = await getContent({ preview })
   const auth = authService(ctx)
   const hasActiveSession = await auth.hasActiveSession()
