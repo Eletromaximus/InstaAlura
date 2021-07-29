@@ -50,7 +50,7 @@ export default function LoginForm () {
   })
 
   return (
-    <form id='formCadastro' onSubmit={form.handleSubmit}>
+    <form id='formCadastro' onSubmit={ form.handleSubmit }>
       <TextField
         placeholder='Usuário'
         name='usuario'

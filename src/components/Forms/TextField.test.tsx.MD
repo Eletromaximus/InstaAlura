@@ -1,17 +1,18 @@
 import React from 'react'
-import { render, screen } from '../../infra/tests/testUtils'
+import { render } from '../../infra/tests/testUtils'
+import { screen } from '@testing-library/react'
 import TextField from './TextField'
 import user from '@testing-library/user-event'
 
 describe('<TextField />', () => {
   test('renders component', () => {
     render(
-        <TextField
-          placeholder='Nome'
-          value='Mario'
-          onChange={() => {}}
-          name='name'
-        />
+      <TextField
+        placeholder='Nome'
+        value='Mario'
+        onChange={() => {}}
+        name='name'
+      />
     )
 
     const textField = screen.getAllByPlaceholderText(/nome/i)
