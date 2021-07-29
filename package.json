@@ -11,8 +11,8 @@
 		"custom-script": "node ./script-test.js",
 		"test:integration:open": "cypress open",
 		"test:integration": "cypress run --headless",
-		"test": "jest",
-		"test:watch": "jest --watch",
+		"test": "jest --env=jsdom",
+		"test:watch": "jest --watch --env=jsdom",
 		"test:integration:build": "start-server-and-test build/start http-get://localhost:3000 test:integration",
 		"build/start": "yarn build && yarn start",
 		"prepare": "husky install"

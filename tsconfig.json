@@ -23,6 +23,6 @@
 			"@hooks/*": ["./src/hooks/*"]
 		}
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.config.js", "config/redirects.test.js", "jest.setup.js", "src/components/patterns/FormLogin/FormLogin.test.js", "next.config.js"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.config.js", "config/redirects.test.js", "jest.setup.js", "src/components/patterns/FormLogin/FormLogin.test.js", "next.config.js", "src/infra/tests/testUtils.js"],
 	"exclude": ["node_modules"]
 }

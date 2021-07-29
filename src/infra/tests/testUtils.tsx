@@ -1,5 +1,4 @@
-
-import React, { FC, ReactElement } from 'react'
+import React, { FC } from 'react'
 import { render, RenderOptions } from '@testing-library/react'
 import PropTypes from 'prop-types'
 import WebsiteGlobalProvider from '../../components/wrappers/WebsitePage/provider'
@@ -15,8 +14,8 @@ AllTheProviders.propTypes = {
   children: PropTypes.node.isRequired
 }
 const customRender = (
-  ui: ReactElement,
-  options?: Omit<RenderOptions, 'queries'>
+  ui: React.ReactElement,
+  options?: Omit<RenderOptions, 'wrapper'>
 ) => render(ui, { wrapper: AllTheProviders, ...options })
 
 export * from '@testing-library/react'
