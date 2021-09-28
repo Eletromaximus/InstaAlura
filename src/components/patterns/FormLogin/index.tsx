@@ -17,7 +17,7 @@ const loginSchema = yup.object().shape({
     .required()
 })
 
-export default function LoginForm () {
+export default function LoginForm (onSubmitx: any) {
   const router = useRouter()
   const initialValues = {
     usuario: '',
@@ -50,7 +50,7 @@ export default function LoginForm () {
   })
 
   return (
-    <form id='formCadastro' onSubmit={ form.handleSubmit }>
+    <form id='formCadastro' onSubmit={() => onSubmitx || form.handleSubmit }>
       <TextField
         placeholder='Usuário'
         name='usuario'

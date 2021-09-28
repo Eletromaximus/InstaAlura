@@ -16,7 +16,7 @@ interface ICard {
   token: string;
 }
 
-const schema = yup.object().shape({
+const schema = yup.object({
   imgUrl: yup.string()
     .required('Por favor, insira uma url no formato correto')
     // eslint-disable-next-line no-useless-escape
