@@ -10,9 +10,9 @@ interface ILogin {
 
 const BASE_URL = isStagingEnv
 // Back-end de DEV
-  ? 'https://instalura-api-git-master-omariosouto.vercel.app'
+  ? 'https://instalura-api-omariosouto.vercel.app'
 // Back-end de PROD
-  : 'https://instalura-api-omariosouto.vercel.app'
+  : 'https://instalura-api-git-master-omariosouto.vercel.app'
 
 export const LOGIN_COOKIE_APP_TOKEN = 'LOGIN_COOKIE_APP_TOKEN'
 
