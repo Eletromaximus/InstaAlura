@@ -24,8 +24,8 @@ function FormContent () {
   const [isFormSubmited, setIsFormSubmited] = useState(false)
   const [submissionStates, setSubmissionStates] = useState(formStates.DEFAULT)
   const [userInfo, setUserInfo] = useState({
-    usuario: '',
-    username: ''
+    name: '',
+    password: ''
   })
 
   function handleChange (event: any) {
@@ -37,7 +37,7 @@ function FormContent () {
   }
 
   const isFomInvalid =
-		userInfo.usuario.length === 0 || userInfo.username.length === 0
+		userInfo.name.length === 0 || userInfo.password.length === 0
   return (
 		<form
 			onSubmit={
@@ -46,11 +46,11 @@ function FormContent () {
 				  setIsFormSubmited(true)
 
 				  const userDTO = {
-			    username: userInfo.usuario,
-			    name: userInfo.username
+			    username: userInfo.name,
+			    name: userInfo.password
 			  }
 
-			  fetch('https://instalura-api.vercel.app/api/users', {
+			  fetch('https://app-instalura.herokuapp.com/cadastro', {
 			    method: 'Post',
 			    headers: {
 			      'Content-Type': 'application/json'
@@ -87,9 +87,9 @@ function FormContent () {
 				<TextField
 					placeholder="Maximus"
 					type="text"
-					name="username"
+					name="name"
 					onChange={handleChange}
-					value={userInfo.username}
+					value={userInfo.name}
 				/>
 			</div>
 
@@ -97,9 +97,9 @@ function FormContent () {
 				<TextField
 					placeholder="Max Milliano"
 					type="text"
-					name="usuario"
+					name="password"
 					onChange={handleChange}
-					value={userInfo.usuario}
+					value={userInfo.password}
 				/>
 			</div>
 

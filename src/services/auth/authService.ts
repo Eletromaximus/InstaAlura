@@ -6,9 +6,9 @@ import { isStagingEnv } from '../../infra/env/isStagingEnv'
 
 const BASE_URL = isStagingEnv
   // Back-end de DEV
-  ? 'https://instalura-api-omariosouto.vercel.app'
+  ? 'https://app-instalura.herokuapp.com'
   // Back-end de PROD
-  : 'https://instalura-api-git-master-omariosouto.vercel.app'
+  : 'https://app-instalura.herokuapp.com'
 
 export const authService = (ctx: any) => {
   const cookies = parseCookies(ctx)
@@ -19,7 +19,7 @@ export const authService = (ctx: any) => {
       return token
     },
     async hasActiveSession () {
-      return await HttpClient(`${BASE_URL}/api/auth`, {
+      return await HttpClient(`${BASE_URL}/login`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`

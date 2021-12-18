@@ -10,9 +10,9 @@ interface ILogin {
 
 const BASE_URL = isStagingEnv
 // Back-end de DEV
-  ? 'https://instalura-api-git-master-omariosouto.vercel.app'
+  ? 'https://app-instalura.herokuapp.com'
 // Back-end de PROD
-  : 'https://instalura-api-omariosouto.vercel.app'
+  : 'https://app-instalura.herokuapp.com'
 
 export const LOGIN_COOKIE_APP_TOKEN = 'LOGIN_COOKIE_APP_TOKEN'
 
@@ -20,7 +20,7 @@ export const loginService = {
   async login ({ username, password }: ILogin,
     setCookieModule = setCookie,
     HttpClientModule = HttpClient) {
-    return HttpClientModule('/api/login', {
+    return HttpClientModule('/cadastro', {
       method: 'POST',
       body: JSON.stringify({
         username,

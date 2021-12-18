@@ -70,7 +70,6 @@ export default function ProfileScreen ({ messages }: IProfile) {
                       margin: 0,
                       padding: 0
                     }}
-
                   >
                     <figure className={`filter-${post.filter}`}
                       style={ { margin: 0, padding: 0 }}
