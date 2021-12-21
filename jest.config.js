@@ -9,5 +9,5 @@ module.exports = {
     '<rootDir>/cypress/',
     '<rootDir>/out/'
   ],
-  'testEnvironment': 'jsdom'
+  testEnvironment: 'jsdom'
 }
