@@ -49,7 +49,7 @@ function FormContent () {
 			    name: userInfo.name,
 			    password: userInfo.password
 			  }
-				console.log(userDTO)
+
 			  await fetch('https://app-instalura.herokuapp.com/cadastro', {
 			    method: 'Post',
 			    headers: {
