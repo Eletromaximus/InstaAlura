@@ -1,6 +1,6 @@
 import { CMSGraphQLClient, gql } from '../../../../infra/cms/CMSGraphQLClient'
 
-export async function getContent ({ preview } = { preview: false }) {
+export async function getContent ({ preview } = { preview: true }) {
   const query = gql`
   query {
     profile{

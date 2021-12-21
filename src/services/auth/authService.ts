@@ -6,31 +6,30 @@ import { isStagingEnv } from '../../infra/env/isStagingEnv'
 
 const BASE_URL = isStagingEnv
   // Back-end de DEV
-  ? 'https://app-instalura.herokuapp.com'
+  ? 'http://localhost:4000'
   // Back-end de PROD
   : 'https://app-instalura.herokuapp.com'
 
 export const authService = (ctx: any) => {
   const cookies = parseCookies(ctx)
   const token = cookies[LOGIN_COOKIE_APP_TOKEN]
-
   return {
     async getToken () {
       return token
     },
     async hasActiveSession () {
-      return await HttpClient(`${BASE_URL}/login`, {
+      return await HttpClient(`${BASE_URL}/auth`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`
         }
       })
-        .then(({ data }) => {
-          if (!data.authenticated) {
+        .then(( authenticated ) => {
+          if (!authenticated) {
             loginService.logout(ctx)
           }
 
-          return data.authenticated
+          return authenticated
         })
         .catch(() => {
           loginService.logout(ctx)

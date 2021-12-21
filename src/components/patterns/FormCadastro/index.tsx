@@ -41,16 +41,16 @@ function FormContent () {
   return (
 		<form
 			onSubmit={
-				(event) => {
+				async (event) => {
 				  event.preventDefault()
 				  setIsFormSubmited(true)
 
 				  const userDTO = {
-			    username: userInfo.name,
-			    name: userInfo.password
+			    name: userInfo.name,
+			    password: userInfo.password
 			  }
-
-			  fetch('https://app-instalura.herokuapp.com/cadastro', {
+				console.log(userDTO)
+			  await fetch('https://app-instalura.herokuapp.com/cadastro', {
 			    method: 'Post',
 			    headers: {
 			      'Content-Type': 'application/json'
@@ -61,6 +61,7 @@ function FormContent () {
 			      if (respostaDoServidor.ok) {
 			        return respostaDoServidor.json()
 			      }
+
 			      throw new Error(' Não foi possível cadastrar o usuário agora :(')
 			    })
 			    .then(() => {

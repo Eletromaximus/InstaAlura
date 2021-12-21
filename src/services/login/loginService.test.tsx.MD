@@ -1,4 +1,6 @@
 import { loginService } from './loginService'
+import 'jest-fetch-mock'
+
 
 const token = 'fake-token'
 
@@ -26,8 +28,8 @@ describe('loginService', () => {
       describe('and suceed', () => {
         test('store its token', async () => {
           const loginServiceResponse = await loginService.login({
-            username: 'someuser',
-            password: 'somepassword'
+            name: 'nomequalquer',
+            password: 'senhaqualquer'
           }, setCookieModule, HttpClientModule)
 
           expect(setCookieModule).toHaveBeenCalledWith(
@@ -44,8 +46,8 @@ describe('loginService', () => {
         test('throws and error', async () => {
           await expect(
             loginService.login({
-              username: 'someuser',
-              password: 'somepassword'
+              name: 'nomequalquer',
+              password: 'senhaqualquer'
             }, setCookieModule, HttpClientModuleError)
           )
             .rejects

@@ -7,21 +7,21 @@ import { loginService } from '../../../services/login/loginService'
 import * as yup from 'yup'
 
 const loginSchema = yup.object().shape({
-  usuario: yup
+  name: yup
     .string()
     .required('Usuário é obrigatório')
     .min(3, 'Preencha ao menos 3 caracteres'),
-  senha: yup
+  password: yup
     .string()
-    .min(8, 'Sua senha precisa ao menos de 8 caracteres')
+    .min(8, 'Sua password precisa ao menos de 8 caracteres')
     .required()
 })
 
 export default function LoginForm () {
   const router = useRouter()
   const initialValues = {
-    usuario: '',
-    senha: ''
+    name: '',
+    password: ''
   }
 
   const form = useForm({
@@ -29,8 +29,8 @@ export default function LoginForm () {
     onSubmit: (values: any) => {
       form.setIsFormDisabled(true)
       loginService.login({
-        username: values.usuario,
-        password: values.senha
+        name: values.name,
+        password: values.password
       })
         .then(() => {
           router.push('/app/profile')
@@ -53,21 +53,21 @@ export default function LoginForm () {
     <form id='formCadastro' onSubmit={ form.handleSubmit }>
       <TextField
         placeholder='Usuário'
-        name='usuario'
-        value={form.values.usuario}
-        error={form.errors ? form.errors.usuario : ''}
+        name='name'
+        value={form.values.name}
+        error={form.errors ? form.errors.name : ''}
         onChange={form.handleChange}
         onBlur={form.handleBlur}
-        isTouched={form.touched ? form.touched.usuario : null}
+        isTouched={form.touched ? form.touched.name : null}
       />
       <TextField
-        placeholder='Senha'
-        name='senha'
+        placeholder='password'
+        name='password'
         type='password'
-        value={form.values.senha}
-        error={form.errors ? form.errors.senha : ''}
+        value={form.values.password}
+        error={form.errors ? form.errors.password : ''}
         onChange={form.handleChange}
-        isTouched={form.touched ? form.touched.senha : null}
+        isTouched={form.touched ? form.touched.password : null}
         onBlur={form.handleBlur}
       />
 

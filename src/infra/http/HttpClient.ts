@@ -9,7 +9,7 @@ export default async function HttpClient (url: string, init?: any) {
   })
     .then((respostaDoServer) => {
       if (respostaDoServer.ok) {
-        return respostaDoServer.json()
+        return respostaDoServer
       }
       throw new Error('Falha em pegar os dados do servidor :(')
     })
