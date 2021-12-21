@@ -5,7 +5,7 @@ import LoginScreenPageObject from '../../../../src/components/screens/app/LoginS
 describe('/pages/app/login/', () => {
   describe('when fill and submit a form login request', () => {
     it('go to the profile page', () => {
-      cy.intercept('https://locallhost:4000/api/login')
+      cy.intercept('https://app-instalura.herokuapp.com/login')
         .as('userLogin')
 
       const loginScreen = new LoginScreenPageObject(cy)
