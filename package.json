@@ -13,7 +13,7 @@
 		"test:integration": "cypress run --headless",
 		"test": "jest --env=jsdom",
 		"test:watch": "jest --watch --env=jsdom",
-		"test:integration:build": "start-server-and-test build/start https://app-instalura.herokuapp.com/ test:integration",
+		"test:integration:build": "start-server-and-test build/start https://insta-alura-git-test-maxmillianox.vercel.app/ test:integration",
 		"build/start": "yarn build && yarn start",
 		"prepare": "husky install"
 	},
