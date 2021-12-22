@@ -31,7 +31,7 @@ export const loginService = {
         password
       })
     })
-      .then( async (respostaConvertida: any) => {
+      .then(async (respostaConvertida: any) => {
         const { token } = await respostaConvertida.json()
         if (!token) {
           throw new Error('Failed to Login')
