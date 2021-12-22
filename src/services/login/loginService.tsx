@@ -4,33 +4,35 @@ import { isStagingEnv } from '../../infra/env/isStagingEnv'
 import HttpClient from '../../infra/http/HttpClient'
 
 interface ILogin {
-  username: string;
+  name: string;
   password: string;
 }
 
 const BASE_URL = isStagingEnv
 // Back-end de DEV
-  ? 'https://instalura-api-git-master-omariosouto.vercel.app'
+  ? 'http://localhost:4000'
 // Back-end de PROD
-  : 'https://instalura-api-omariosouto.vercel.app'
+  : 'https://app-instalura.herokuapp.com'
 
 export const LOGIN_COOKIE_APP_TOKEN = 'LOGIN_COOKIE_APP_TOKEN'
 
 export const loginService = {
-  async login ({ username, password }: ILogin,
+  async login ({ name, password }: ILogin,
     setCookieModule = setCookie,
-    HttpClientModule = HttpClient) {
-    return HttpClientModule('/api/login', {
+    HttpClientModule = HttpClient
+  ) {
+    return HttpClientModule(`${BASE_URL}/login`, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
-        username,
-        password,
-        BASE_URL
+        name,
+        password
       })
     })
-      .then((respostaConvertida: any) => {
-        const { token } = respostaConvertida.data
-
+      .then(async (respostaConvertida: any) => {
+        const { token } = await respostaConvertida.json()
         if (!token) {
           throw new Error('Failed to Login')
         }

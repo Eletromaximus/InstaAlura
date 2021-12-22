@@ -24,7 +24,7 @@ export const userService = {
         user: {
           totalLikes: 100
         },
-        posts: response.data
+        posts: response.json()
       }
     } catch (err) {
       throw new Error('Não conseguimos pegar os posts')

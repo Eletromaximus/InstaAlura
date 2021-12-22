@@ -2,7 +2,7 @@ import Bio from './BioBox'
 import { Box } from '../../../foundation/layout/Box'
 import { Grid } from '../../../foundation/layout/Grid'
 import { ImgStyle, ListStyle } from './style'
-// import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export { getContent } from './getContent'
 
@@ -31,8 +31,25 @@ interface IProfile {
   }
 }
 
+const generictPhoto: Posts[] = [{
+  description: '',
+  photourl: '/loading.png',
+  filter: '',
+  id: '',
+  user: '',
+  createdAt: '',
+  updatedAt: ''
+}]
+
 export default function ProfileScreen ({ messages }: IProfile) {
-  // const [content, setContent] = useState<IProfile>()
+  const [photos, setPhotos] = useState<Posts[]>(generictPhoto)
+
+  useEffect(() => {
+    if (messages?.allPosts) {
+      setPhotos(messages.allPosts)
+    }
+  })
+
   return (
     <Box
       display='flex'
@@ -60,8 +77,7 @@ export default function ProfileScreen ({ messages }: IProfile) {
           flexWrap: 'wrap'
         }}>
           {
-            messages.allPosts &&
-            messages.allPosts?.map((post) => {
+            photos && photos.map((post) => {
               return <ListStyle
                   key={post.id}
                 >
@@ -70,7 +86,6 @@ export default function ProfileScreen ({ messages }: IProfile) {
                       margin: 0,
                       padding: 0
                     }}
-
                   >
                     <figure className={`filter-${post.filter}`}
                       style={ { margin: 0, padding: 0 }}

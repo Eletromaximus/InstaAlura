@@ -8,5 +8,6 @@ module.exports = {
     '<rootDir>/.next/',
     '<rootDir>/cypress/',
     '<rootDir>/out/'
-  ]
+  ],
+  testEnvironment: 'jsdom'
 }
