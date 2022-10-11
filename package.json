@@ -66,7 +66,7 @@
 		"eslint-plugin-jest": "^25.3.0",
 		"eslint-plugin-node": "^11.1.0",
 		"eslint-plugin-promise": "^6.0.0",
-		"eslint-plugin-react": "^7.27.1",
+		"eslint-plugin-react": "^7.31.10",
 		"husky": "^7.0.0",
 		"init": "0.1.2",
 		"jest": "^27.0.6",
