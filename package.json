@@ -54,7 +54,7 @@
 		"@types/react": "^17.0.1",
 		"@types/styled-components": "^5.1.7",
 		"@typescript-eslint/eslint-plugin": "^5.7.0",
-		"@typescript-eslint/parser": "^5.7.0",
+		"@typescript-eslint/parser": "^5.49.0",
 		"babel-plugin-styled-components": "^2.0.2",
 		"commitizen": "^4.2.3",
 		"cypress": "^9.1.1",
